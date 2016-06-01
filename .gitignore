@@ -1,8 +1,3 @@
-.DS_Store
-*.log
-*.dump
-*.orig
-*.rdb
-*.sass-cache/
-*.iml
-node_modules/
+_site
+.sass-cache
+.jekyll-metadata
