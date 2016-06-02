@@ -21,4 +21,5 @@ github_username:  jekyll
 markdown: kramdown
 
 gems:
+  - jekyll-seo-tag
   - jekyll-sitemap
