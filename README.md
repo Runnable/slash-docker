@@ -1,12 +1,12 @@
 # Slash Docker
 
-# Requirements
+## Dependencies
 - Ruby (v2 or above)
 - RubyGems
 - Linux, Unix, or OS X
 - Bundler (bundler.io)
 
-# Setup
-`bundle install`
-`bundle exec jekyll serve`
-Open `localhost:4000`
+## Setup
+1. `bundle install`
+2. `bundle exec jekyll serve`
+3. Open `localhost:4000`
