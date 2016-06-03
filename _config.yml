@@ -20,6 +20,9 @@ github_username:  jekyll
 # Build settings
 markdown: kramdown
 
+# Output
+permalink: :title
+
 gems:
   - jekyll-seo-tag
   - jekyll-sitemap
