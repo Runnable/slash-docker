@@ -1,9 +1,12 @@
 ---
-title: "Advantages of Docker"
-step: 1
+title: Advantages of Docker
+date: 2016-06-09 00:00:00 Z
+categories:
+- rails
 tags:
-    -docker
-    -rails
+- "-docker"
+- "-rails"
+step: 1
 ---
 
 # Summary

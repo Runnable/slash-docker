@@ -1,23 +1,27 @@
+---
 title: Using Docker
+timezone: UTC
+collections:
+  posts:
+    title: Posts
+    output: true
+  uploads:
+    title: Uploads
+    output: true
+defaults:
+- scope:
+    path: ''
+  values:
+    layout: page
 email: info@runnable.com
-description: > # this means to ignore newlines until "baseurl:"
+description: |
   By Runnable: The service that speeds up development by providing full-stack environments for every code branch.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://runnable.com/docker" # the base hostname & protocol for your site
 baseurl: "/docker"
+url: https://runnable.com/docker
 twitter_username: GetRunnable
-github_username:  Runnable
-
-# Build settings
+github_username: Runnable
 markdown: kramdown
 gems:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-
-permalink: /:categories/:title
-defaults:
-  -
-    scope:
-      path: "" # an empty string here means all files in the project
-    values:
-      layout: "page"
+- jekyll-seo-tag
+- jekyll-sitemap
+permalink: "/:categories/:title"
