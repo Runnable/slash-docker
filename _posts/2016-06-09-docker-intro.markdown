@@ -1,10 +1,12 @@
 ---
-title:  "Overview of Docker"
-categories: "docker"
-step: 0
-permalink: /docker-basics
+title: Overview of Docker
+date: 2016-06-09 00:00:00 Z
+permalink: "/docker-basics"
+categories:
+- docker
 tags:
-    -docker
+- "-docker"
+step: 0
 ---
 
 Simply put, Docker is a containerization technology that enables us to cleanly abstract an environment configuration to a file (or set of files), and run it in a protected, isolated environment on a host. This is similar to, but more performant than, a virtual machine. On a lower level, this secure isolation is achieved via application namespaces, similar to how Linux LXC and BSD jails work. This provides isolation for services without the overhead of running an entire operating system on the host.
