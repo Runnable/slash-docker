@@ -20,7 +20,7 @@ layout: default
     {% for post in pages %}
       <li>
         <h3>
-          <a class="post-link" href="/{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h3>
       </li>
     {% endfor %}
