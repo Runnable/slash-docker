@@ -12,6 +12,7 @@ description: > # this means to ignore newlines until "baseurl:"
   By Runnable: The service that speeds up development by providing full-stack environments for every code branch.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://runnable.com/docker" # the base hostname & protocol for your site
+baseurl: "/docker"
 twitter_username: GetRunnable
 github_username:  Runnable
 
