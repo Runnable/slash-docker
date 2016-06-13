@@ -10,7 +10,7 @@ title: Using Docker
 email: info@runnable.com
 description: > # this means to ignore newlines until "baseurl:"
   By Runnable: The service that speeds up development by providing full-stack environments for every code branch.
-url: http://runnable.com # the base hostname & protocol for your site
+url: https://runnable.com # the base hostname & protocol for your site
 baseurl: /docker
 twitter_username: GetRunnable
 github_username:  Runnable
