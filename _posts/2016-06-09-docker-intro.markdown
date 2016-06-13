@@ -1,10 +1,10 @@
 ---
-title:  "Overview of Docker"
-categories: "docker"
+title: Overview of Docker
+categories: docker
 step: 0
-permalink: /docker-basics
+permalink: /docker-basics/
 tags:
-    -docker
+- docker
 ---
 
 Simply put, Docker is a containerization technology that enables us to cleanly abstract an environment configuration to a file (or set of files), and run it in a protected, isolated environment on a host. This is similar to, but more performant than, a virtual machine. On a lower level, this secure isolation is achieved via application namespaces, similar to how Linux LXC and BSD jails work. This provides isolation for services without the overhead of running an entire operating system on the host.
@@ -34,4 +34,3 @@ A Docker image is a pre-built Dockerfile. It’s ready to run, and can be run on
 A Docker container is an instance of a Docker image. Containers can be started, running, restarted, and stopped. We’re able to create as many containers from a single image as we need. This concept helps scaling up a service easier.
 
 The capabilities of building, managing and sharing container images has helped make Docker the de-facto standard for deployment of scalable applications in the cloud. It is supported by many cloud providers and CI frameworks.
-

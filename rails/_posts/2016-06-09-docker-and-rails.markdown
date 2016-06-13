@@ -1,9 +1,9 @@
 ---
-title: "Advantages of Docker"
+title: Advantages of Docker
 step: 1
 tags:
-    -docker
-    -rails
+- docker
+- rails
 ---
 
 # Summary
@@ -81,7 +81,7 @@ Normally, we would set up a local database on the development machine or configu
 
 ```bash
 # Stop and remove existing container
-$ docker kill myapp-web && docker rm -v myapp-web 
+$ docker kill myapp-web && docker rm -v myapp-web
 
 # Launch a local MySQL service
 $ docker run -d --name myapp-mysql -e MYSQL_ROOT_PASSWORD=12345 mysql
