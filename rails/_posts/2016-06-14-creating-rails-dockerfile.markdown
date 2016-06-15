@@ -43,6 +43,7 @@ app  bin  config  config.ru  db  Gemfile  Gemfile.lock  lib  log  public  Rakefi
 In the examples below we’ll use the vanilla Rails application generated from scratch.
 
 > _Hint: You could use a Docker container to generate the code for the new Rails app_
+
 > ```bash
    $ mkdir myapp && cd myapp
    $ docker run --rm -v $PWD:/src rails rails new src
@@ -77,6 +78,7 @@ $ docker run -p 3000:3000 demo
 Congratulations! You’ve just dockerized this application with a single line of code.
 
 Before committing your Dockerfile to your source code repository, we should first add a `.dockerignore` file to prevent Git metadata propagation into the virtual filesystem during future builds.
+
 ```bash
 $ echo ".git" > .dockerignore
 $ git add .dockerignore Dockerfile
@@ -104,6 +106,7 @@ The simple Dockerfile above is useful for getting started with dockerizing your 
 To fully control the contents of our images and the build speed, we’ll need to write a more robust Dockerfile. Fortunately, we can use the Dockerfile that generated the [‘rails:onbuild’](https://github.com/docker-library/rails/blob/master/onbuild/Dockerfile) image we’ve been using as a baseline for our custom Dockerfile, and include a few modifications.
 
 Try updating your Dockerfile to match the contents below:
+
 ```bash
 FROM ruby:2.3
 
@@ -141,9 +144,9 @@ $ echo “Gemfile.lock” >> .dockerignore
 $ echo “Gemfile.lock” >> .gitignore
 ```
 
->_Note: While omitting the Gemfile.lock checks may conflict with traditional Bundler-focused  practices, it’s generally acceptable for Docker-based development workflows. The Docker image itself encapsulates all the gems installed during build time. As long as the same image is used for testing and deploying to production, there’s little reason to require explicit control of Gemfile.lock.
+>Note: While omitting the Gemfile.lock checks may conflict with traditional Bundler-focused  practices, it’s generally acceptable for Docker-based development workflows. The Docker image itself encapsulates all the gems installed during build time. As long as the same image is used for testing and deploying to production, there’s little reason to require explicit control of Gemfile.lock.
 
->However, if you’d rather stick with the traditional method, simply uncomment the two instructions in the Dockerfile above to include adding Gemfile.lock before running `bundle install`_
+>However, if you’d rather stick with the traditional method, simply uncomment the two instructions in the Dockerfile above to include adding Gemfile.lock before running `bundle install`
 
 With this new Dockerfile, we have complete control to do things such as the following:
 
@@ -168,7 +171,8 @@ $ docker run --rm -p 3000:3000 demo
 
 We now have a configurable Dockerfile and we know how to build images with it. Now we’ll cover how to keep your Dockerfile up-to-date as your application evolves.
 
-## Docker images don’t update automatically
+Docker images don’t update automatically
+----------------------------------------
 
 Any changes made to your application won’t automatically be reflected in existing Docker images; they’ll need to be rebuilt in order to pull in the latest updates. In most situations, no extra actions are required apart from running the `docker build` command, and builds should run more quickly because of Docker’s build caching system. 
 
