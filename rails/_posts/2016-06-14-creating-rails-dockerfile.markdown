@@ -10,7 +10,9 @@ tags:
 
 Now you’re familiar with how Docker can help speed up development, it’s time to think about how to get started with dockerizing your Rails application. We’ll start off by explaining how to create a simple Dockerfile, and then go into detail on how to tune it to build the right Docker image for your app.
 
-# Containers vs. Images vs. Dockerfiles
+Containers vs. Images vs. Dockerfiles
+=====================================
+
 It can be a bit confusing at first to denote the differences between Dockerfiles, images and containers. In short,
 
 - Rails applications are launched in ephemeral, replaceable **containers**.
@@ -26,7 +28,9 @@ It can be a bit confusing at first to denote the differences between Dockerfiles
 
 To help maintain and automate the process of creating up-to-date images, it’s a fairly common practice to include the Dockerfile for an application in its source code repository.
 
-# Prerequisites
+Prerequisites
+=============
+
 If you’d like to follow along, take a minute to ensure you’ve got these prerequisites:
 
 1. A recent version of Docker (both client and server) is [installed](https://docs.docker.com/engine/installation/)
@@ -50,7 +54,9 @@ In the examples below we’ll use the vanilla Rails application generated from s
    $ sudo chown -R $USER:$USER .
 ```
 
-# A Simple Rails Dockerfile
+A Simple Rails Dockerfile
+=========================
+
 The easiest way to begin dockerizing an existing application is to put a simple, one-line Dockerfile containing `FROM rails:onbuild` on the top of the source code directory.
 
 ```bash
@@ -96,7 +102,9 @@ The basic Dockerfile used above utilizes the official [“rails:onbuild”](http
 3. Updates to the Gemfile and Gemfile.lock are recognized during builds, and the appropriate bundle install step is triggered when needed.
 4. Application code is installed into /usr/src/app on a virtual filesystem. If the Gemfile hasn’t been changed since the previous build, the previous, cached `bundle install` step is used.
 
-# Complete Control with an Advanced Dockerfile
+Complete Control with an Advanced Dockerfile
+============================================
+
 The simple Dockerfile above is useful for getting started with dockerizing your application, but it has some limitations that may become apparent during active development:
 
 - **A recent, stable version of Ruby is used by default**, which may not always be acceptable for your application.
@@ -167,12 +175,12 @@ $ docker run --rm -p 3000:3000 demo
 [2016-06-01 14:42:12] INFO  WEBrick::HTTPServer#start: pid=1 port=3000
 ```
 
-# Application modifications
+Application modifications
+===========================
 
 We now have a configurable Dockerfile and we know how to build images with it. Now we’ll cover how to keep your Dockerfile up-to-date as your application evolves.
 
-Docker images don’t update automatically
-----------------------------------------
+**Docker images don’t update automatically**
 
 Any changes made to your application won’t automatically be reflected in existing Docker images; they’ll need to be rebuilt in order to pull in the latest updates. In most situations, no extra actions are required apart from running the `docker build` command, and builds should run more quickly because of Docker’s build caching system. 
 
@@ -180,15 +188,17 @@ Below is a table that lists actions that would need to be performed before build
 
 | Desired Modification | Basic Dockerfile | Custom Dockerfile |
 |-------------------- :|: --------------- |: ---------------- |
-| **Codebase updated** | No extra action required | No extra action required |
-| **New gem added to Gemfile** | Update Gemfile.lock | No extra action required |
-| **New runtime system dependency** | Add new “RUN apt-get…” instruction to the Dockerfile (and expect it to be executed on every build) | Append to existing list of packages in existing “RUN apt-get” instruction |
-| **New build-time system dependency (expected by Bundler)** | Not supported | Append to existing list of packages in existing “RUN apt-get” instruction |
-| **Changing Ruby version** | Not supported | Modify the FROM instruction to include the correct image tag/version |
-| **Changing OS family** | Not supported | Modify FROM instruction to specify the desired OS, and add a “RUN” instruction to install/compile Ruby right afterwards | 
-| **Tuning other defaults such as exposed ports, code paths, rails server options** | Extra instructions could be added to the end of Dockerfile at the cost of increased build time and sometimes with a risk of logical inconsistency of resulting image. | Modify existing instructions (`EXPOSE`, `COPY`,`RUN` etc.) and/or add new ones |
+| Codebase updated | No extra action required | No extra action required |
+| New gem added to Gemfile | Update Gemfile.lock | No extra action required |
+| New runtime system dependency | Add new “RUN apt-get…” instruction to the Dockerfile (and expect it to be executed on every build) | Append to existing list of packages in existing “RUN apt-get” instruction |
+| New build-time system dependency (expected by Bundler) | Not supported | Append to existing list of packages in existing “RUN apt-get” instruction |
+| Changing Ruby version | Not supported | Modify the FROM instruction to include the correct image tag/version |
+| Changing OS family | Not supported | Modify FROM instruction to specify the desired OS, and add a “RUN” instruction to install/compile Ruby right afterwards | 
+| Tuning other defaults such as exposed ports, code paths, rails server options | Extra instructions could be added to the end of Dockerfile at the cost of increased build time and sometimes with a risk of logical inconsistency of resulting image. | Modify existing instructions (`EXPOSE`, `COPY`,`RUN` etc.) and/or add new ones |
 
-# Best practices
+Best Practices
+================
+
 If you plan on actively tuning your Dockerfile, there’s a great [official documentation page](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/) that goes in depth with recommended best-practices. Below is a highlight of the most important points to consider:
 
 - Use trusted base images (e.g. official builds from https://hub.docker.com/explore/ )
@@ -197,7 +207,8 @@ If you plan on actively tuning your Dockerfile, there’s a great [official docu
 - Use .dockerignore to prevent propagation of unneeded files into the image file system
 
 
-# Summary
+Summary
+=======
 
 There are a couple of ways to dockerize a Rails application. To get started quickly, you can take advantage of a one-line Dockerfile that uses the official “rails:onbuild” image. This image comes with many useful defaults preconfigured.
 
