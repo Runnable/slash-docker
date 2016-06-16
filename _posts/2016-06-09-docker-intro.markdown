@@ -1,0 +1,36 @@
+---
+title: Overview of Docker
+categories: docker
+step: 0
+permalink: /docker-basics/
+tags:
+- docker
+---
+
+Simply put, Docker is a containerization technology that enables us to cleanly abstract an environment configuration to a file (or set of files), and run it in a protected, isolated environment on a host. This is similar to, but more performant than, a virtual machine. On a lower level, this secure isolation is achieved via application namespaces, similar to how Linux LXC and BSD jails work. This provides isolation for services without the overhead of running an entire operating system on the host.
+
+## How is this different from virtual machines?
+
+Virtualization is achieved by running a hypervisor on the host which emulates another bare-metal computer; thus enabling another operating system to run on top of it. This offers us similar benefits with isolation and superior flexibility, but at the cost of relatively high resource utilization. Docker prevents us from installing an entire operating system (you’re limited by the kernel on the host), but keeps resource usage to a minimum.
+
+## What is a Dockerfile?
+
+A Dockerfile is a file that contains a set of instructions that describe an environment configuration. For example, if we wanted an environment that ran Ubuntu 14.04, had vim installed, and had port 80 open, the Dockerfile would look something like the following:
+
+```bash
+FROM ubuntu:14.04
+
+RUN apt-get install -y vim
+
+EXPOSE 80
+```
+
+## What is a Docker Image?
+
+A Docker image is a pre-built Dockerfile. It’s ready to run, and can be run on any host that has Docker installed. The concept of images is where Docker gets its portability.
+
+## What is a Docker Container?
+
+A Docker container is an instance of a Docker image. Containers can be started, running, restarted, and stopped. We’re able to create as many containers from a single image as we need. This concept helps scaling up a service easier.
+
+The capabilities of building, managing and sharing container images has helped make Docker the de-facto standard for deployment of scalable applications in the cloud. It is supported by many cloud providers and CI frameworks.
