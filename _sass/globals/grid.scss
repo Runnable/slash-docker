@@ -1,0 +1,143 @@
+.grid-block {
+  align-items: stretch;
+  display: flex;
+  flex: 1 1 auto;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  // switch orientation to vertical (defaults to horizontal)
+  &.vertical {
+    flex-flow: column nowrap;
+  }
+
+  // shrink to only fill space of content (defaults to fill available space)
+  &.shrink {
+    flex: 0 0 auto;
+  }
+
+  &.grow {
+    flex: 1 1 100%;
+  }
+
+  // alignment of content (defaults to left)
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-right {
+    justify-content: flex-end;
+  }
+
+  &.justify-justified {
+    justify-content: space-between; // space between blocks is even
+  }
+
+  &.justify-spaced {
+    justify-content: space-around; // space around blocks is even
+  }
+
+  &.align-center {
+    align-items: center;
+  }
+
+  &.align-start {
+    align-items: flex-start;
+  }
+
+  &.align-end {
+    align-items: flex-end;
+  }
+}
+
+// horizontal grid
+.grid-content {
+  display: block;
+  flex: 1 1 auto;
+
+  &.shrink {
+    flex: 0 0 auto;
+  }
+
+  &.grow {
+    flex: 1 1 100%;
+  }
+
+  + .grid-content {
+    margin-left: 15px;
+  }
+}
+
+// vertical grid
+.vertical {
+
+  > .grid-content {
+    margin-left: 0;
+
+    + .grid-content {
+      margin-top: 15px;
+    }
+  }
+}
+
+
+// amount of blocks allowed within a parent
+%grid-2,
+%grid-3,
+%grid-4,
+%grid-5,
+%grid-6,
+%grid-7,
+%grid-8,
+.grid-2,
+.grid-3,
+.grid-4,
+.grid-5,
+.grid-6,
+.grid-7,
+.grid-8 {
+  flex-wrap: wrap;
+}
+
+%grid-2 > .grid-block,
+.grid-2 > .grid-block {
+  flex: 0 0 (100% / 2);
+  max-width: (100% / 2);
+}
+
+%grid-3 > .grid-block,
+.grid-3 > .grid-block {
+  flex: 0 0 (100% / 3);
+  max-width: (100% / 3);
+}
+
+%grid-4 > .grid-block,
+.grid-4 > .grid-block {
+  flex: 0 0 (100% / 4);
+  max-width: (100% / 4);
+}
+
+%grid-5 > .grid-block,
+.grid-5 > .grid-block {
+  flex: 0 0 (100% / 5);
+  max-width: (100% / 5);
+}
+
+%grid-6 > .grid-block,
+.grid-6 > .grid-block {
+  flex: 0 0 (100% / 6);
+  max-width: (100% / 6);
+}
+
+%grid-7 > .grid-block,
+.grid-7 > .grid-block {
+  flex: 0 0 (100% / 7);
+  max-width: (100% / 7);
+}
+
+%grid-8 > .grid-block,
+.grid-8 > .grid-block {
+  flex: 0 0 (100% / 8);
+  max-width: (100% / 8);
+}

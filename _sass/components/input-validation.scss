@@ -1,0 +1,18 @@
+// .input-validate
+.input-validate,
+.btn-validate {
+  transition: none;
+
+  &.invalid,
+  &:not(.pristine):invalid {
+    border-color: $red;
+  }
+
+  &.invalid:valid {
+    border-color: $gray-lighter;
+
+    &:focus {
+      border-color: $purple-light;
+    }
+  }
+}

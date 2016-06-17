@@ -1,0 +1,17 @@
+// label within input
+.input-group-vertical {
+  position: relative;
+
+  .label {
+    color: $gray;
+    font-size: 14px;
+    padding: 0 10px;
+    position: absolute;
+    top: 6px;
+  }
+
+  .input-md {
+    height: $input-md + 20px;
+    padding-top: 20px;
+  }
+}

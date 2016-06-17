@@ -1,0 +1,65 @@
+.hero {
+  background: linear-gradient($purple-light, $purple);
+  color: $white;
+  padding: 150px 0 90px;
+
+  @include media(xs) {
+    padding-top: 120px;
+  }
+
+  &::after {
+    background: url(../images/confetti.png);
+    background-size: 864px 324px;
+    content: '';
+    display: block;
+    height: 100%;
+    opacity: .6;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .h1 {
+    font-size: 42px;
+    font-weight: $weight-bold;
+    line-height: 1.3;
+
+    @include media(sm) {
+      max-width: 630px;
+    }
+
+    @include media(xxs) {
+      max-width: 420px;
+    }
+  }
+
+  .h1,
+  .p {
+    display: table;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    text-shadow: 0 0 6px rgba($black,.3);
+    z-index: 1;
+  }
+
+  .p {
+    font-size: 21px;
+    margin-top: 9px;
+
+    @include media(sm) {
+      max-width: 600px;
+    }
+
+    @include media(xs) {
+      font-size: 18px;
+      max-width: 510px;
+    }
+
+    @media (max-width: 430px) {
+      max-width: 400px;
+    }
+  }
+}

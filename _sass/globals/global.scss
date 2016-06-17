@@ -1,0 +1,62 @@
+// global layout
+html {
+  font-size: 62.5%;
+  -webkit-tap-highlight-color: rgba($black,0);
+}
+
+body {
+  background: $white;
+  color: $gray-dark;
+  font-family: $sans-serif;
+  font-feature-settings: 'kern';
+  font-size: 19px;
+  font-weight: $weight-light;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility; // kerning magic
+
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+// svg files
+.svg-defs {
+  // scss-lint:disable ImportantRule
+  height: 0 !important;
+  position: absolute !important;
+  visibility: hidden !important;
+  width: 0 !important;
+}
+
+// utility
+%clearfix,
+.clearfix {
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+// if .disabled communicates to the user that an element is not available to them,
+// .no-touching 'disables' an element and DOES NOT communicate
+.no-touching,
+%no-touching {
+  // scss-lint:disable ImportantRule
+  pointer-events: none !important;
+}

@@ -1,0 +1,51 @@
+.article.article-faq {
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: $screen-lg;
+  padding: 60px;
+
+  @include media(sm) {
+    padding: 60px 30px;
+  }
+
+  .question {
+    flex: 0 0 33.33%;
+    padding: 30px;
+
+    @include media(lg) {
+      padding: 30px 21px;
+    }
+
+    @include media(md) {
+      flex: 0 0 50%;
+      padding: 30px 21px;
+    }
+
+    @include media(sm) {
+      flex: 0 0 100%;
+      padding: 30px 60px;
+    }
+
+    @include media(xs) {
+      padding: 30px;
+    }
+
+    @include media(xxs) {
+      padding: 30px 0;
+    }
+  }
+
+  .h3 {
+    font-size: 19px;
+    margin: 0;
+  }
+
+  .p {
+    font-size: 16px;
+  }
+
+  .em {
+    color: $gray-light;
+    font-size: 24px;
+  }
+}

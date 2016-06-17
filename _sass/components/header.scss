@@ -1,0 +1,115 @@
+.header {
+  background: linear-gradient($purple, rgba($purple,0));
+  left: 0;
+  overflow: visible;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+
+  .logo {
+    position: relative; // forces popover to recognize hover state
+    z-index: 1;
+
+    @include media(xxxs) {
+      align-items: center;
+      flex: 0 0 150px;
+    }
+
+    .img {
+      @include media(xxxs) {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
+  .nav {
+    align-items: center;
+  }
+
+  .grid-container {
+    padding: 27px 45px 18px;
+
+    @include media(sm) {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    @include media(xs) {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+  }
+
+  .text-white {
+    color: $purple-lightest;
+    line-height: $input-sm;
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $white;
+    }
+  }
+
+  .product-link {
+    height: 36px;
+    padding: 0;
+
+    + .btn {
+      margin-left: 9px;
+    }
+
+    .a {
+      padding: 0 15px;
+      z-index: 1; // so you can click it
+    }
+
+    .icons-chevron-down {
+      height: $input-sm;
+      margin-left: 6px;
+      width: 12px;
+    }
+  }
+
+  .btn-white {
+    border: 2px solid rgba($white,.75);
+    line-height: $input-line-height-sm;
+    z-index: 1; // forces popover to recognize hover state
+
+    &:hover {
+      background: rgba($white,.1);
+    }
+
+    &:active {
+      background: rgba($white,.2);
+    }
+  }
+
+  // popover specific
+  .grid-block {
+    overflow: visible;
+
+    // popover parent
+    &.shrink {
+      position: relative;
+    }
+  }
+
+  .popover-trigger {
+
+    &:hover .icons-overflow,
+    &:focus .icons-overflow {
+      color: $white;
+    }
+
+    .icons-overflow {
+      color: $purple-lightest;
+      float: left; // for the popover to get the correct position...
+      height: $input-sm;
+      position: relative;
+      width: 24px;
+      z-index: 1; // for the cursor
+    }
+  }
+}

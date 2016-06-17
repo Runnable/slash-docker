@@ -1,0 +1,101 @@
+// **********
+// font stack
+// **********
+$monospace: 'Source Code Pro', monospace;
+$sans-serif: -apple-system, 'Helvetica Neue', 'Segoe UI', sans-serif;
+$weight-bold: 500;
+$weight-normal: 400;
+$weight-light: 300;
+
+// ******
+// colors
+// ******
+$black: #000;
+$white: #fff;
+
+$gray-lighterest: #fafafa;
+$gray-lightest: #f3f3f3;
+$gray-lighter: #e6e6e6;
+$gray-light: #ccc;
+$gray: #888;
+$gray-dark: #555;
+$gray-darker: #222;
+
+$green: #3ccb5a; // #1DD156
+$green-light: #2bd94f;
+$green-lighter: #e8ffed;
+$green-dark: #31b74d; // darken($green,6%);
+$green-darker: #2a9f43; // darken($green,12%);
+$green-darkest: #09200e;
+
+$purple: #71438f;
+$purple-logo: #ccadd2;
+$purple-light: #834fab;
+$purple-lighter: #b6a6bd;
+$purple-lightest: #eee1f7;
+$purple-dark: #402754; // darken($purple,10%);
+$purple-darker: #261731; // darken($purple,20%);
+$purple-darkest: #1b0f24;
+
+$purple-faded: #866f98;
+$purple-light-faded: #f8f5fc;
+
+// purple ace theme
+$ace-bg: #311d40;
+$ace-border: $purple-darker;
+
+$orange: #f5a11b;
+$orange-light: #fcb85d;
+$orange-lighter: #ffc880;
+$orange-lightest: #fff2d9;
+$orange-dark: #db970d; // darken($orange,9%);
+$orange-darker: #cd8d0c; // darken($orange,12%);
+$orange-darkest: #3d2b05;
+
+$red: #f25058;
+$red-light: #ef737f;
+$red-lighter: #fde6e9;
+$red-dark: #e62932; // desaturate(darken($red,10),7);
+
+$red-faded: #be424d;
+
+$blue: #0ca6f2; // previously #2ab0f6;
+$blue-light: #8bd5f9; // previously #86cff6;
+$blue-lighter: #f5fcff; // previously #f1faff;
+$blue-dark: #1e7daf;
+
+// **********
+// dimensions
+// **********
+// screen sizes
+$screen-xxxs: 350px;
+$screen-xxs: 400px;
+$screen-xs: 600px;
+$screen-sm: 768px;
+$screen-md: 1024px;
+$screen-lg: 1440px;
+$screen-xl: 1920px;
+
+// button/input sizes
+$input-border: 2px;
+$input-border-radius: 3px;
+$input-border-radius-lg: 6px;
+$input-border-radius-xxs: 2px;
+
+$input-lg: 54px;
+$input-line-height-lg: $input-lg - ($input-border * 2);
+
+$input-md: 42px;
+$input-line-height-md: $input-md - ($input-border * 2);
+
+$input-sm: 36px;
+$input-line-height-sm: $input-sm - ($input-border * 2);
+
+$input-xs: 24px;
+$input-line-height-xs: $input-xs - ($input-border * 2);
+
+$input-xxs: 18px;
+$input-line-height-xxs: $input-xxs - ($input-border * 2);
+
+$z-modal: 100;
+$z-modal-close: 101;
