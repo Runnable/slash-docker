@@ -141,3 +141,35 @@
   flex: 0 0 (100% / 8);
   max-width: (100% / 8);
 }
+
+.grid-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @media (min-width: $screen-xxs) {
+    max-width: inherit;
+    width: inherit;
+  }
+
+  @media (min-width: $screen-xs) {
+    max-width: $screen-xs - 30px;
+    width: $screen-xs - 30px;
+  }
+
+  @media (min-width: $screen-sm) {
+    max-width: $screen-sm - 30px;
+    width: $screen-sm - 30px;
+  }
+
+  @media (min-width: $screen-md) {
+    max-width: $screen-md - 30px;
+    width: $screen-md - 30px;
+  }
+}
+
+.grid-container-sm {
+  max-width: 630px;
+  padding-left: 30px;
+  padding-right: 30px;
+}

@@ -1,18 +1,13 @@
 .header {
-  background: linear-gradient($purple, rgba($purple,0));
-  left: 0;
-  overflow: visible;
-  position: absolute;
-  right: 0;
-  z-index: 10;
+  background: $blue;
 
   .logo {
+    flex: 0 0 120px;
     position: relative; // forces popover to recognize hover state
     z-index: 1;
 
     @include media(xxxs) {
       align-items: center;
-      flex: 0 0 150px;
     }
 
     .img {
@@ -28,7 +23,7 @@
   }
 
   .grid-container {
-    padding: 27px 45px 18px;
+    padding: 15px 45px;
 
     @include media(sm) {
       padding-left: 15px;

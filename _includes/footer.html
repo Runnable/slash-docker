@@ -1,38 +1,22 @@
-<footer class="site-footer">
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">{{ site.title }}</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li>{{ site.title }}</li>
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {% if site.github_username %}
-          <li>
-            {% include icon-github.html username=site.github_username %}
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            {% include icon-twitter.html username=site.twitter_username %}
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description }}</p>
-      </div>
+<footer class="grid-block vertical footer justify-spaced">
+  <a class="sign-up-box grid-block vertical well well-anchor" href="//runnable.com">
+    <img class="img" src="images/runnabear-hello.png">
+    <p class="p">Runnable is <strong class="strong">free</strong> during our preview,<br class="hidden-xxxs">
+      including infrastructure costs!
+    <div class="btn btn-sm green">Sign Up</div>
+  </a>
+  <div class="grid-block link-wrapper">
+    <div class="grid-block vertical align-start">
+      <a href="demo.html" class="btn btn-xs link strong">Request Demo</a>
+      <a href="product.html" class="btn btn-xs link strong">Product</a>
+      <a href="http://support.runnable.io" class="btn btn-xs link strong">Docs</a>
+      <a href="about.html" class="btn btn-xs link strong">About</a>
     </div>
-
+    <div class="grid-block vertical align-start">
+      <a href="http://blog.runnable.com" class="btn btn-xs link strong">Blog</a>
+      <a href="http://blog.runnable.com/private/141107158076/tumblr_o43mfmwB671t3hjy4" class="btn btn-xs link strong">Pricing</a>
+      <a href="http://blog.runnable.com/private/141107137076/tumblr_o43mexUxVP1t3hjy4" class="btn btn-xs link strong">Security</a>
+      <a href="privacy.html" class="btn btn-xs link strong">Privacy</a>
+    </div>
   </div>
-
 </footer>

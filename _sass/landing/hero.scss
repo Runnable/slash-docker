@@ -1,24 +1,9 @@
 .hero {
-  background: linear-gradient($purple-light, $purple);
-  color: $white;
-  padding: 150px 0 90px;
+  background: $blue;
+  padding: 90px 0;
 
-  @include media(xs) {
-    padding-top: 120px;
-  }
-
-  &::after {
-    background: url(../images/confetti.png);
-    background-size: 864px 324px;
-    content: '';
-    display: block;
-    height: 100%;
-    opacity: .6;
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 0;
+  > .grid-block {
+    max-width: 600px;
   }
 
   .h1 {
@@ -37,12 +22,8 @@
 
   .h1,
   .p {
-    display: table;
-    margin: 0 auto;
+    color: $white;
     padding: 0 30px;
-    position: relative;
-    text-shadow: 0 0 6px rgba($black,.3);
-    z-index: 1;
   }
 
   .p {
