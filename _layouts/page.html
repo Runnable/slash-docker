@@ -7,9 +7,10 @@ layout: default
       <h1 class="post-title">{{ page.title }}</h1>
     </header>
 
-    <div class="post-content">
-      {{ content }}
-    </div>
+    {{ content }}
 
+    {% if page.next %}
+      {% include next.html %}
+    {% endif %}
   </article>
 </div>
