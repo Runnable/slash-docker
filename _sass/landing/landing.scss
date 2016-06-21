@@ -2,15 +2,6 @@
   overflow: visible;
   padding-bottom: 90px;
 
-  > .hero {
-    padding-bottom: 150px;
-  }
-
-  > .grid-container {
-    margin-top: -60px;
-    overflow: visible;
-  }
-
   .card {
 
     + .card {
@@ -24,79 +15,5 @@
     @include media(sm) {
       min-width: 0;
     }
-  }
-}
-
-.page-landing {
-
-  .h1 {
-    margin: 21px 0;
-  }
-
-  .h2,
-  .h3 {
-    margin: 15px 0;
-
-    @include media(xxs) {
-      line-height: 1.4;
-    }
-  }
-
-  .ol,
-  .ul,
-  .p {
-    margin-bottom: 9px;
-  }
-
-  .ol,
-  .ul {
-    list-style-type: circle;
-    margin: 0;
-    padding-left: 21px;
-  }
-
-  .hr {
-    background: $gray-lighter;
-    border: 0;
-    height: 1px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-
-    @include media(xs) {
-      margin-left: 30px;
-      margin-right: 30px;
-      max-width: calc(100% - 60px);
-    }
-
-    &.hr-footer {
-      margin-top: 150px;
-
-      @include media(sm) {
-        margin-top: 60px;
-      }
-    }
-  }
-
-  .img-centered {
-    display: block;
-    margin: 0 auto;
-
-    @include media(xxs) {
-      height: auto;
-      max-width: 100%;
-    }
-  }
-}
-
-.article {
-  padding: 75px 0;
-  position: relative;
-
-  @include media(sm) {
-    padding: 60px 0;
-  }
-
-  @include media(xxs) {
-    padding: 60px 30px;
   }
 }
