@@ -1,9 +1,21 @@
 .main {
   overflow: visible;
-  padding-bottom: 30px;
+  padding-bottom: 150px;
 
-  &.hero-only {
-    padding-bottom: 0;
+  > .hero {
+    padding-bottom: 150px;
+  }
+
+  > .grid-container {
+    margin-top: -60px;
+    overflow: visible;
+  }
+
+  .card {
+
+    + .card {
+      margin-top: 75px;
+    }
   }
 
   .well-anchor {

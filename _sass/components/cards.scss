@@ -1,0 +1,27 @@
+.card {
+  background: $white;
+  border: 1px solid $gray-lighter;
+  border-radius: $input-border-radius-lg;
+  box-shadow: 0 2px 9px rgba($black,.075);
+  margin: 0 auto;
+  width: 450px;
+
+  @include media(xs) {
+    width: 100%;
+  }
+
+  .h1 {
+    font-size: 21px;
+    font-weight: $weight-bold;
+    margin-bottom: 6px;
+  }
+
+  .img {
+    display: block;
+    margin: -120px auto 0;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+}

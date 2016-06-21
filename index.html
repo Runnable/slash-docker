@@ -2,27 +2,23 @@
 layout: default
 ---
 
-<div class="home">
-
-  <ul class="post-list">
+<section class="card padding-lg">
+  <img class="img" src="/images/boat.svg" height="180" width="180">
+  <h1 class="h1">Getting Started</h1>
+  <ul class="list">
     {% for post in site.categories.docker %}
-      <li>
-        <h2>
-          <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-        </h2>
-      </li>
+      <li><a class="link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     {% endfor %}
   </ul>
+</section>
 
-  <h1 class="page-heading">Rails</h1>
-  <ul class="post-list">
+<section class="card padding-lg">
+  <img class="img" src="/images/rails.svg" height="180" width="180">
+  <h1 class="h1">Ruby on Rails</h1>
+  <ul class="list">
     {% assign pages = site.categories.rails | sort: "step" %}
     {% for post in pages %}
-      <li>
-        <h3>
-          <a class="post-link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-        </h3>
-      </li>
+      <li><a class="link" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     {% endfor %}
   </ul>
-</div>
+</section>
