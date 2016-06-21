@@ -6,6 +6,7 @@ tags:
 - dockerfile
 - rails
 - ruby
+excerpt: Get started with dockerizing your Rails application.
 ---
 
 Now you’re familiar with how Docker can help speed up development, it’s time to think about how to get started with dockerizing your Rails application. We’ll start off by explaining how to create a simple Dockerfile, and then go into detail on how to tune it to build the right Docker image for your app.
@@ -40,7 +41,7 @@ If you’d like to follow along, take a minute to ensure you’ve got these prer
 # Source code layout
 # --------------------
 $ cd myapp
-$ ls 
+$ ls
 app  bin  config  config.ru  db  Gemfile  Gemfile.lock  lib  log  public  Rakefile  README.rdoc  test  tmp  vendor
 ```
 
@@ -66,7 +67,7 @@ $ echo "FROM rails:onbuild" > Dockerfile
 Afterwards, we can locally build a Docker image (named ‘demo’ in this example)...
 
 ```bash
-$ docker build -t demo . 
+$ docker build -t demo .
 …
 Removing intermediate container f3aba6ebb399
 Successfully built bc23fa339f30
@@ -169,7 +170,7 @@ $ docker build -t demo .
 … image rebuilds from scratch ...
 Removing intermediate container 6fb1a78f4326
 Successfully built cd10aa815082
-$ docker run --rm -p 3000:3000 demo 
+$ docker run --rm -p 3000:3000 demo
 [2016-06-01 14:42:12] INFO  WEBrick 1.3.1
 [2016-06-01 14:42:12] INFO  ruby 2.3.1 (2016-04-26) [x86_64-linux]
 [2016-06-01 14:42:12] INFO  WEBrick::HTTPServer#start: pid=1 port=3000
@@ -182,9 +183,9 @@ We now have a configurable Dockerfile and we know how to build images with it. N
 
 **Docker images don’t update automatically**
 
-Any changes made to your application won’t automatically be reflected in existing Docker images; they’ll need to be rebuilt in order to pull in the latest updates. In most situations, no extra actions are required apart from running the `docker build` command, and builds should run more quickly because of Docker’s build caching system. 
+Any changes made to your application won’t automatically be reflected in existing Docker images; they’ll need to be rebuilt in order to pull in the latest updates. In most situations, no extra actions are required apart from running the `docker build` command, and builds should run more quickly because of Docker’s build caching system.
 
-Below is a table that lists actions that would need to be performed before building the image, depending on nature of changes. 
+Below is a table that lists actions that would need to be performed before building the image, depending on nature of changes.
 
 | Desired Modification | Basic Dockerfile | Custom Dockerfile |
 |-------------------- :|: --------------- |: ---------------- |
@@ -193,7 +194,7 @@ Below is a table that lists actions that would need to be performed before build
 | New runtime system dependency | Add new “RUN apt-get…” instruction to the Dockerfile (and expect it to be executed on every build) | Append to existing list of packages in existing “RUN apt-get” instruction |
 | New build-time system dependency (expected by Bundler) | Not supported | Append to existing list of packages in existing “RUN apt-get” instruction |
 | Changing Ruby version | Not supported | Modify the FROM instruction to include the correct image tag/version |
-| Changing OS family | Not supported | Modify FROM instruction to specify the desired OS, and add a “RUN” instruction to install/compile Ruby right afterwards | 
+| Changing OS family | Not supported | Modify FROM instruction to specify the desired OS, and add a “RUN” instruction to install/compile Ruby right afterwards |
 | Tuning other defaults such as exposed ports, code paths, rails server options | Extra instructions could be added to the end of Dockerfile at the cost of increased build time and sometimes with a risk of logical inconsistency of resulting image. | Modify existing instructions (`EXPOSE`, `COPY`,`RUN` etc.) and/or add new ones |
 
 Best Practices

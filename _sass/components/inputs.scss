@@ -1,0 +1,227 @@
+// initial styles
+input,
+textarea {
+  cursor: text;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+input {
+
+  // remove box-shadow for these states
+  &[type="checkbox"],
+  &[type="radio"] {
+    box-shadow: none;
+  }
+
+  // appear as checkbox
+  &[type="checkbox"] {
+    -webkit-appearance: checkbox;
+    cursor: pointer;
+    width: auto;
+  }
+}
+
+
+// defaults
+.input,
+.textarea {
+  background: $white;
+  border: $input-border solid $gray-lighter;
+  border-radius: $input-border-radius;
+  padding: 0 (9px - $input-border);
+  resize: none;
+  width: 100%;
+  word-break: normal;
+
+  // min font-size for mobile
+  @include retina() {
+    @media (max-width: 500px) {
+      font-size: 16px;
+    }
+  }
+
+  // focus state
+  &.focus,
+  &:focus {
+    border-color: $purple-light;
+    box-shadow: inset 0 0 3px rgba($purple-light,.15);
+  }
+
+  &:focus {
+    transition: none;
+  }
+
+  // readonly
+  &[readonly] {
+    background: $gray-light;
+    border: 0;
+    color: $gray-lighterest;
+    cursor: default;
+  }
+
+  // remove box-shadow for these states
+  &[readonly]:focus,
+  &[required] {
+    box-shadow: none;
+  }
+
+  // monospace
+  &.monospace {
+    letter-spacing: -.25px;
+  }
+
+  // placeholder
+  &::placeholder {
+    color: $gray-light;
+  }
+}
+
+// sizes
+.input {
+  height: $input-md;
+  line-height: $input-line-height-md;
+
+  &[type="search"] {
+    border-radius: $input-md;
+    min-height: $input-md; // safari
+
+    // reset so padding is consistent across browsers
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+      display: none;
+    }
+  }
+
+  &.input-sm {
+    color: $gray-dark;
+    height: $input-sm;
+    line-height: $input-line-height-sm;
+
+    &[type="search"] {
+      border-radius: $input-sm;
+      min-height: $input-sm; // safari
+    }
+  }
+
+  &.input-xs {
+    font-size: 13px;
+    height: $input-xs;
+    line-height: 1;
+
+    &[type="search"] {
+      border-radius: $input-xs;
+      min-height: $input-xs; // safari
+    }
+  }
+
+  &.input-xxs {
+    font-size: 13px;
+    height: $input-xxs;
+    line-height: 1;
+
+    &[type="search"] {
+      border-radius: $input-xxs;
+      min-height: $input-xxs; // safari
+    }
+  }
+}
+
+// radio
+input[type="radio"] {
+  -webkit-appearance: none;
+  border: 1px solid $gray-lighter;
+  border-radius: 50%;
+  height: 12px;
+  transition: border-width .1s ease-in;
+  width: 12px;
+
+  &:hover {
+    border-color: $gray-light;
+  }
+
+  &:active,
+  &:checked {
+    border-color: $purple-light;
+    border-width: 4px;
+  }
+}
+
+// hide if upload; we have to use an id for labels to work
+// scss-lint:disable IdSelector
+#input-upload {
+  position: absolute;
+  visibility: hidden;
+}
+// scss-lint:enable IdSelector
+
+// search
+.input-search {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16.2 16.9'><path fill-opacity='.3' d='M7.3,8.9c-0.9,0-1.6-0.7-1.6-1.6c0-1.3-2-1.3-2,0c0.1,2,1.6,3.6,3.6,3.6C8.6,10.9,8.6,8.9,7.3,8.9L7.3,8.9z'/><path fill-opacity='.3' d='M15.9,15.2L12.7,12c1.1-1.3,1.8-2.9,1.8-4.8c0-4-3.3-7.3-7.3-7.3C3.3,0,0,3.3,0,7.3s3.3,7.3,7.3,7.3c1.5,0,2.8-0.4,4-1.2l3.3,3.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3C16.3,16.2,16.3,15.6,15.9,15.2z M2,7.3C2,4.4,4.4,2,7.3,2c2.9,0,5.3,2.4,5.3,5.3s-2.4,5.3-5.3,5.3C4.4,12.5,2,10.2,2,7.3z'/></svg>");
+  background-position: 51px center;
+  background-repeat: no-repeat;
+  background-size: 12px;
+  border-width: 1px;
+  color: $gray;
+  font-size: 14px;
+  padding-left: 72px;
+  transition: all .15s ease-in;
+
+  &:focus,
+  &:valid {
+    background-color: $white;
+    background-position: 3px center;
+    border-color: $green;
+    padding-left: 27px !important; // override all other position
+    transition: all .15s ease-in;
+  }
+}
+
+// prefix input with…
+.input-prefix {
+  position: relative;
+
+  &::after {
+    color: $gray-light;
+    content: attr(data-prefix);
+    display: block;
+    font-weight: $weight-bold;
+    height: $input-sm;
+    left: 0;
+    line-height: $input-sm;
+    padding-left: 9px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+  }
+
+  &.input-prefix-monospace::after {
+    @extend %monospace;
+  }
+
+  .input {
+    padding-left: 12px;
+  }
+}
+
+// input spinner
+.input-spinner {
+  position: relative;
+
+  > .input ~ .spinner-wrapper {
+    right: -24px;
+    top: 14px;
+  }
+
+  > .input-sm ~ .spinner-wrapper {
+    top: 11px;
+  }
+
+  > .spinner-wrapper {
+    position: absolute;
+  }
+}

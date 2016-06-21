@@ -1,17 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 
   {% include head.html %}
 
   <body>
 
+    {% include icons.html %}
     {% include header.html %}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </div>
+    <main class="grid-block vertical main">
+      {{ content }}
+    </main>
 
     {% include footer.html %}
 

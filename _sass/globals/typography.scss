@@ -1,0 +1,192 @@
+// headings
+h1,
+h2,
+h3,
+h4 {
+  font-weight: $weight-light;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.h1 {
+  font-size: 45px;
+
+  @include media(sm) {
+    font-size: 36px;
+  }
+}
+
+.h2 {
+  font-size: 36px;
+
+  @include media(sm) {
+    font-size: 30px;
+  }
+}
+
+.h3 {
+  font-size: 30px;
+
+  @include media(sm) {
+    font-size: 24px;
+  }
+}
+
+.h4 {
+  font-size: 24px;
+
+  @include media(sm) {
+    font-size: 18px;
+  }
+}
+
+// inline styles
+.small {
+  font-size: 13px; // percentage was unreliable
+  font-weight: $weight-normal; // reset if within header tags
+}
+
+.strong {
+  font-weight: $weight-bold;
+}
+
+.underline {
+  border-bottom: 1px dotted;
+  font-style: normal; // remove italics if em
+}
+
+.hr {
+  background: rgba($black,.1);
+  border: 0;
+  height: 1px;
+  width: 100%;
+}
+
+.pre,
+%pre {
+  // scss-lint:disable ImportantRule
+  font-family: $monospace;
+  font-weight: $weight-normal;
+  line-height: 1.4;
+  white-space: pre;
+}
+
+// monospace
+%monospace,
+.monospace {
+  font-family: $monospace;
+  font-size: 14px;
+  white-space: pre;
+  word-wrap: normal;
+}
+
+// links
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+// single line overflow
+%text-overflow,
+.text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-rtl {
+  direction: rtl;
+  text-align: left;
+}
+
+// ul.list-text
+.list-text {
+  list-style-type: circle;
+  margin: 12px;
+  padding: inherit;
+}
+
+// alignment
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// colors
+.text-blue {
+  color: $blue;
+}
+
+.text-gray {
+  color: $gray;
+}
+
+.text-green {
+  color: $green;
+}
+
+.text-orange {
+  color: $orange;
+}
+
+.text-purple {
+  color: $purple;
+}
+
+.text-white {
+  color: $white;
+}
+
+// block quote
+.block-quote {
+  border-left: 3px solid;
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 15px auto;
+  max-width: 600px;
+  padding-left: 15px;
+  text-align: left;
+  text-decoration: none;
+
+  @include media(xs) {
+    margin: 15px 15px 30px;
+  }
+
+  .gravatar {
+    float: left;
+    margin-right: 6px;
+  }
+
+  .iconnables {
+    float: left;
+    height: 18px;
+    left: -2px;
+    top: -1px;
+    width: 18px;
+  }
+
+  .small {
+    display: block;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 3px;
+  }
+}

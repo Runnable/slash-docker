@@ -1,0 +1,29 @@
+.icon-defintions {
+  display: none;
+}
+
+.icons {
+  fill: currentColor;
+}
+
+.icons-close {
+  background: rgba($black,.15);
+  border-radius: $input-border-radius;
+  color: rgba($white,.75);
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+
+  &:hover {
+    background: rgba($red,.75);
+  }
+
+  &:active {
+    background: $red;
+  }
+
+  .icons {
+    height: 100%;
+    width: 100%;
+  }
+}

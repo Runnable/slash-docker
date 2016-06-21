@@ -1,0 +1,19 @@
+.main {
+  overflow: visible;
+  padding-bottom: 90px;
+
+  .card {
+
+    + .card {
+      margin-top: 75px;
+    }
+  }
+
+  .well-anchor {
+    min-width: 660px;
+
+    @include media(sm) {
+      min-width: 0;
+    }
+  }
+}

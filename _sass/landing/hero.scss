@@ -1,0 +1,51 @@
+.hero {
+  background: $blue;
+  padding: 60px 0 150px;
+
+  > .grid-block {
+    max-width: 600px;
+  }
+
+  + .grid-container {
+    margin-top: -60px;
+    overflow: visible;
+  }
+
+  .h1 {
+    font-size: 42px;
+    font-weight: $weight-bold;
+    line-height: 1.3;
+
+    @include media(sm) {
+      max-width: 630px;
+    }
+
+    @include media(xxs) {
+      max-width: 420px;
+    }
+  }
+
+  .h1,
+  .p {
+    color: $white;
+    padding: 0 30px;
+  }
+
+  .p {
+    font-size: 21px;
+    margin-top: 9px;
+
+    @include media(sm) {
+      max-width: 600px;
+    }
+
+    @include media(xs) {
+      font-size: 18px;
+      max-width: 510px;
+    }
+
+    @media (max-width: 430px) {
+      max-width: 400px;
+    }
+  }
+}

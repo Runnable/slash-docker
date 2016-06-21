@@ -1,0 +1,142 @@
+// scss-lint:disable IdSelector
+.modal-backdrop {
+  background: rgba($white,.98);
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  overflow-y: auto;
+  pointer-events: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: scale3d(1.2,1.2,1);
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+  z-index: $z-modal;
+}
+
+.modal {
+
+  &.shake {
+    animation: shake .25s ease-in-out;
+  }
+
+  // errors
+  .well {
+    align-items: center;
+    background: desaturate($red,10%);
+    border: 2px solid $red-faded;
+    border-radius: $input-border-radius-lg;
+    color: $white;
+    display: none;
+    font-size: 16px;
+    font-weight: $weight-normal;
+    justify-content: center;
+    line-height: 1.4;
+    margin: 0;
+    min-height: 78px;
+    padding: 15px 69px;
+    position: relative;
+    width: 100%;
+
+    @include media(xxs) {
+      font-size: 14px;
+    }
+
+    .img {
+      left: 15px;
+      position: absolute;
+      top: -30px;
+
+      @include media(xxs) {
+        top: -18px;
+      }
+    }
+  }
+
+  > .article {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+
+    &.article-sign-up {
+      z-index: $z-modal + 1;
+    }
+
+    &.article-questionnaire,
+    &.article-confirm {
+      opacity: 0;
+      transform: translate3d(0,100px,0);
+      z-index: $z-modal;
+    }
+
+    &.in {
+      opacity: 1;
+      transform: translate3d(0,0,0);
+      z-index: $z-modal + 1;
+    }
+
+    &.out {
+      opacity: 0;
+      transform: translate3d(0,-100px,0);
+      z-index: $z-modal;
+    }
+  }
+}
+
+#sign-up {
+
+  &:target {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale3d(1,1,1);
+
+    .modal > .article {
+
+      &.article-confirm {
+        pointer-events: none;
+      }
+
+      &.out {
+        pointer-events: none;
+      }
+
+      &.in {
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .icons-close {
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 30px;
+    z-index: $z-modal + 2;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: none;
+  }
+
+  25% {
+    transform: translate3d(2%,0,0);
+  }
+
+  50% {
+    transform: translate3d(-2%,0,0);
+  }
+
+  75% {
+    transform: translate3d(2%,0,0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+// scss-lint:enable IdSelector

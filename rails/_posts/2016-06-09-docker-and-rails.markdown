@@ -4,6 +4,7 @@ step: 1
 tags:
 - docker
 - rails
+excerpt: Docker for developing and deploying Rails applications.
 ---
 
 # Summary
