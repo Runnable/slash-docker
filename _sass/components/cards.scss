@@ -13,7 +13,6 @@
   .h1 {
     font-size: 21px;
     font-weight: $weight-bold;
-    margin-bottom: 6px;
   }
 
   .img {
@@ -21,7 +20,32 @@
     margin: -120px auto 0;
   }
 
+  .list-item + .list-item {
+    margin-top: 2px;
+  }
+
   .link {
+    border: 1px solid transparent;
+    border-radius: $input-border-radius-lg;
     text-decoration: none;
+
+    &:hover {
+      background: $gray-lighterest;
+      border-color: $gray-lighter;
+    }
+
+    &:active,
+    &:focus {
+      background: $white;
+      border-color: $purple-light;
+      color: $purple-light;
+    }
+  }
+
+  .icons-chevron-right {
+    float: right;
+    height: 18px;
+    opacity: .6;
+    width: 18px;
   }
 }
