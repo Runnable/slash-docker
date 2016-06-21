@@ -2,29 +2,33 @@
 layout: default
 ---
 
-<section class="card padding-lg">
-  <img class="img" src="/images/boat.svg" height="180" width="180">
-  <h1 class="h1 padding-xxs">Getting Started</h1>
-  <ul class="list">
-    {% for post in site.categories.docker %}
-      <li class="list-item">
-        <a class="grid-block justify-justified align-center link padding-xxs" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
-          <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
-        </a>
-    {% endfor %}
-  </ul>
-</section>
+{% include hero.html %}
 
-<section class="card padding-lg">
-  <img class="img" src="/images/rails.svg" height="180" width="180">
-  <h1 class="h1 padding-xxs">Ruby on Rails</h1>
-  <ul class="list">
-    {% assign pages = site.categories.rails | sort: "step" %}
-    {% for post in pages %}
-      <li class="list-item">
-        <a class="grid-block justify-justified align-center link padding-xxs" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
-          <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
-        </a>
-    {% endfor %}
-  </ul>
-</section>
+<div class="grid-block grid-container vertical">
+  <section class="card padding-lg">
+    <img class="img" src="/images/boat.svg" height="180" width="180">
+    <h1 class="h1 padding-xxs">Getting Started</h1>
+    <ul class="list">
+      {% for post in site.categories.docker %}
+        <li class="list-item">
+          <a class="grid-block justify-justified align-center link padding-xxs" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
+            <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
+          </a>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="card padding-lg">
+    <img class="img" src="/images/rails.svg" height="180" width="180">
+    <h1 class="h1 padding-xxs">Ruby on Rails</h1>
+    <ul class="list">
+      {% assign pages = site.categories.rails | sort: "step" %}
+      {% for post in pages %}
+        <li class="list-item">
+          <a class="grid-block justify-justified align-center link padding-xxs" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
+            <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
+          </a>
+      {% endfor %}
+    </ul>
+  </section>
+</div>

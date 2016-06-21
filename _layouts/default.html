@@ -9,15 +9,7 @@
     {% include header.html %}
 
     <main class="grid-block vertical main">
-      <div class="hero video-hero">
-        <div class="grid-block grid-container vertical">
-          <h1 class="h1">How to: Docker</h1>
-          <p class="p">Docker is a containerization technology that enables us to cleanly abstract an environment configuration to a file (or set of files), and run it in a protected, isolated environment on a host.</p>
-        </div>
-      </div>
-      <div class="grid-block grid-container vertical">
-        {{content}}
-      </div>
+      {{ content }}
     </main>
 
     {% include footer.html %}
