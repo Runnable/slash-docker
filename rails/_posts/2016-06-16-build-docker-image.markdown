@@ -6,6 +6,7 @@ tags:
 - docker
 - rails
 - ruby
+excerpt: Tune your Dockerfile, build your image, and troubleshoot build errors.
 ---
 
 The next step after dockerizing your Rails application is to build your image. This process might surface some errors. We’ll take a closer look to help troubleshoot and tune the Docker image build process.
