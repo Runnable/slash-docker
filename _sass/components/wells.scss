@@ -3,7 +3,7 @@
   border-radius: $input-border-radius-lg;
   color: $gray;
 
-  .icons {
+  > .icons-chevron-right {
     flex: 0 0 auto;
     height: 30px;
     margin-left: 15px;
@@ -84,6 +84,14 @@
 
     @include media(xxxs) {
       font-size: 12px;
+    }
+
+    .icons {
+      height: 12px;
+      margin-top: 1px;
+      position: relative;
+      top: 1px;
+      width: 12px;
     }
   }
 }

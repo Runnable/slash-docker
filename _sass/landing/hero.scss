@@ -13,10 +13,6 @@
     @include media(xs) {
       margin-top: -30px;
     }
-
-    @include media(xxs) {
-      padding: 0;
-    }
   }
 
   .h1 {

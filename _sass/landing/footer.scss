@@ -38,17 +38,4 @@
     margin: 0 auto;
     width: 510px;
   }
-
-  .link-sponsor {
-    margin-top: 45px;
-
-    &:hover,
-    &:active {
-      color: $gray-light;
-    }
-
-    .img {
-      display: block;
-    }
-  }
 }

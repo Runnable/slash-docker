@@ -37,14 +37,7 @@
   }
 
   .text-white {
-    color: $purple-lightest;
-    line-height: $input-sm;
-
-    &:hover,
-    &:active,
-    &:focus {
-      color: $white;
-    }
+    opacity: .75;
   }
 
   .product-link {
