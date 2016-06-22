@@ -12,28 +12,7 @@
   }
 
   .link-wrapper {
-    padding: 60px 30px 60px 0;
-
-    @include media(xs) {
-      flex-flow: column wrap;
-      justify-content: center;
-      padding: 60px 30px;
-    }
-  }
-
-  .align-start {
-
-    @include media(xs) {
-      align-items: center;
-    }
-
-    + .align-start {
-      margin-left: 90px;
-
-      @include media(xs) {
-        margin-left: 0;
-      }
-    }
+    padding: 60px;
   }
 
   .link {
@@ -53,6 +32,19 @@
     background: $gray-lightest;
     margin: 0 auto;
     width: 510px;
+  }
+
+  .link-sponsor {
+    margin-top: 45px;
+
+    &:hover,
+    &:active {
+      color: $gray-light;
+    }
+
+    .img {
+      display: block;
+    }
   }
 }
 
