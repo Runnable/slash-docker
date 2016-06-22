@@ -9,6 +9,10 @@
   + .grid-container {
     margin-top: -60px;
     overflow: visible;
+
+    @include media(xs) {
+      margin-top: -30px;
+    }
   }
 
   .h1 {

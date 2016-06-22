@@ -4,6 +4,7 @@
   color: $gray;
 
   .icons {
+    flex: 0 0 auto;
     height: 30px;
     margin-left: 15px;
     opacity: .3;
@@ -36,8 +37,8 @@
 
   @include media(xxs) {
     font-size: 17px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   &:hover {

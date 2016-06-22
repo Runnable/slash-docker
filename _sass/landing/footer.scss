@@ -7,6 +7,11 @@
   padding-top: 30px;
   position: relative;
 
+  @include media(xxs) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
   .well-anchor .p {
     margin-bottom: 9px;
   }
@@ -45,138 +50,5 @@
     .img {
       display: block;
     }
-  }
-}
-
-// support aside
-.aside-support {
-  border-bottom: 1px solid darken($gray-lightest,2.5%); // darken colors for gradient
-  color: $gray-dark;
-  margin: 45px auto 0;
-  max-width: 660px;
-  padding: 0 30px 30px;
-
-  @include media(xs) {
-    flex-flow: column;
-    padding: 0 15px 30px;
-  }
-
-  .support-text {
-    line-height: 1.4;
-    margin-right: 30px;
-
-    @include media(xs) {
-      margin-bottom: 15px;
-      margin-right: 0;
-      text-align: center;
-    }
-
-    .br {
-      display: none;
-
-      @include media(xs) {
-        display: block;
-      }
-
-      @include media(xxs) {
-        display: none;
-      }
-    }
-  }
-
-  .figure {
-    margin: 0;
-
-    @include media(xs) {
-      margin: 0 auto;
-      max-width: 225px;
-    }
-
-    // user avatar
-    .img {
-      margin-right: 5px;
-      margin-top: 2px;
-      opacity: .75;
-    }
-  }
-
-  // chat message
-  .bubble {
-    background: $white;
-    border: 1px solid $gray-lighter;
-    border-radius: $input-border-radius-lg $input-border-radius-lg 0 0;
-    font-size: 13px;
-    font-weight: $weight-normal;
-    padding: 6px 15px 6px 9px;
-    pointer-events: none;
-    user-select: none;
-
-    + .bubble {
-      border-radius: 0 0 $input-border-radius-lg $input-border-radius-lg;
-      margin-top: -1px;
-    }
-  }
-
-  .user-name {
-    color: $gray-dark;
-  }
-
-  .user-text {
-    color: $gray;
-    margin-bottom: 0;
-  }
-
-  .user-time {
-    color: lighten($gray, 20%);
-    font-size: 11px;
-  }
-
-  .link-blue {
-    color: lighten($blue,10%);
-  }
-}
-
-// status indicator
-.link.status {
-  color: $gray-light;
-  font-size: 15px;
-  margin-bottom: 24px;
-  position: relative;
-  text-decoration: none;
-  text-indent: 9px;
-
-  @include media(xs) {
-    margin-bottom: 60px;
-  }
-
-  &:hover,
-  &:active {
-    color: $gray;
-  }
-
-  &.status-green::before {
-    background: $green;
-  }
-
-  &.status-orange::before {
-    background: $orange;
-  }
-
-  &.status-red::before {
-    background: $red;
-  }
-
-  &::before {
-    border-radius: 50%;
-    bottom: 18px;
-    content: '';
-    display: block;
-    font-size: 18px;
-    height: 10px;
-    left: 0;
-    opacity: .5;
-    position: absolute;
-    top: 6px;
-    width: 10px;
   }
 }
