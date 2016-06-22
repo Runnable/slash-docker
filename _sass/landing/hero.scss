@@ -56,4 +56,22 @@
       max-width: 400px;
     }
   }
+
+  .btn {
+    background: lighten($blue,5%);
+    border: 1px solid $white;
+    color: $white;
+    display: table;
+    margin: 30px auto 15px;
+    font-weight: $weight-light;
+
+    &:hover,
+    &:focus {
+      background: lighten($blue,10%);
+    }
+
+    &:active {
+      background: $blue;
+    }
+  }
 }
