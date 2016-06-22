@@ -1,4 +1,3 @@
-
 ---
 title: Building your Docker Image
 step: 3
