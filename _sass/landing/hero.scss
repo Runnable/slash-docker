@@ -13,11 +13,15 @@
     @include media(xs) {
       margin-top: -30px;
     }
+
+    @include media(xxs) {
+      padding: 0;
+    }
   }
 
   .h1 {
     font-size: 42px;
-    font-weight: $weight-bold;
+    font-weight: $weight-light;
     line-height: 1.3;
 
     @include media(sm) {
