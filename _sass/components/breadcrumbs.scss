@@ -1,0 +1,32 @@
+.breadcrumbs {
+  padding-top: 30px;
+
+  .link {
+    color: $gray;
+    padding: 0 12px;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      color: $gray-dark;
+    }
+  }
+
+  .icons-life-preserver {
+    color: $gray;
+    height: 21px;
+    opacity: .75;
+    width: 21px;
+
+    &:hover,
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  .icons-chevron-right {
+    color: $gray-light;
+    height: 12px;
+    width: 12px;
+  }
+}

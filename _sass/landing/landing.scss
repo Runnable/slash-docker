@@ -1,12 +1,9 @@
 .main {
   overflow: visible;
-  padding-bottom: 90px;
+  padding-bottom: 30px;
 
   .card {
-
-    + .card {
-      margin-top: 75px;
-    }
+    margin-bottom: 75px;
   }
 
   .well-anchor {
