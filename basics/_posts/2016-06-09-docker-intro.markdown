@@ -1,8 +1,6 @@
 ---
 title: Overview of Docker
-categories: docker
 step: 0
-permalink: /docker-basics/
 tags:
 - docker
 excerpt: Docker is a containerization technology that enables us to cleanly abstract an environment configuration.

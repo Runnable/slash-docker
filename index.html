@@ -1,15 +1,14 @@
 ---
 layout: default
 ---
-
 {% include hero.html %}
 
 <div class="grid-block grid-container vertical">
   <section class="card padding-lg">
-    <img class="img" src="{{ site.baseurl }}/images/boat.svg" height="180" width="180">
+    <img class="img" src="{{ site.baseurl }}/images/basics.svg" height="180" width="180">
     <h1 class="h1 padding-xxs">Getting Started</h1>
     <ul class="list">
-      {% for post in site.categories.docker %}
+      {% for post in site.categories.basics %}
         <li class="list-item">
           <a class="grid-block justify-justified align-center link padding-xxs" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
             <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
@@ -22,8 +21,8 @@ layout: default
     <img class="img" src="{{ site.baseurl }}/images/rails.svg" height="180" width="180">
     <h1 class="h1 padding-xxs">Ruby on Rails</h1>
     <ul class="list">
-      {% assign pages = site.categories.rails | sort: "step" %}
-      {% for post in pages %}
+      {% assign posts = site.categories.rails | sort: "step" %}
+      {% for post in posts %}
         <li class="list-item">
           <a class="grid-block justify-justified align-center link padding-xxs" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
             <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
