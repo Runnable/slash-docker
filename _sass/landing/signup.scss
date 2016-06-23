@@ -4,6 +4,7 @@
   background: $white;
   min-width: 660px;
   overflow: visible;
+  padding-bottom: 45px;
   padding-left: 60px;
   position: relative;
 
@@ -17,11 +18,11 @@
   }
 
   .img {
-    bottom: -11px;
+    bottom: -8px;
     height: auto;
     position: absolute;
     right: 30px;
-    width: 210px;
+    width: 150px;
 
     @include media(xs) {
       bottom: -8px;

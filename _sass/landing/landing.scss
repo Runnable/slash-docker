@@ -1,9 +1,32 @@
 .main {
   overflow: visible;
   padding-bottom: 30px;
+  width: 100%;
+
+  @include media(xs) {
+    > .grid-container {
+      padding: 0 30px;
+    }
+  }
 
   .card {
     margin-bottom: 75px;
+
+    @include media(xs) {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .categories .card {
+    margin: 75px auto 30px;
+
+    @include media(xs) {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   .well-anchor {
