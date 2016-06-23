@@ -10,7 +10,7 @@ layout: default
     <h1 class="h1 padding-xxs">{{ category | first | replace: 'rails', 'Ruby on Rails' }}</h1>
     <ul class="list">
       {% for posts in category %}
-        {% for post in posts %}
+        {% for post in posts reversed %}
           {% if post.title %}
           <li class="list-item">
             <a class="grid-block justify-justified align-center link padding-xxs" href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}
