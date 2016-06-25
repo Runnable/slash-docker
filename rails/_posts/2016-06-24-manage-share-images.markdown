@@ -6,7 +6,7 @@ tags:
 - rails
 - ruby
 - images
-excerpt: Cleanup old images and distribute them across hosts
+excerpt: Assign names and tags to images, and distribute across hosts using a registry.
 ---
 
 Managing Images
