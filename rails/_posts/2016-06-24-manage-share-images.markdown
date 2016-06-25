@@ -1,5 +1,5 @@
 ---
-title: Managing and Sharing Images
+title: Manage and Share Images
 step: 5
 tags:
 - docker
@@ -19,9 +19,9 @@ Naming and Tagging
 
 It isn’t very convenient to refer to images by ID numbers. Docker helps by allowing images to be assigned a human-readable name and tag.
 
-Within a Docker command and Dockerfile directives, it’s possible to use either an explicit combination of name and tag separated by a colon (e.g. `demo:1.0`), or name only (e.g. `demo`). The latter format is an equivalent of `demo:latest`, as `latest` is the default tag value.
+Within a Docker command and Dockerfile instructions, it’s possible to use either an explicit combination of a name and tag separated by a colon (e.g. "demo:1.0"), or a name only (e.g. "demo"). The latter format is an equivalent of "demo:latest", as "latest" is the default tag value.
 
-In the command below, a request is made to the Docker server to build an image and assign the name `demo` to the result:
+In the command below, a request is made to the Docker server to build an image and assign the name "demo" to the result:
 
 ```bash
 $ docker build -t demo
@@ -37,7 +37,7 @@ rails               onbuild             f29b421f27a2        2 weeks ago         
 ruby                2.3                 2d43e11a3406        2 weeks ago              729.1 MB
 ```
 
-Note that the tag `latest` is assigned to the `demo` image automatically. This is because the `-t` parameter in the build command did not contain an explicit tag.
+Note that the tag "latest" is assigned to the "demo" image automatically. This is because the `-t` parameter in the build command did not contain an explicit tag.
 
 It is possible to assign many tags to the same image:
 
@@ -75,14 +75,14 @@ demo                latest              c6d910fb2588        5 minutes ago       
 ...
 ```
 
-Note that in the example above, the tag `latest` still points to the older version of the image. This happened because we provided `1.1` as an explicit tag value for the build command and there was no substitution of default values. **Using `latest` as the default tag value is a strong convention used widely in the Docker ecosystem. However, it should be understood that Docker implements no special logic to guarantee that the tag `latest` actually points to the most recent version of the image.**
+Note that in the example above, the tag "latest" still points to the older version of the image. This happened because we provided "1.1" as an explicit tag value for the build command and there was no substitution of default values. **Using "latest" as the default tag value is a strong convention used widely in the Docker ecosystem. However, it should be understood that Docker implements no special logic to guarantee that the tag "latest" actually points to the most recent version of the image.**
 
 Moving Tags
 -----------
 
 Tags can be easily moved around; either explicitly by pointing an existing tag to another target with the `docker tag` command, or at build-time.
 
-Let’s rebuild the image and assign the already existing tags `1.1` and `latest` to the result:
+Let’s rebuild the image and assign the already existing tags "1.1" and "latest" to the result:
 
 ```bash
 $ echo '#fake update to invalidate cache' >> Rakefile
@@ -97,7 +97,7 @@ demo                1.0                 c6d910fb2588        7 minutes ago       
 ...
 ```
 
-Note that the previous version of `demo:1.1` is present in the list, but it no longer has a name or tag associated with it. These images are called 'dangling' and can be referenced to by an ID in commands such as `docker run`, `docker tag`, or `docker rmi`. Dangling images should be wiped periodically:
+Note that the previous version of "demo:1.1"` is present in the list, but it no longer has a name or tag associated with it. These images are called 'dangling' and can be referenced to by an ID in commands such as `docker run`, `docker tag`, or `docker rmi`. Dangling images should be wiped periodically:
 
 ```bash
 $ docker images -qf "dangling=true" | xargs docker rmi
@@ -106,7 +106,7 @@ $ docker images -qf "dangling=true" | xargs docker rmi
 Deleting Images and Tags
 ------------------------
 
-The **docker rmi** command removes images and tags specified as command-line arguments.
+The `docker rmi` command removes images and tags specified as command-line arguments.
 
 If you try to remove an image by ID - except dangling images - there is a high likelihood an error similar to the one below will be invoked:
 
@@ -148,7 +148,7 @@ That being said, tags should not be used to associate **any** form of metadata w
 
 2. A tag could be re-pointed to a different image ID at any time.
 
-3. An unneeded image will not be purged until all tags pointing to it are deleted - or forced removed with `docker rmi -f <IMAGE ID>`.
+3. An unneeded image will not be purged until all tags pointing to it are deleted -- or forced removed with `docker rmi -f <IMAGE ID>`.
 
 It’s easy to see how tag overuse may lead to bloating of an image cache. It makes sense to assign tags which will be explicitly used for referencing of images. For any secondary metadata, consider using [Docker labels](https://docs.docker.com/engine/userguide/labels-custom-metadata/).
 
@@ -157,15 +157,13 @@ Sharing Images
 
 The Image is the core shareable asset in the Docker world. For image distribution, the Docker ecosystem relies on the concept of a **registry** -- a web service providing the ability to push and pull images which will be referenced by a name and tag combination.
 
-Docker terminology describing image distribution has historically been somewhat confusing. For those interested in the details, there’s a great blog post clearly explaining this:
-
-[http://blog.thoward37.me/articles/where-are-docker-images-stored/](http://blog.thoward37.me/articles/where-are-docker-images-stored/)
+Docker terminology describing image distribution has historically been somewhat confusing. For those interested in the details, there’s a [great blog post](http://blog.thoward37.me/articles/where-are-docker-images-stored/) clearly explaining this.
 
 For a quick start, it is enough to memorize the essentials:
 
 1. Images can be pushed and pulled to/from a **registry** (or many registries).
 
-2. Images with the same name but different tags constitute a** repository** in the registry.
+2. Images with the same name but different tags constitute a **repository** in the registry.
 
 3. [Docker Hub](http://hub.docker.com) is the default registry which supports hosting of both public and private repositories.
 
@@ -225,7 +223,7 @@ demo                latest              d3e250a3007f        About an hour ago   
 username/demo       latest              d3e250a3007f        About an hour ago   940.6 MB
 ```
 
-In this case, we used the same name `demo` for the local image and Docker Hub repository, but it is not mandatory. As no tags were explicitly provided, Docker CLI assumed the default tag `latest` for both old and new names.
+In this case, we used the same name `demo` for the local image and Docker Hub repository, but it is not mandatory. As no tags were explicitly provided, Docker CLI assumed the default tag "latest" for both old and new names.
 
 Now the image is ready to be pushed:
 
@@ -274,14 +272,14 @@ Status: Downloaded newer image for username/demo:latest
 
 As the Docker server did not find an image named "*username*/demo:latest" locally, the image was downloaded from the appropriate repository hosted on Docker Hub. This same action would occur by executing `docker build` using Dockerfile with the instruction “FROM *username*/demo”.
 
-Note that during subsequent executions of `docker run` or `docker build` commands, the image will be found in the local cache and by default **will not be automatically pulled again **from Docker Hub **even if it is updated** in the remote repository.
+Note that during subsequent executions of `docker run` or `docker build` commands, the image will be found in the local cache and by default **will not be automatically pulled again** from Docker Hub **even if it is updated** in the remote repository.
 
 To explicitly force a download of the newest image, use command `docker pull username/demo` for the "latest" tag or `docker pull username/demo:tag` if you need a specific version.
 
 Private Registry on Premises
 ----------------------------
 
-If you need to keep your source code and images behind the firewall, you can run your own private registry fairly easily. There’s an official guide describing the default setup: [https://docs.docker.com/registry/deploying/](https://docs.docker.com/registry/deploying/)
+If you need to keep your source code and images behind the firewall, you can run your own private registry fairly easily. There’s an [official guide](https://docs.docker.com/registry/deploying/) describing the default setup.
 
 Similar to Docker Hub, images could be associated with a private registry by assigning appropriate names to them. Instead of a Docker Hub-specific username, the prefix should include the host and port of private registry. The desired image naming format is:
 
