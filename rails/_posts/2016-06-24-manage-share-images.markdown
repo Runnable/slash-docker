@@ -6,7 +6,7 @@ tags:
 - rails
 - ruby
 - images
-excerpt: Cleanup old images and distribute across hosts
+excerpt: Cleanup old images and distribute them across hosts
 ---
 
 Managing Images
