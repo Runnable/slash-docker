@@ -190,7 +190,7 @@ Below is a list of the most common problems that prevent containers from being l
  <th>Error message</th>
  <th>Solution</th>
 </tr>
- 
+
 <tr>
   <td>Unable to find image '...' locally <br> ...</td>
   <td>Ensure that:<ul><li>the image name is spelled correctly</li></ul></td>
@@ -198,26 +198,22 @@ Below is a list of the most common problems that prevent containers from being l
 
 <tr>
   <td>docker: Error: image ... not found.</td>
-  <td> * the image is available in the Docker server cache and listed in the output of `docker images`<br><br>If the image is missing from the cache, either [build it](https://docs.google.com/document/d/10M3_0XjrdiMrUSSWjxFXaDz0uXiRIv6mhTZbY9zxoVI/edit) or ​[pull it from the external registry](https://docs.google.com/document/d/14VMEjD9fZHwbQgyAsx8uHA4blHLuYpajESFvloUFcj4/edit)​.</td>
+  <td> * the image is available in the Docker server cache and listed in the output of `docker images`<br><br>If the image is missing from the cache, either <a href="../build-docker-image/">build it</a> or <a href="../manage-share-images/">pull it from the external registry</a>.</td>
 </tr>
- 
 
 <tr>
-  <td>docker: Error response from daemon:<br>Conflict. The name "/rails­-devise-­app" is<br>already in use by container<br>77429eb72d02970a7122cd4574a48b280b42
-62d7652f52590ef2f316c7f3a349. You have<br> 
-to remove (or rename) that container to be 
-able to reuse that name..</td>
+  <td><code>docker: Error response from daemon:<br>Conflict. The name "/rails­-devise-­app" is<br>already in use by container<br>77429eb72d02970a7122cd4574a48b280b42
+62d7652f52590ef2f316c7f3a349. You have<br> to remove (or rename) that container to be able to reuse that name..</code></td>
 
   <td>A container with the same name has already been launched. It may have already stopped, but it is still associated with the name.<br><br>If you are sure that the previous container should be deleted, remove it with the following commands:<code>
 docker stop rails-­devise­-app && docker rm -­v rails­-devise-­app</code></td>
-
+</tr>
 <tr>
-
   <td>docker: Error response from daemon: failed<br>to create endpoint rails-­devise-­app on<br>network bridge: Bind for 0.0.0.0:3001 failed:<br>port is already allocated.</td>
-  <td>Another process occupies the desired server port. Consider binding to another port.<br><br>If the port is handled by a  previously launched container that is no longer needed, stop it with the command `docker stop <container
-name or ID>`.</td>
+  <td>Another process occupies the desired server port. Consider binding to another port.<br><br>If the port is handled by a previously launched container that is no longer needed, stop it with the command <code>docker stop &lt;container name or ID&gt;</code>.</td>
 </tr>
 </table>
+
 
 If none of these errors have occurred, the container was probably launched successfully. However, there's still a chance that the application is not operating as expected. The Rails server inside of a container can crash immediately after starting (resulting in a stopped container). It can even continue to run while generating exceptions.
 
@@ -265,8 +261,7 @@ If the Rails process crashes at start-up, manually troubleshooting with an inter
 
 **********************************
 ```bash
-$ ​
-docker run ­­--rm -it --­­link rails-devise-­db:dbserver rails-­devise /bin/bash
+$ ​docker run ­­--rm -it --­­link rails-devise-­db:dbserver rails-­devise /bin/bash
 ```
 ***********************************
 
@@ -291,34 +286,27 @@ Below is a short list of the most useful parameterization options available when
   <th>Command­ line parameter</th>
   <th>Remarks</th>
 </tr>
-
-
 <tr>
   <td>Mounting external directory or file into container</td>
-  <td>­-v \<local path>:\<container 
-path></td>
+  <td><code>­-v \&lt;local path&gt;:\&lt;container path&gt;</code></td>
   <td>Both paths should be absolute</td>
 </tr>
-
-
 <tr>
   <td>filesystem</td>
   <td></td><td></td>
 </tr>
-
-
 <tr>
   <td>Setting up run-time environment variables</td>
 
   <td>­<code>-e VARIABLE=value</code><br><em>or</em><br><code>-­e VARIABLE</code><br><em>or</em><br><code>--env-­file FILENAME</code></td>
 
-  <td>Check ​[the documentation](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables-e-env-env-file)</td>
+  <td>Check ​<a href="https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables-e-env-env-file">the documentation</a></td>
 </tr>
 
 <tr>
   <td>Connect to another running container</td>
 
-  <td><code>--­­link \<container_name>:\<dns_alias></code></td>
+  <td><code>--­­link \&lt;container_name&gt;:\&lt;dns_alias&gt;</code></td>
 
   <td></td>
 </tr>
@@ -326,18 +314,17 @@ path></td>
 <tr> 
   <td>Connect to server network stack instead of Docker network bridge</td>
  
-  <td><code>­­--net=host</code></td>  
+  <td><code>­­--net=host</code></td>
 
- <td>Use with caution; this option can be useful as a fast solution to some networking problems, but it can also cause confusion.<br><br>[Check the documentation](https://docs.docker.com/engine/reference/run/#network-settings) ​for more details.</td>
+ <td>Use with caution; this option can be useful as a fast solution to some networking problems, but it can also cause confusion.<br><br><a href="https://docs.docker.com/engine/reference/run/#network-settings">Check the documentation</a> ​for more details.</td>
 </tr>
 
 <tr>
-  <td>Automatically launch container when the server starts</td>  
+  <td>Automatically launch container when the server starts</td>
 
-  <td>­­<code>--restart=always</code></td>  
+  <td>­­<code>--restart=always</code></td>
 
-  <td>[Check the documentation](https://docs.docker.com/engine/reference/run/#restart-policies-restart).</td>
-
+  <td><a href="https://docs.docker.com/engine/reference/run/#restart-policies-restart">Check the documentation</a>.</td>
 </tr>
 </table>
 
