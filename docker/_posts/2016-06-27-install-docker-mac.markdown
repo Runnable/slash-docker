@@ -7,8 +7,7 @@ step: 3
 excerpt: Install the Docker Toolkit on Mac.
 ---
 
-Docker Toolbox
----------------
+## Docker Toolbox
 
 Install Docker with Docker Toolbox, which includes the following tools:
 
@@ -19,12 +18,11 @@ Install Docker with Docker Toolbox, which includes the following tools:
 * a shell pre-configured for Docker's command-line environment
 * Oracle's VM VirtualBox
 
-###Why the VM?
+### Why the VM?
 
 Docker only runs on a Linux OS; you cannot run Docker natively on MacOS. You use `docker-machine` to create and attach to a Linux VM on MacOS, which hosts your Docker containers. The VM runs a lightweight Linux distribution custom for running Docker, and boots in approximately 5 seconds.
 
-Before You Install
-------------------
+## Before You Install
 
 Take a few minutes to understand some key concepts before you install Docker.
 
@@ -32,14 +30,12 @@ On an "out-of-the-box" Linux installation, the Docker client, daemeon, and all c
 
 On MacOS, Docker's daemon runs inside a Linux VM. The MacOS Docker client talks to the Docker host VM, and your containers run on the host. You *cannot* use localhost in this setting; instead, the container's ports map to the VM's ports. If your VM has the IP address 10.0.0.5, access the ports like `10.0.0.5:8000` or `10.0.0.5:8376`.
 
-Requirements
-------------
+## Requirements
 
 OS X "Mountain Lion" 10.8 or later (or MacOS).
 Click on the Apple pull-down menu icon in the top left corner of your screen and select "About This Mac." The text tells you which version (and the version's "nickname," like "Mountain Lion" or "El Capitan"). 
 
-Installation
-------------
+## Installation
 
 1. If you already run VirtualBox, make sure you shut it down *before* installing Docker Toolbox.
 2. [Download the appropriate Toolbox](https://www.docker.com/products/docker-toolbox) for your OS.
@@ -54,10 +50,9 @@ Installation
 
 That's it!
 
-Common Pitfalls
----------------
+## Common Pitfalls
 
-###Operating System
+### Operating System
 
 Unfortunately, if you do not run "Mountain Lion" or later, you cannot run Docker. You can upgrade your OS to the most recent viable version, provided your system supports it. 
 

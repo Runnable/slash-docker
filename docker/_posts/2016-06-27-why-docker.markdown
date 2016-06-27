@@ -11,23 +11,21 @@ Docker enables you to rapidly deploy server environments in "containers". You mi
 
 While Docker utilizes the virtualization technology in the Linux kernel, it does _not_ create Virtual Machines (in fact, if you run Docker on MacOS or Windows, you'll have to run it on a Virtual Machine...but more on that later).
 
-Virtual Machines vs. Containers
--------------------------------
+##Virtual Machines vs. Containers
 
-###What is a Virtual Machine (VM)?
+### What is a Virtual Machine (VM)?
 
 VMware releases Workstation in 1999 and almost immediately changes the entire technology industry, starting with processor architecture. Central to cloud computing, services like Amazon's Web Service (AWS), Digital Ocean, and Google Cloud do not exist without the Virtual Machine.
 
 Virtual Machines exist as complete standalone environments (quite literally "virtual" hardware). A VM utilizes its own BIOS, software network adapters (in turn these use the host's adapters), disk storage (a file on the host machine), a CPU, RAM, and a complete OS (almost always Linux or Windows). During setup, you determine how many of the host's cores and how much of the host's memory you want the VM to access. When the VM boots, it goes through the entire boot process (just like any other hardware device). Often, VM's boot faster than comparable hardware.
 
-###What is a Container?
+### What is a Container?
 
 Instead of abstracting the hardware, containers abstract the OS. Each container technology features an explicit purpose, limiting the scope of the technology. Docker's runs Linux, whereas Citrix's XenApp runs Windows Server. Every container shares the _exact same_ OS, reducing the overhead to the host system. Recall each VM runs its own copy of the OS, adding overhead for each instance.
 
 _Containers exist to run a **single** application._
 
-Docker
-------
+## Docker
 
 Like XenApp, every Docker container targets a specific application. Docker also incorporates container management solutions for easy scripting and automation (especially important when considering containers' focus on reducing execution time). A Docker container focuses on only one application at a time, and the environment is chroot'ed to prevent access outside the container's directory tree.
 
@@ -35,7 +33,7 @@ Like XenApp, every Docker container targets a specific application. Docker also 
 
 Ali Hussain of Flux7 provides the following [performance comparison](http://www.slideshare.net/Flux7Labs/performance-of-docker-vs-vms) between Docker and VM's:
 
-####Average Start/Stop Times
+#### Average Start/Stop Times
 
 |     Technology    | Start Time | Stop Time |
 |-------------------|------------|-----------|
@@ -45,10 +43,9 @@ Ali Hussain of Flux7 provides the following [performance comparison](http://www.
 
 At first sight, we might tend to think we should *always* use Docker; more importantly, we should realize that we cannot fairly compare Containers and Virtual Machines; they provide separate solutions to similar problems.
 
-Common Pitfalls
----------------
+## Common Pitfalls
 
-###Security
+### Security
 
 The virtualization community continues the discussion over security differences between VM's and Containers. VMs offer hardware isolation. Containers share resources and libraries. If a VM goes down, it goes down alone; if a container goes down, it's possible it could take the entire stack with it.
 
@@ -62,7 +59,7 @@ Three easy fixes (we go into these in more detail later):
  2. Run your services as a non-root user whenever you can.
  3. Treat root inside the container as if it runs *outside* the container.
 
-###Management
+### Management
 
 On the bright side, if you make the wrong choices on a Docker container, you waste much less time than making those choices on a Virtual Machine. However, you *still waste time*. You still need to know your application's requirements, and make sure your versions match accordingly. As a developer, this potentially means you have to write your own configuration files (fortunately, Docker makes this easy).
 
@@ -70,12 +67,11 @@ In modern (object-oriented) programming, we "separate concerns" to keep the data
 
 Of course, this can spiral out of control. Our challenge remains abstracting sufficiently for our use case, but not so much that we spend more time managing containers than we do writing code.
 
-How to Choose
--------------
+## How to Choose
 
 VMware engineer Scott S. Lowe recommends you look at the scope of your work.
 
-###Self-Assessment
+### Self-Assessment
 
 1. Do you need to run multiple copies of a single application (e.g, PostgreSQL, MySQL)? *If yes, choose Docker!*
 2. Are you OK with using one OS version for your application? *If yes, choose Docker!*
