@@ -1,12 +1,12 @@
 ---
-title: Run a Rails App in a Container
+title: Run your Rails application
 step: 6
 tags:
 - docker
 - rails
 - ruby
 - processes
-excerpt: Assign names and tags to images, and distribute across hosts using a registry.
+excerpt: Run your dockerized Rails application via command-line and using Compose.
 ---
 
 At first glance, running an application in a Docker container seems trivial­&mdash;you only need to execute `docker run <imagename>`. This is generally true for stateless command­ line apps, but getting web applications up and running requires solutions to problems that aren't obvious:
