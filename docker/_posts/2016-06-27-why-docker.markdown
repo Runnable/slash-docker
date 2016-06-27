@@ -22,7 +22,7 @@ Virtual Machines exist as complete standalone environments (quite literally "vir
 
 ###What is a Container?
 
-Instead of abstracting the hardware, containers abstract the OS. Each container technology features an explicit purpose, limiting the scope of the technology. Docker's runs Linux, whereas Citrix's XenApp runs Windows Server. Every container shares the _exact same_ OS, reducing the overhead to the host system. Recall each VM runs its own copy of the OS, adding overhead for each instance. 
+Instead of abstracting the hardware, containers abstract the OS. Each container technology features an explicit purpose, limiting the scope of the technology. Docker's runs Linux, whereas Citrix's XenApp runs Windows Server. Every container shares the _exact same_ OS, reducing the overhead to the host system. Recall each VM runs its own copy of the OS, adding overhead for each instance.
 
 _Containers exist to run a **single** application._
 
