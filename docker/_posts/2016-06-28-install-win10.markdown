@@ -1,0 +1,84 @@
+---
+layout: page
+title: Install Docker on Windows 10
+permalink: /install-win10/
+step: 4
+tags:
+- docker
+- win10
+- install
+excerpt: Requirements and things to know before installing Docker for Win 10.
+---
+
+## Have you previously installed Docker Toolbox, Docker Machine, or VirtualBox?
+
+Docker for Windows now requires Microsoft's Hyper-V. Once enabled, VirtualBox will no longer be able to run virtual machines (your VM images will still remain). You can still use `docker-machine` to manage remote hosts.
+
+You have the option to import the `default` VM after installing Docker for Windows from the Settings menu in the System Tray.
+
+Docker for Windows enables Hyper-V if necessary; this requires a reboot.
+
+## Requirements
+
+Docker for Windows runs on 64-bit Windows 10 Pro, Enterprise, and Education; 1511 November update, Build 10586 or later. Docker plans to support more versions of Windows 10 in the future.
+
+## Installation
+
+1. [Download Docker](https://download.docker.com/win/beta/InstallDocker.msi).
+2. Double-click `InstallDocker.msi` to run the installer.
+3. Follow the Install Wizard: accept the license, authorize the installer, and proceed with the install.
+4. Click Finish to launch Docker.
+5. Docker starts automatically.
+6. Docker loads a "Welcome" window giving you tips and access to the Docker documentation.
+
+That's it!
+
+## Verification
+
+The whale in the status bar indicates a running (and accessible via terminal) Docker instance.
+
+Open PowerShell or your favorite Windows terminal (e.g., Command prompt) and enter `docker run hello-world`.
+
+Windows prompts you for access every time Docker starts, allowing Docker to manage the Hyper-V VM's. The *first time* Docker starts, you may need to provide the token from the Beta invitation email. When initialization completes, select **About Docker** from the notification area and verify you have the latest version.
+
+From PowerShell (or your favorite Windows terminal), check the versions of `docker`, `docker-compose`, and verify your installation:
+
+```bash
+PS C:\Users\username> docker --version
+PS C:\Users\username> docker-compose --version
+PS C:\Users\username> docker-machine --version
+```
+
+Before you stop, let's test a Dockerized webserver; from PowerShell or cmd.exe, run:
+
+```bash
+docker run -d -p 80:80 --name webserver nginx
+```
+
+If your host does not already have it, Docker downloads `nginx` from Docker Hub and starts it. As soon as the download completes, point your web browser to [http://docker](http://docker) to view the start page. You should see:
+
+********
+
+### Welcome to nginx!
+
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to [nginx.org](http://nginx.org). 
+Commercial support is available at [nginx.com](http://nginx.com). 
+
+*Thank you for using nginx.*
+
+********
+
+
+## Common Pitfalls
+
+### CPU
+
+If your CPU does not support virtualization, or if you do not have a 64-bit CPU, you cannot run Docker locally.
+
+### Operating System
+
+If you do not run a 64-bit version of Windows Windows 10 Pro, Enterprise, or Education; 1511 November update, Build 10586 or later, you cannot run Docker for Windows.
+
+You can install Docker Toolbox if you have a 64-bit version of Windows 7 or later. Alternately, you do have the option to [upgrade](https://www.microsoft.com/en-us/windows/windows-10-upgrade).
