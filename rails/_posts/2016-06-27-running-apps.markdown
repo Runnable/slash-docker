@@ -1,11 +1,10 @@
 ---
-title: Run your Rails application
+title: Run your Rails Application
 step: 6
 tags:
 - docker
 - rails
 - ruby
-- processes
 excerpt: Run your dockerized Rails application via command-line and using Compose.
 ---
 
