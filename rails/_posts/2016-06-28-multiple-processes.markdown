@@ -27,8 +27,7 @@ So, refactoring application architecture (placing appropriate components into se
 
 Let's go through various use cases, from system services to background workers, and consider the available options.
 
-Services
-=========================
+# Services
 
 By default, the Rails server in an application container runs as a foreground process that is directly controlled by Docker.
 
@@ -50,16 +49,14 @@ Below is an overview of the available alternatives for the most commonly used sy
 
 <table>
   <thead>
-    <tr>
-      <th><b>Service</b></th>
-      <th><b>Purpose</b></th>
-      <th><b>Recommended approach</b></th>
-    <tr>
+      <th>Service</th>
+      <th>Purpose</th>
+      <th>Recommended approach</th>
   </thead>
   <tbody>
+  <tr>
     <td>SSHd</td>
-    <td>Troubleshooting, configuration,
-updates, deployments, secure data transfer, running background tasks on demand</td>
+    <td>Troubleshooting, configuration,updates, deployments, secure data transfer, running background tasks on demand</td>
     <td><span style="text-decoration:underline;">Troubleshooting:</span> in development environments, use <code>docker exec</code> to run an interactive shell. For production, consider taking a snapshot of a problematic container and running its copy in a development environment.<br><br><span style="text-decoration:underline;">Configuration:</span> perform as much as possible during image build and tune remaining components with container launch parameters.<br><br><span style="text-decoration:underline;">Upgrade/deployment:</span> build an upgraded image and launch new containers from it.<br><br><span style="text-decoration:underline;">Data transfer:</span> use shared data storage or custom HTTP APIs.<br><br><span style="text-decoration:underline;">Tasks on demand:</span> use one­-off containers or provide a custom HTTP API for task invocation.</td>
   </tr>
   <tr>
@@ -69,33 +66,26 @@ updates, deployments, secure data transfer, running background tasks on demand</
   </tr>
   <tr>
     <td>Upstart</td>
-    <td>Starting and supervising system
-services</td>
+    <td>Starting and supervising system services</td>
     <td>Instead of managing processes inside a container, use Docker (and its <a href="https://docs.docker.com/engine/reference/run/#restart-policies-restart" target="_blank">restart ​policies</a>) to start, stop, and restart the containers themselves.</td>
   </tr>
   <tr>
     <td>Crontab</td>
     <td>Running scheduled background tasks</td>
-    <td>Use an external scheduler to
-execute tasks in one­-off Docker containers. </td>
+    <td>Use an external scheduler to execute tasks in one­-off Docker containers. </td>
   </tr>
   <tr>
     <td>Common purpose services</td>
     <td>Databases, email services, etc.</td>
-    <td>Externalize services (by
-running them in separate Docker containers, for example). </td>
+    <td>Externalize services (by running them in separate Docker containers, for example). </td>
   </tr>
   <tr>
     <td>Local key-value storage (Redis, Memcached)</td>
-    <td>Caching temporary
-data in-memory</td>
-    <td>The feasibility of externalization depends on performance.<br><br>Consider externalization to be the
-default solution; run
-services inside an application container
-as a last resort.</td>
+    <td>Caching temporary data in-memory</td>
+    <td>The feasibility of externalization depends on performance.<br><br>Consider externalization to be the default solution; run services inside an application container as a last resort.</td>
   </tr>
   <tr>
-      <td>Data collection agents</td>
+    <td>Data collection agents</td>
     <td>Solutions that rely on client-side daemons for processing logs and monitoring infrastructure, which collect data locally before delivering it to upstream servers.</td>
     <td>Consider pushing data to external storage (such as message queues or shared filesystems) as soon as it is available to bypass accumulation by local collectors.</td>
   </tr>
@@ -137,28 +127,22 @@ The tactics described below bypass these problems without compromising required 
 
 <table>
   <thead>
-    <tr>
       <th>Action</th>
       <th>Recommended approach</th>
-    </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Checkout git code, install or
-upgrade system packages.</td>
-    <td>Perform these steps during image build. Rebuild images and launch new containers when a software upgrade is required.</td>
-  </tr>
-  <tr>
-    <td>Global initialization (such as
-database provisioning with <code>rake db:migrate</code>)</td>
-    <td>Use an external database (for local development, this could be a dedicated container), and perform explicit provisioning by running rake tasks in a separate, one-off
-Docker container.</td>
-  </tr>
-  <tr>
-    <td>Instance-­specific initialization
-(such as fetching data from external sources before the application starts).</td>
-    <td>This is acceptable to do inside the container.</td>
-  </tr>
+    <tr>
+      <td>Checkout git code, install or upgrade system packages.</td>
+      <td>Perform these steps during image build. Rebuild images and launch new containers when a software upgrade is required.</td>
+    </tr>
+    <tr>
+      <td>Global initialization (such as database provisioning with <code>rake db:migrate</code>)</td>
+      <td>Use an external database (for local development, this could be a dedicated container), and perform explicit provisioning by running rake tasks in a separate, one-off Docker container.</td>
+    </tr>
+    <tr>
+      <td>Instance-­specific initialization (such as fetching data from external sources before the application starts).</td>
+      <td>This is acceptable to do inside the container.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -170,27 +154,25 @@ To initialize before Rails starts, a custom bootstrap script must be created and
 
 <table>
   <thead>
-  <tr>
     <th>Action</th>
     <th>Recommended approach</th>
-  </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>Sending out logs and health metrics</td>
-    <td>Instead of buffering data on an internal filesystem, consider pushing each piece of data to external persistent storage as soon as it is available.<br><br>The external storage may be a shared filesystem or a message queue.<br><br>Performing these operations in a separate thread that utilizes non­-blocking I/O is recommended.</td>
-  </tr>
-  <tr>
-    <td>Global tasks (such as recalculation of database aggregates or data imports)</td>
-    <td>Implement the appropriate logic as a rake task and use an external scheduler to run rake tasks in separate one-­off containers.<br><br>Using gems such as <strong><a href="https://github.com/tomykaira/clockwork" target="_blank">clockwork</a></strong> is possible, but the scheduler process should run in its own container.</td>
-  </tr>
-  <tr>
-    <td>Instance-­specific tasks (such as re­-fetching data from external sources)</td>
-    <td>Consider launching new containers instead of updating the state of existing containers.<br><br>Options are available for the rare cases in which this solution is unacceptable:
-    <ol>
-     <li>Trigger task execution with external schedulers by sending custom signals to the application container, either through the HTTP API or by invoking rake​ with <code>docker exec</code>.</li>
-     <li>Implement a scheduler inside the Rails application (using <a href="https://github.com/eventmachine/eventmachine" target="_blank">EventMachine</a>​, for example) and initialize it when Rails starts.</li>
-     <li>Run a scheduler process with multiprocessing support inside the application container.</li></ol></td>
+    <tr>
+      <td>Sending out logs and health metrics</td>
+      <td>Instead of buffering data on an internal filesystem, consider pushing each piece of data to external persistent storage as soon as it is available.<br><br>The external storage may be a shared filesystem or a message queue.<br><br>Performing these operations in a separate thread that utilizes non­-blocking I/O is recommended.</td>
+    </tr>
+    <tr>
+      <td>Global tasks (such as recalculation of database aggregates or data imports)</td>
+      <td>Implement the appropriate logic as a rake task and use an external scheduler to run rake tasks in separate one-­off containers.<br><br>Using gems such as <strong><a href="https://github.com/tomykaira/clockwork" target="_blank">clockwork</a></strong> is possible, but the scheduler process should run in its own container.</td>
+    </tr>
+    <tr>
+      <td>Instance-­specific tasks (such as re­-fetching data from external sources)</td>
+      <td>Consider launching new containers instead of updating the state of existing containers.<br><br>Options are available for the rare cases in which this solution is unacceptable:
+      <ol>
+      <li>Trigger task execution with external schedulers by sending custom signals to the application container, either through the HTTP API or by invoking rake​ with <code>docker exec</code>.</li>
+      <li>Implement a scheduler inside the Rails application (using <a href="https://github.com/eventmachine/eventmachine" target="_blank">EventMachine</a>​, for example) and initialize it when Rails starts.</li>
+      <li>Run a scheduler process with multiprocessing support inside the application container.</li></ol></td>
     </tr>
   </tbody>
 </table>
@@ -254,8 +236,7 @@ CMD [ "/start.sh" ]
 
 This is sufficient to add custom steps before the application starts.
 
-Phusion base image
-------------------
+## Phusion base image
 
 If you need to use system services (such as *cron*) inside a container or run multiple persistent processes, it makes sense to use a base image that is compatible with multiprocesses. The Docker Hub image [phusion/passenger­ruby22](https://hub.docker.com/r/phusion/passenger-ruby22/) is a good candidate because it includes standard system services and a configurable service supervisor (*runit*) along with Ruby.
 
@@ -284,9 +265,7 @@ Note that the instruction from the base image is used because the CMD instructio
 For more customizations, read ​the [image documentation](https://github.com/phusion/passenger-docker/blob/master/README.md).
 The [*runit* site](http://smarden.org/runit/) describes managing services with *runit*.
 
-Summary
-===========
-
+# Summary
 
 1. Single-­process-­per-­container is a recommended design pattern for Docker applications.
 2. Consider isolating every logical component (daemon, worker, or shared storage) in a separate type of container. Always try to externalize databases, message queues, and schedulers.
