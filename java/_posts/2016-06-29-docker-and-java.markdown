@@ -6,10 +6,10 @@ tags:
 - docker
 - java
 - advantages
-excerpt: Why use Docker when developing Java applications.
+excerpt: Docker for developing and deploying Java applications.
 ---
 
-Docker containers make it quicker and easier to develop, test, and deploy applications within multiple environments. Docker containers provide the flexibility and the isolation you need to create development and test environments to match the many production environments your fledgling application is likely to experience.
+Docker containers make it quicker and easier to develop, test, and deploy applications within multiple environments. Docker containers provide the flexibility and the isolation you need to create development and test environments to match the many production environments your application is likely to accumulate over its lifetime.
 
 * **Development:**
 Setting up an individual development environment is time consuming, particularly if multiple environments and toolsets are needed across development teams or geographies.  
@@ -32,9 +32,9 @@ By packaging your application in a container with all of its configurations and 
 
 * Docker makes it much easier to provide safety and/or isolation when troubleshooting your new applications - i.e., with rapid builds and incremental changes, you can reduce the number of variables that change prior to an application build.
 
-* While using Docker, your specific code base will have everything it needs inside a custom Docker container to compile and run properly. You can use multiple versions of any language without having to resort to all of the "hackarounds" for your language (java8, java7, python, ruby, node). If you want to compile your Java program with Java 1.7 instead of the 1.8 that is installed on your machine, compile it in a Java 1.7 Docker container. Similarly, if you want to run your Java application, run it inside the appropriate Java Docker container.
+* While using Docker, your specific code base will have everything it needs inside a custom Docker container to compile and run properly. You can use multiple versions of any language without having to resort to all of the "hackarounds" for your language (Java8, Java7, Python, Ruby, Node.js). If you want to compile your Java program with Java 1.7 instead of the 1.8 that is installed on your machine, compile it in a Java 1.7 Docker container. Similarly, if you want to run your Java application, run it inside the appropriate Java Docker container.
 
-* While you use docker for development, you can still use any of your favorite editor/IDE tools.
+* While using Docker for development, you can still use your favorite editor/IDE tools.
 
 # Examples
 Provided below are several Java-based examples that illustrate the concepts discussed above. You can extrapolate these ideas to other development or run-time environments.
@@ -116,11 +116,11 @@ $ docker run -it --rm -v "$PWD":/app -w /app maven:3.3-jdk-8 java -cp target/my-
 Hello World!
 ```
 
-For the above process, you are using the official Maven image from the Docker Hub repository. This Maven image uses the tag “maven:3.3-jdk-8” to indicate that it is comprised of Maven 3.3 and Java 8.  
+The above process uses the official Maven image from the Docker Hub repository. This Maven image uses the tag “maven:3.3-jdk-8” to indicate that it is comprised of Maven 3.3 and Java 8.
 
-If you wanted to use Maven 3.2 (instead of 3.3), you simply change the tag of the image to 3.2.  
+If you wanted to use Maven 3.2 (instead of 3.3), simply change the tag of the image to 3.2.
 
-You can see the list of all available tags from the Docker Hub repository at [https://hub.docker.com/r/library/maven/](https://hub.docker.com/r/library/maven/)     
+You can see the list of all available tags from the Docker Hub repository at [https://hub.docker.com/r/library/maven/](https://hub.docker.com/r/library/maven/)
 
 
 
@@ -148,4 +148,4 @@ $ docker run -it --rm -v "$PWD":/app -w /app stakater/gradle gradle run
 
 # Conclusion
 
-You can compile and run three different types of Java applications without the need to install special tools or environment components. As you can see, you can run any Java application using Docker without installing JDK, Maven, or Gradle, without worrying about version conflicts or other complications associated with a non-containerized development, run-time, or test environment.
+You can compile and run three different types of Java applications without the need to install special tools or environment components. Any Java application can run with Docker without installing JDK, Maven, or Gradle, and without worrying about version conflicts or other complications associated with a non-containerized development, run-time, or test environment.
