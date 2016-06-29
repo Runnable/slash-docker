@@ -49,55 +49,59 @@ Below is an overview of the available alternatives for the most commonly used sy
 
 <table>
   <thead>
+    <tr>
       <th>Service</th>
       <th>Purpose</th>
       <th>Recommended approach</th>
+    </tr>
   </thead>
   <tbody>
-  <tr>
-    <td>SSHd</td>
-    <td>Troubleshooting, configuration,updates, deployments, secure data transfer, running background tasks on demand</td>
-    <td><span style="text-decoration:underline;">Troubleshooting:</span> in development environments, use <code>docker exec</code> to run an interactive shell. For production, consider taking a snapshot of a problematic container and running its copy in a development environment.<br><br><span style="text-decoration:underline;">Configuration:</span> perform as much as possible during image build and tune remaining components with container launch parameters.<br><br><span style="text-decoration:underline;">Upgrade/deployment:</span> build an upgraded image and launch new containers from it.<br><br><span style="text-decoration:underline;">Data transfer:</span> use shared data storage or custom HTTP APIs.<br><br><span style="text-decoration:underline;">Tasks on demand:</span> use one­-off containers or provide a custom HTTP API for task invocation.</td>
-  </tr>
-  <tr>
-    <td>Nginx</td>
-    <td>Traffic management, SSL termination, serving static assets, custom reverse proxy</td>
-    <td>Docker, or a higher-­level infrastructure (for example, <a href="http://kubernetes.io/docs/admin/networking/" target="_blank">kubernetes</a>) can manage general traffic.<br><br>Static assets may be better off served from a CDN (or, in a development environment, a dedicated Nginx container).<br><br>Otherwise, consider running separate <a href="https://hub.docker.com/_/nginx/" target="_blank">Nginx containers</a> that act as reverse proxies in front of application containers.</td>
-  </tr>
-  <tr>
-    <td>Upstart</td>
-    <td>Starting and supervising system services</td>
-    <td>Instead of managing processes inside a container, use Docker (and its <a href="https://docs.docker.com/engine/reference/run/#restart-policies-restart" target="_blank">restart ​policies</a>) to start, stop, and restart the containers themselves.</td>
-  </tr>
-  <tr>
-    <td>Crontab</td>
-    <td>Running scheduled background tasks</td>
-    <td>Use an external scheduler to execute tasks in one­-off Docker containers. </td>
-  </tr>
-  <tr>
-    <td>Common purpose services</td>
-    <td>Databases, email services, etc.</td>
-    <td>Externalize services (by running them in separate Docker containers, for example). </td>
-  </tr>
-  <tr>
-    <td>Local key-value storage (Redis, Memcached)</td>
-    <td>Caching temporary data in-memory</td>
-    <td>The feasibility of externalization depends on performance.<br><br>Consider externalization to be the default solution; run services inside an application container as a last resort.</td>
-  </tr>
-  <tr>
-    <td>Data collection agents</td>
-    <td>Solutions that rely on client-side daemons for processing logs and monitoring infrastructure, which collect data locally before delivering it to upstream servers.</td>
-    <td>Consider pushing data to external storage (such as message queues or shared filesystems) as soon as it is available to bypass accumulation by local collectors.</td>
-  </tr>
-  <tr>
-    <td>Configuration management agents (e.g., chef or puppet clients)</td>
-    <td>Solutions that rely on a client-­side daemon to regularly fetch configuration from a master server and apply it to the host.</td>
-    <td>Eliminate the need for configuration management inside a container:
-<ol>
- <li>Configure as much as possible during image build.</li>
- <li>Manage the rest through container launch parameters.</li>
- <li>Whenever a configuration must be updated, shut down the old container and run a new one.</li></ol></td>
-  </tr>
+    <tr>
+      <td>SSHd</td>
+      <td>Troubleshooting, configuration,updates, deployments, secure data transfer, running background tasks on demand</td>
+      <td><span style="text-decoration:underline;">Troubleshooting:</span> in development environments, use <code>docker exec</code> to run an interactive shell. For production, consider taking a snapshot of a problematic container and running its copy in a development environment.<br><br><span style="text-decoration:underline;">Configuration:</span> perform as much as possible during image build and tune remaining components with container launch parameters.<br><br><span style="text-decoration:underline;">Upgrade/deployment:</span> build an upgraded image and launch new containers from it.<br><br><span style="text-decoration:underline;">Data transfer:</span> use shared data storage or custom HTTP APIs.<br><br><span style="text-decoration:underline;">Tasks on demand:</span> use one­-off containers or provide a custom HTTP API for task invocation.</td>
+    </tr>
+    <tr>
+      <td>Nginx</td>
+      <td>Traffic management, SSL termination, serving static assets, custom reverse proxy</td>
+      <td>Docker, or a higher-­level infrastructure (for example, <a href="http://kubernetes.io/docs/admin/networking/" target="_blank">kubernetes</a>) can manage general traffic.<br><br>Static assets may be better off served from a CDN (or, in a development environment, a dedicated Nginx container).<br><br>Otherwise, consider running separate <a href="https://hub.docker.com/_/nginx/" target="_blank">Nginx containers</a> that act as reverse proxies in front of application containers.</td>
+    </tr>
+    <tr>
+      <td>Upstart</td>
+      <td>Starting and supervising system services</td>
+      <td>Instead of managing processes inside a container, use Docker (and its <a href="https://docs.docker.com/engine/reference/run/#restart-policies-restart" target="_blank">restart ​policies</a>) to start, stop, and restart the containers themselves.</td>
+    </tr>
+    <tr>
+      <td>Crontab</td>
+      <td>Running scheduled background tasks</td>
+      <td>Use an external scheduler to execute tasks in one­-off Docker containers. </td>
+    </tr>
+    <tr>
+      <td>Common purpose services</td>
+      <td>Databases, email services, etc.</td>
+      <td>Externalize services (by running them in separate Docker containers, for example). </td>
+    </tr>
+    <tr>
+      <td>Local key-value storage (Redis, Memcached)</td>
+      <td>Caching temporary data in-memory</td>
+      <td>The feasibility of externalization depends on performance.<br><br>Consider externalization to be the default solution; run services inside an application container as a last resort.</td>
+    </tr>
+    <tr>
+      <td>Data collection agents</td>
+      <td>Solutions that rely on client-side daemons for processing logs and monitoring infrastructure, which collect data locally before delivering it to upstream servers.</td>
+      <td>Consider pushing data to external storage (such as message queues or shared filesystems) as soon as it is available to bypass accumulation by local collectors.</td>
+    </tr>
+    <tr>
+      <td>Configuration management agents (e.g., chef or puppet clients)</td>
+      <td>Solutions that rely on a client-­side daemon to regularly fetch configuration from a master server and apply it to the host.</td>
+      <td>Eliminate the need for configuration management inside a container:
+        <ol>
+          <li>Configure as much as possible during image build.</li>
+          <li>Manage the rest through container launch parameters.</li>
+          <li>Whenever a configuration must be updated, shut down the old container and run a new one.</li>
+        </ol>
+      </td>
+    </tr>
   </tbody>
 </table>
 
@@ -127,8 +131,10 @@ The tactics described below bypass these problems without compromising required 
 
 <table>
   <thead>
+    <tr>
       <th>Action</th>
       <th>Recommended approach</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -154,8 +160,10 @@ To initialize before Rails starts, a custom bootstrap script must be created and
 
 <table>
   <thead>
-    <th>Action</th>
-    <th>Recommended approach</th>
+    <tr>
+      <th>Action</th>
+      <th>Recommended approach</th>
+    </tr>
   </thead>
   <tbody>
     <tr>
@@ -169,10 +177,12 @@ To initialize before Rails starts, a custom bootstrap script must be created and
     <tr>
       <td>Instance-­specific tasks (such as re­-fetching data from external sources)</td>
       <td>Consider launching new containers instead of updating the state of existing containers.<br><br>Options are available for the rare cases in which this solution is unacceptable:
-      <ol>
-      <li>Trigger task execution with external schedulers by sending custom signals to the application container, either through the HTTP API or by invoking rake​ with <code>docker exec</code>.</li>
-      <li>Implement a scheduler inside the Rails application (using <a href="https://github.com/eventmachine/eventmachine" target="_blank">EventMachine</a>​, for example) and initialize it when Rails starts.</li>
-      <li>Run a scheduler process with multiprocessing support inside the application container.</li></ol></td>
+        <ol>
+          <li>Trigger task execution with external schedulers by sending custom signals to the application container, either through the HTTP API or by invoking rake​ with <code>docker exec</code>.</li>
+          <li>Implement a scheduler inside the Rails application (using <a href="https://github.com/eventmachine/eventmachine" target="_blank">EventMachine</a>​, for example) and initialize it when Rails starts.</li>
+          <li>Run a scheduler process with multiprocessing support inside the application container.</li>
+        </ol>
+      </td>
     </tr>
   </tbody>
 </table>

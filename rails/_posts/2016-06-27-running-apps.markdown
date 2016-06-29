@@ -170,8 +170,8 @@ Below is a list of the most common problems that prevent containers from being l
 <table>
   <thead>
     <tr>
-     <th>Error message</th>
-     <th>Solution</th>
+      <th>Error message</th>
+      <th>Solution</th>
     </tr>
   </thead>
   <tbody>
@@ -179,16 +179,13 @@ Below is a list of the most common problems that prevent containers from being l
       <td>Unable to find image '...' locally <br> ...</td>
       <td>Ensure that:<ul><li>the image name is spelled correctly</li></ul></td>
     </tr>
-
     <tr>
       <td>docker: Error: image ... not found.</td>
       <td> * the image is available in the Docker server cache and listed in the output of `docker images`<br><br>If the image is missing from the cache, either <a href="../build-docker-image/">build it</a> or <a href="../manage-share-images/">pull it from the external registry</a>.</td>
     </tr>
-
     <tr>
       <td><code>docker: Error response from daemon:<br>Conflict. The name "/rails­-devise-­app" is<br>already in use by container<br>77429eb72d02970a7122cd4574a48b280b42
     62d7652f52590ef2f316c7f3a349. You have<br> to remove (or rename) that container to be able to reuse that name..</code></td>
-
       <td>A container with the same name has already been launched. It may have already stopped, but it is still associated with the name.<br><br>If you are sure that the previous container should be deleted, remove it with the following commands:<code>
     docker stop rails-­devise­-app && docker rm -­v rails­-devise-­app</code></td>
     </tr>
@@ -277,37 +274,27 @@ Below is a short list of the most useful parameterization options available when
     </tr>
     <tr>
       <td>filesystem</td>
-      <td></td><td></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Setting up run-time environment variables</td>
-
       <td>­<code>-e VARIABLE=value</code><br><em>or</em><br><code>-­e VARIABLE</code><br><em>or</em><br><code>--env-­file FILENAME</code></td>
-
       <td>Check ​<a href="https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables-e-env-env-file">the documentation</a></td>
     </tr>
-
     <tr>
       <td>Connect to another running container</td>
-
       <td><code>--­­link \&lt;container_name&gt;:\&lt;dns_alias&gt;</code></td>
-
       <td></td>
     </tr>
-
     <tr>
       <td>Connect to server network stack instead of Docker network bridge</td>
-
       <td><code>­­--net=host</code></td>
-
      <td>Use with caution; this option can be useful as a fast solution to some networking problems, but it can also cause confusion.<br><br><a href="https://docs.docker.com/engine/reference/run/#network-settings">Check the documentation</a> ​for more details.</td>
     </tr>
-
     <tr>
       <td>Automatically launch container when the server starts</td>
-
       <td>­­<code>--restart=always</code></td>
-
       <td><a href="https://docs.docker.com/engine/reference/run/#restart-policies-restart">Check the documentation</a>.</td>
     </tr>
   </tbody>
