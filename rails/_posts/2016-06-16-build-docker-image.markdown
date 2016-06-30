@@ -3,7 +3,6 @@ title: Building your Docker Image
 category: rails
 step: 3
 tags:
-- docker
 - rails
 - ruby
 excerpt: Tune your Dockerfile, build your image, and troubleshoot build errors.
