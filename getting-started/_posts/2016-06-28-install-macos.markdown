@@ -1,10 +1,11 @@
 ---
 layout: page
 title: Install Docker on macOS
+category: getting-started
 permalink: /install-macos/
-step: 3
+step: 2
 tags:
-- docker
+- getting-started
 - macOS
 - install
 excerpt: Requirements and things to know before installing Docker for Mac.
@@ -109,8 +110,8 @@ If you do not have the image locally, Docker pulls it from Docker Hub (more on t
 
 If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
 
-For online documentation and support please refer to [nginx.org](http://nginx.org). 
-Commercial support is available at [nginx.com](http://nginx.com). 
+For online documentation and support please refer to [nginx.org](http://nginx.org).
+Commercial support is available at [nginx.com](http://nginx.com).
 
 *Thank you for using nginx.*
 

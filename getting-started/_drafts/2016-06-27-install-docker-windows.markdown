@@ -2,7 +2,7 @@
 layout: page
 title: Install Docker on Windows
 permalink: /install-on-windows/
-category: docker
+category: getting-started
 step: 4
 excerpt: Install the Docker Toolkit on Windows.
 ---
@@ -26,7 +26,7 @@ Take a few minutes to understand some key concepts before you install Docker.
 
 On an "out-of-the-box" Linux installation, the Docker client, daemeon, and all containers run directly on localhost, meaning you can access ports on a Docker container using localhost addressing; something like `localhost:8080` or `0.0.0.0:8376`.
 
-On Windows, Docker's daemon runs inside a Linux VM. The Windows Docker client talks to the Docker host VM, and your containers run on the host. You *cannot* use localhost in this setting; instead, the container's ports map to the VM's ports. If your VM has the IP address 10.0.0.5, access the ports like `10.0.0.5:8000` or `10.0.0.5:8376`. 
+On Windows, Docker's daemon runs inside a Linux VM. The Windows Docker client talks to the Docker host VM, and your containers run on the host. You *cannot* use localhost in this setting; instead, the container's ports map to the VM's ports. If your VM has the IP address 10.0.0.5, access the ports like `10.0.0.5:8000` or `10.0.0.5:8376`.
 
 ## Requirements
 
@@ -52,7 +52,7 @@ Microsoft offers [automatic version detection](https://support.microsoft.com/en-
 
 ## Installing Without Docker Toolbox
 
-If you have Docker hosts running and do not wish to have the additional Docker Toolbox tools, you can use the *unofficial* Windows package manager, [Chocolatey](https://chocolatey.org). You still cannot run Docker containers on Windows hosts (instead, this allows you to manage your Linux machines running as Docker hosts). 
+If you have Docker hosts running and do not wish to have the additional Docker Toolbox tools, you can use the *unofficial* Windows package manager, [Chocolatey](https://chocolatey.org). You still cannot run Docker containers on Windows hosts (instead, this allows you to manage your Linux machines running as Docker hosts).
 
 Run `choco install docker` in PowerShell to install Docker, and `choco upgrade docker` to upgrade.
 

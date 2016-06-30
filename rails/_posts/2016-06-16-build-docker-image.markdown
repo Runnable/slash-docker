@@ -1,5 +1,6 @@
 ---
 title: Building your Docker Image
+category: rails
 step: 3
 tags:
 - docker
@@ -15,9 +16,9 @@ Basics
 
 The build process is initiated by a Docker client and happens on the Docker server. For those experimenting with Docker, there’s a chance both the Docker client and server are installed on the same machine.
 
-To generate an image, the Docker server needs to access the application’s Dockerfile, source code, and any other files that are referenced in the Dockerfile itself. This collection of files are typically organized in a directory, and is referred to as a ‘build context’. In most cases, the Docker CLI creates a build context by copying the directory structure from the path that’s specified via a parameter in the command line. 
+To generate an image, the Docker server needs to access the application’s Dockerfile, source code, and any other files that are referenced in the Dockerfile itself. This collection of files are typically organized in a directory, and is referred to as a ‘build context’. In most cases, the Docker CLI creates a build context by copying the directory structure from the path that’s specified via a parameter in the command line.
 
-Things to remember about the build context: 
+Things to remember about the build context:
 
 - Files inside the build context are the only files readable by the instructions specified in the Dockerfile.
 - Any symlinks that point to external locations will not be resolved.
@@ -76,7 +77,7 @@ $ docker build -t demo .
 …
 An error occurred while installing rugged (0.24.0), and Bundler cannot continue.
 Make sure that `gem install rugged -v '0.24.0'` succeeds before bundling.
-The command '/bin/sh -c bundle install' returned a non-zero code: 5 
+The command '/bin/sh -c bundle install' returned a non-zero code: 5
 ```
 
 It seems trivial at first glance -- all you’d need to do is run the `gem install` command outputted in the logs. Upon further thought, we quickly realize that the failed step happened in an intermediate, ephemeral container that has already finished running. So, where should we run `gem install`?
@@ -90,11 +91,11 @@ Removing intermediate container ...
 Step 9 : RUN bundle install
 ```
 
-Since these are images, we can use them to run a new container with an interactive shell session to debug the issue: 
+Since these are images, we can use them to run a new container with an interactive shell session to debug the issue:
 
 ```bash
 $ docker run --rm -it 167f08d237df /bin/bash
-# gem install rugged 
+# gem install rugged
 … troubleshooting and installation of missing packages...
 # exit
 ```

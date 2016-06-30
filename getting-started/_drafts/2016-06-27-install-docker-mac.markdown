@@ -2,7 +2,7 @@
 layout: page
 title: Install Docker on MacOS
 permalink: /install-on-mac/
-category: docker
+category: getting-started
 step: 3
 excerpt: Install the Docker Toolkit on Mac.
 ---
@@ -33,7 +33,7 @@ On MacOS, Docker's daemon runs inside a Linux VM. The MacOS Docker client talks 
 ## Requirements
 
 OS X "Mountain Lion" 10.8 or later (or MacOS).
-Click on the Apple pull-down menu icon in the top left corner of your screen and select "About This Mac." The text tells you which version (and the version's "nickname," like "Mountain Lion" or "El Capitan"). 
+Click on the Apple pull-down menu icon in the top left corner of your screen and select "About This Mac." The text tells you which version (and the version's "nickname," like "Mountain Lion" or "El Capitan").
 
 ## Installation
 
@@ -54,6 +54,6 @@ That's it!
 
 ### Operating System
 
-Unfortunately, if you do not run "Mountain Lion" or later, you cannot run Docker. You can upgrade your OS to the most recent viable version, provided your system supports it. 
+Unfortunately, if you do not run "Mountain Lion" or later, you cannot run Docker. You can upgrade your OS to the most recent viable version, provided your system supports it.
 
 Alternately, you may use Docker through a third-party offering like Amazon Web Services (AWS), Google Cloud Services, or Azure.

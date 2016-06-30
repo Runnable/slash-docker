@@ -1,5 +1,6 @@
 ---
 title: Manage and Share Images
+category: rails
 step: 5
 tags:
 - docker
@@ -261,7 +262,7 @@ $ docker login
 $ docker run -it username/demo
 Unable to find image 'username/demo:latest' locally
 latest: Pulling from username/demo
-51f5c6a04d83: Pull complete 
+51f5c6a04d83: Pull complete
 ...
 Digest: sha256:...
 Status: Downloaded newer image for username/demo:latest

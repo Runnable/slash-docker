@@ -1,10 +1,11 @@
 ---
 layout: page
 title: Why use Docker?
+category: getting-started
 permalink: /why/
 step: 2
 tags:
-- docker
+- getting-started
 - why
 - containers
 - virtual machines
