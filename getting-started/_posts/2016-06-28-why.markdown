@@ -36,7 +36,7 @@ Like XenApp, every Docker container targets a specific application. Docker also 
 
 **A word of caution:** Host machines do not have complete immunity from attacks originating from Docker containers; we work through hardening the container environment in a future article.
 
-Ali Hussain of Flux7, provides the following [performance comparison](http://www.slideshare.net/Flux7Labs/performance-of-docker-vs-vms) between Docker and VM's:
+Ali Hussain of Flux7 provides the following [performance comparison](http://www.slideshare.net/Flux7Labs/performance-of-docker-vs-vms) between Docker and VM's:
 
 ### Average Start/Stop Times
 
