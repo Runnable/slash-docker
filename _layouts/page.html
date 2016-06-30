@@ -10,6 +10,8 @@ layout: default
 
     {{ content }}
 
+    {{ page.step | plus: 1 }}
+
     {% if page.next %}
       {% include next.html %}
     {% endif %}
