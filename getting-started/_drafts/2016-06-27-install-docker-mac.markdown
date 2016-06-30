@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Install Docker on MacOS
-permalink: /install-on-mac/
 category: getting-started
 step: 3
 excerpt: Install the Docker Toolkit on Mac.

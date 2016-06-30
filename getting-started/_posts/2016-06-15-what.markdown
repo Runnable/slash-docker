@@ -2,7 +2,6 @@
 layout: page
 title: What’s Docker?
 category: getting-started
-permalink: /what/
 step: 1
 tags:
 - getting-started

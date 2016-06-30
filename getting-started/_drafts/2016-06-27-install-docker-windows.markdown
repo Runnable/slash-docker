@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Install Docker on Windows
-permalink: /install-on-windows/
 category: getting-started
 step: 4
 excerpt: Install the Docker Toolkit on Windows.

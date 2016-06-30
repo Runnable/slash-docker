@@ -2,7 +2,6 @@
 layout: page
 title: Install Docker on macOS
 category: getting-started
-permalink: /install-macos/
 step: 2
 tags:
 - getting-started
