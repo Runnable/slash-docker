@@ -2,7 +2,7 @@
 layout: page
 title: Install Docker on macOS
 category: getting-started
-step: 2
+step: 3
 tags:
 - getting-started
 - macOS

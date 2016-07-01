@@ -9,10 +9,10 @@ layout: default
     </header>
 
     {{ content }}
+    {% assign next_step = page.step | plus: 1  %}   
+    {% assign next_page = (site.posts | where: "category", page.category | where: "step", next_step ) %}
 
-    {{ page.step | plus: 1 }}
-
-    {% if page.next %}
+    {% if next_page.[0] %}
       {% include next.html %}
     {% endif %}
   </article>
