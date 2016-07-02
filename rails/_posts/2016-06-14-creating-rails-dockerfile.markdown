@@ -1,5 +1,6 @@
 ---
 title: Dockerize your Rails Application
+category: rails
 step: 2
 tags:
 - docker

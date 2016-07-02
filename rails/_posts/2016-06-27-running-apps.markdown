@@ -1,5 +1,6 @@
 ---
 title: Run your Rails Application
+category: rails
 step: 6
 tags:
 - docker

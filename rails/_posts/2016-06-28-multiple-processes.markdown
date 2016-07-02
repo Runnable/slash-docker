@@ -1,5 +1,6 @@
 ---
 title: Multiple Processes in a Container
+category: rails
 step: 7
 tags:
 - docker
