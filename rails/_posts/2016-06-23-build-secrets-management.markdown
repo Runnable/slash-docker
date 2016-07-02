@@ -1,5 +1,6 @@
 ---
 title: Managing Secrets During Builds
+category: rails
 step: 4
 tags:
 - docker
@@ -277,7 +278,7 @@ $ cat docker/bundle_installer.sh
 # CRED is the variable populated from build parameter
 function get_credentials() {
    if [ -n "$CRED" ]; then
-     # for demonstration purposes (this is not 100% secure), 
+     # for demonstration purposes (this is not 100% secure),
      # credentials are passed via build parameter as a plain text
     echo "$CRED"
 
@@ -325,7 +326,7 @@ How does this relate to production-level security requirements?
 
 
 The workarounds described above can be smoothly integrated with some of these techniques (namely, “FS squashing” and “Secrets server”), enhancing general secrets management with the following features:
- 
+
 
 * Lower-level logic of secrets processing (i.e., how secrets are read and used at each build step) is unified and can be shared across projects.
 
@@ -358,7 +359,7 @@ Until the Docker platform provides a native API for secrets management, there ar
 
 
 Regardless of the solution chosen, it always makes sense to follow best practices:
- 
+
 
 * Be aware of the risk of a private data leak posed by the Docker architecture
 

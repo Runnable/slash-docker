@@ -1,11 +1,11 @@
 ---
-title: Run your Rails application
+title: Run your Rails Application
+category: rails
 step: 6
 tags:
 - docker
 - rails
 - ruby
-- processes
 excerpt: Run your dockerized Rails application via command-line and using Compose.
 ---
 
@@ -30,10 +30,10 @@ The examples below use​
 [Creating a Rails Dockerfile](https://docs.google.com/document/d/1BWU4rqzpvquG6cboO4sFJRS8XxbBz9h0mH4dp8hAYcQ/edit).
 2. The Ruby version restriction is removed from the Gemfile to avoid the minor version conflict with the available base images.
 3. The gem "mysql2" is added to the Gemfile.
- 
+
 Dockerizing your own Rails application will work as long as you include a
 Dockerfile that allows the Docker image to be built correctly.
- 
+
 Database
 ---------
 Most Rails applications need a database. ​
@@ -49,12 +49,11 @@ private connection between the database and application containers, as well as a
 
 The command below runs a mySQL server in a Docker container. The server is explicitly named "rails-­devise­-db" for future reference, and it is configured without a password (this is not mandatory; it just simplifies the example configuration).
 
-****************************************
 ```bash
-$ docker run -­d -­P --­­name='rails­devise­db' ­-e 
-MYSQL_ALLOW_EMPTY_PASSWORD=true mysql 
+$ docker run -­d -­P --­­name='rails­devise­db' ­-e
+MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
 ```
-*****************************************
+
 Parameters explained:
 
 * `-d` ​: detach container from Docker CLI
@@ -64,15 +63,13 @@ Parameters explained:
   * (alternative) ​`-e MYSQL_ROOT_PASSWORD=mypassword`
 * `mysql` :­­ the name of the official image for mysql
 
-*************************************
-
-*Hint: To ensure that the container is running, check the output of `docker ps`. Otherwise, look for it among the stopped containers (`docker ps -­a`) and inspect the logs (`docker logs rails-­devise-­db`). Before launching a new container with the same name, remove previously stopped containers with `docker rm -­v rails-­devise-­db.`* 
+> Hint: To ensure that the container is running, check the output of `docker ps`. Otherwise, look for it among the stopped containers (`docker ps -­a`) and inspect the logs (`docker logs rails-­devise-­db`). Before launching a new container with the same name, remove previously stopped containers with `docker rm -­v rails-­devise-­db.`*
 
 Configuring *database.yml*
 =========================
 
 To establish a database connection, the application needs a valid ​
-*database.yml* configuration file. Mounting an external config file into the container is possible during launch, but this method will complicate the entire setup and decrease consistency. Including ​*database.yml* in the image makes sense. 
+*database.yml* configuration file. Mounting an external config file into the container is possible during launch, but this method will complicate the entire setup and decrease consistency. Including ​*database.yml* in the image makes sense.
 
 A few items to consider:
 
@@ -83,33 +80,28 @@ not always be sufficient.** ​For instance, local development and troubleshooti
 
 In the example *database.yml* below, the database server is expected to be available at the hostname 'dbserver' and to allow connections as root without a password. The default options can be overridden by the run-time environment variables.
 
-********************************
-*config/database.yml*
-
-*********************************
+*config/database.yml:*
 
 ```bash
 default: &default
   adapter: mysql2
-  encoding: utf8 
-  pool: 5 
-  timeout: 5000 
-  host: <%= ENV['DB_HOST'] || 'dbserver'   %>  
-  database: <%= ENV['DB_NAME'] || 'rails_devise' %> 
-  username: <%= ENV['DB_USER'] || 'root' %> 
-  password: <%= ENV['DB_PASSWORD'] || '' %> 
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  host: <%= ENV['DB_HOST'] || 'dbserver'   %>
+  database: <%= ENV['DB_NAME'] || 'rails_devise' %>
+  username: <%= ENV['DB_USER'] || 'root' %>
+  password: <%= ENV['DB_PASSWORD'] || '' %>
 
-development: 
-  <<: *default 
+development:
+  <<: *default
 
-test: 
-  <<: *default 
+test:
+  <<: *default
 
-production: 
-  <<: *default 
+production:
+  <<: *default
 ```
-
-************************************
 
 Let's rebuild the application image to include the updated config file. The image name "rails­-devise" will be used throughout the rest of this guide.
 
@@ -120,17 +112,13 @@ $ docker build ­-t rails-­devise .
 Database provisioning
 =====================
 
-If the application connects to databases that have already been provisioned, no extra actions are required. Otherwise (e.g., if you are using a fresh Docker container as a database server), a database should be created and migrations should be run on top of it. 
+If the application connects to databases that have already been provisioned, no extra actions are required. Otherwise (e.g., if you are using a fresh Docker container as a database server), a database should be created and migrations should be run on top of it.
 
-The command below invokes a set of rake commands inside a one-off Docker container launched from the application image. The rake process has access to the application codebase and configuration, ​**but it does not inherit environment variables from the Docker CLI.**  
-
-**************************************
+The command below invokes a set of rake commands inside a one-off Docker container launched from the application image. The rake process has access to the application codebase and configuration, ​**but it does not inherit environment variables from the Docker CLI.**
 
 ```bash
 docker run --­­rm --­­link rails-­devise-db:dbserver rails-­devise rake db:create db:migrate db:seed
 ```
-
-**************************************
 
 Parameters explained:
 
@@ -140,8 +128,6 @@ Parameters explained:
 * `rails­-devise` : name of the application image
 * `rake db:create db:migrate db:seed` : command to be executed
 
-*************************************
-
 Any necessary environment settings that haven't been defined in the Dockerfile should be [​passed explicitly](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables-e-env-env-file). The documentation describes several ways to do this, and choosing the most convenient and secure option is acceptable.
 
 Running the application
@@ -149,12 +135,11 @@ Running the application
 
 Now it's time to run the application.
 
-******************************************
 ```bash
 $ docker run ­--­name 'rails-­devise-­app' -­d -­p 3001:3000 ­--­link rails-­devise­-db:dbserver
 rails-­devise
 ```
-**********************************
+
 Parameters explained:
 
 * `--­name 'rails­-devise-­app'` : a unique name for the application container. This is a convenient option for local experiments with a single manually managed container. Explicit container names are unnecessary in scalable, automated environments.
@@ -166,10 +151,8 @@ Parameters explained:
 [in the documentation​](https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables-e-env-env-file).
 * `rails-­devise` : name of the application image
 
-*****************************************
-
 The command above is similar to the command for database provisioning. However, there are a few important differences:
- 
+
 1. The container is launched in detached mode. Its standard output is collected by the Docker server, not sent to the console.
 2. The container is explicitly given the unique name 'rails­-devise-­app' to simplify its manual management.
 3. Because no other command was provided after the image name, Docker executes the default command defined by the "CMD" instruction in the Dockerfile. In our case, this command launches the Rails server inside the container.
@@ -186,32 +169,32 @@ Below is a list of the most common problems that prevent containers from being l
 
 
 <table>
-<tr>
- <th>Error message</th>
- <th>Solution</th>
-</tr>
-
-<tr>
-  <td>Unable to find image '...' locally <br> ...</td>
-  <td>Ensure that:<ul><li>the image name is spelled correctly</li></ul></td>
-</tr>
-
-<tr>
-  <td>docker: Error: image ... not found.</td>
-  <td> * the image is available in the Docker server cache and listed in the output of `docker images`<br><br>If the image is missing from the cache, either <a href="../build-docker-image/">build it</a> or <a href="../manage-share-images/">pull it from the external registry</a>.</td>
-</tr>
-
-<tr>
-  <td><code>docker: Error response from daemon:<br>Conflict. The name "/rails­-devise-­app" is<br>already in use by container<br>77429eb72d02970a7122cd4574a48b280b42
-62d7652f52590ef2f316c7f3a349. You have<br> to remove (or rename) that container to be able to reuse that name..</code></td>
-
-  <td>A container with the same name has already been launched. It may have already stopped, but it is still associated with the name.<br><br>If you are sure that the previous container should be deleted, remove it with the following commands:<code>
-docker stop rails-­devise­-app && docker rm -­v rails­-devise-­app</code></td>
-</tr>
-<tr>
-  <td>docker: Error response from daemon: failed<br>to create endpoint rails-­devise-­app on<br>network bridge: Bind for 0.0.0.0:3001 failed:<br>port is already allocated.</td>
-  <td>Another process occupies the desired server port. Consider binding to another port.<br><br>If the port is handled by a previously launched container that is no longer needed, stop it with the command <code>docker stop &lt;container name or ID&gt;</code>.</td>
-</tr>
+  <thead>
+    <tr>
+      <th>Error message</th>
+      <th>Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Unable to find image '...' locally <br> ...</td>
+      <td>Ensure that:<ul><li>the image name is spelled correctly</li></ul></td>
+    </tr>
+    <tr>
+      <td>docker: Error: image ... not found.</td>
+      <td> * the image is available in the Docker server cache and listed in the output of `docker images`<br><br>If the image is missing from the cache, either <a href="../build-docker-image/">build it</a> or <a href="../manage-share-images/">pull it from the external registry</a>.</td>
+    </tr>
+    <tr>
+      <td><code>docker: Error response from daemon:<br>Conflict. The name "/rails­-devise-­app" is<br>already in use by container<br>77429eb72d02970a7122cd4574a48b280b42
+    62d7652f52590ef2f316c7f3a349. You have<br> to remove (or rename) that container to be able to reuse that name..</code></td>
+      <td>A container with the same name has already been launched. It may have already stopped, but it is still associated with the name.<br><br>If you are sure that the previous container should be deleted, remove it with the following commands:<code>
+    docker stop rails-­devise­-app && docker rm -­v rails­-devise-­app</code></td>
+    </tr>
+    <tr>
+      <td>docker: Error response from daemon: failed<br>to create endpoint rails-­devise-­app on<br>network bridge: Bind for 0.0.0.0:3001 failed:<br>port is already allocated.</td>
+      <td>Another process occupies the desired server port. Consider binding to another port.<br><br>If the port is handled by a previously launched container that is no longer needed, stop it with the command <code>docker stop &lt;container name or ID&gt;</code>.</td>
+    </tr>
+  </tbody>
 </table>
 
 
@@ -221,7 +204,7 @@ First, ensure that the container is running:
 
 ```bash
 $ docker ps | grep rails-­devise-­app
-77429eb72d02        rails­devise        "rails server ­b 0.0."   3 minutes ago      Up 3 minutes 
+77429eb72d02        rails­devise        "rails server ­b 0.0."   3 minutes ago      Up 3 minutes
 0.0.0.0:3001­>3000/tcp    rails­-devise-­app
 ```
 
@@ -259,11 +242,9 @@ $ docker inspect rails­-devise-­app
 
 If the Rails process crashes at start-up, manually troubleshooting with an interactive shell session may be better than using the Rails server.
 
-**********************************
 ```bash
 $ ​docker run ­­--rm -it --­­link rails-devise-­db:dbserver rails-­devise /bin/bash
 ```
-***********************************
 
 Parameters explained:
 
@@ -273,59 +254,51 @@ Parameters explained:
 * `rails-­devise` : name of the application image
 * `/bin/bash` : command to be executed instead of `rails server`
 
-***************************************
-
 Parameterization options
 ========================
 
 Below is a short list of the most useful parameterization options available when the container starts.
 
 <table>
-<tr>
-  <th>Parameterization</th>
-  <th>Command­ line parameter</th>
-  <th>Remarks</th>
-</tr>
-<tr>
-  <td>Mounting external directory or file into container</td>
-  <td><code>­-v \&lt;local path&gt;:\&lt;container path&gt;</code></td>
-  <td>Both paths should be absolute</td>
-</tr>
-<tr>
-  <td>filesystem</td>
-  <td></td><td></td>
-</tr>
-<tr>
-  <td>Setting up run-time environment variables</td>
-
-  <td>­<code>-e VARIABLE=value</code><br><em>or</em><br><code>-­e VARIABLE</code><br><em>or</em><br><code>--env-­file FILENAME</code></td>
-
-  <td>Check ​<a href="https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables-e-env-env-file">the documentation</a></td>
-</tr>
-
-<tr>
-  <td>Connect to another running container</td>
-
-  <td><code>--­­link \&lt;container_name&gt;:\&lt;dns_alias&gt;</code></td>
-
-  <td></td>
-</tr>
-
-<tr> 
-  <td>Connect to server network stack instead of Docker network bridge</td>
- 
-  <td><code>­­--net=host</code></td>
-
- <td>Use with caution; this option can be useful as a fast solution to some networking problems, but it can also cause confusion.<br><br><a href="https://docs.docker.com/engine/reference/run/#network-settings">Check the documentation</a> ​for more details.</td>
-</tr>
-
-<tr>
-  <td>Automatically launch container when the server starts</td>
-
-  <td>­­<code>--restart=always</code></td>
-
-  <td><a href="https://docs.docker.com/engine/reference/run/#restart-policies-restart">Check the documentation</a>.</td>
-</tr>
+  <thead>
+    <tr>
+      <th>Parameterization</th>
+      <th>Command­ line parameter</th>
+      <th>Remarks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Mounting external directory or file into container</td>
+      <td><code>­-v \&lt;local path&gt;:\&lt;container path&gt;</code></td>
+      <td>Both paths should be absolute</td>
+    </tr>
+    <tr>
+      <td>filesystem</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Setting up run-time environment variables</td>
+      <td>­<code>-e VARIABLE=value</code><br><em>or</em><br><code>-­e VARIABLE</code><br><em>or</em><br><code>--env-­file FILENAME</code></td>
+      <td>Check ​<a href="https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables-e-env-env-file">the documentation</a></td>
+    </tr>
+    <tr>
+      <td>Connect to another running container</td>
+      <td><code>--­­link \&lt;container_name&gt;:\&lt;dns_alias&gt;</code></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Connect to server network stack instead of Docker network bridge</td>
+      <td><code>­­--net=host</code></td>
+     <td>Use with caution; this option can be useful as a fast solution to some networking problems, but it can also cause confusion.<br><br><a href="https://docs.docker.com/engine/reference/run/#network-settings">Check the documentation</a> ​for more details.</td>
+    </tr>
+    <tr>
+      <td>Automatically launch container when the server starts</td>
+      <td>­­<code>--restart=always</code></td>
+      <td><a href="https://docs.docker.com/engine/reference/run/#restart-policies-restart">Check the documentation</a>.</td>
+    </tr>
+  </tbody>
 </table>
 
 Access to running containers
@@ -335,7 +308,7 @@ The lack of default access to containers via SSH may be counter­intuitive to we
 
 Of course, installing and configuring an SSH server at the image build step is possible. Whether this is worthwhile depends on many factors that are specific to the situation.
 
-Alternatively, the command [`docker exec`​](https://docs.docker.com/engine/reference/commandline/exec/) can be used to execute an arbitrary 
+Alternatively, the command [`docker exec`​](https://docs.docker.com/engine/reference/commandline/exec/) can be used to execute an arbitrary
 command in the running container, including invocation of interactive shell sessions or the Rails console. The option `­-it` is required to attach an interactive pseudoterminal.
 
 ```bash
@@ -363,7 +336,7 @@ Stopping a container is easy with the command ​[`docker stop`​](https://docs
 $ docker stop rails-­devise-­app
 ```
 
-Stopped containers are not removed, and their logs, filesystem contents, and 
+Stopped containers are not removed, and their logs, filesystem contents, and
 metadata remain available.
 
 The base image of a stopped container cannot be removed from the Docker server image cache, and new containers cannot be launched with the name of a stopped container.
@@ -403,10 +376,10 @@ After active development, code should be committed with version control, and the
 Using Rails generators
 ----------------------
 
-The setup described in the previous section is also useful for generating new code with Rails commands. If a daemonized container with a source code directory is mounted at /usr/src/app, a Rails generator can be launched inside of it with `docker exec`:  
+The setup described in the previous section is also useful for generating new code with Rails commands. If a daemonized container with a source code directory is mounted at /usr/src/app, a Rails generator can be launched inside of it with `docker exec`:
 
 ```bash
-$ docker exec rails-­devise-­app ​rails generate scaffold Karma email:string score:integer 
+$ docker exec rails-­devise-­app ​rails generate scaffold Karma email:string score:integer
 ```
 
 As a result, the appropriate files are created and updated in the source code directory. On Linux, new files are owned by root, so it makes sense to re­-own them:
@@ -417,35 +390,28 @@ $ sudo chown -­R $USER:$USER .
 
 Launching a daemonized application container just to invoke a Rails generator is overkill. Running a one-­off container that is automatically removed when the work is done can create the same effect:
 
-**************************************
 ```bash
-$ docker run --­­rm -­v $PWD:/usr/src/app rails-­devise rails generate scaffold Karma 
+$ docker run --­­rm -­v $PWD:/usr/src/app rails-­devise rails generate scaffold Karma
 email:string score:integer
 ```
-***************************************
 
 Docker parameters explained:
 
 * `--­­rm` : auto­-remove one-­off container on exit
-* `-v $PWD:/usr/src/app` : mount current directory in the container (check for the Gemfile.lock issue mentioned in the previous section) 
+* `-v $PWD:/usr/src/app` : mount current directory in the container (check for the Gemfile.lock issue mentioned in the previous section)
 * `rails-­devise` : name of the application image
 * `rails generate ...` : command to be launched
-
-***************************************
 
 Simplified orchestration with Docker Compose
 ============================================
 
-The previous examples were intended to familiarize you with all the essential aspects of container management and parameterization options.  
+The previous examples were intended to familiarize you with all the essential aspects of container management and parameterization options.
 
 The Docker CLI, however, is not very convenient for casual development because it requires many manual boilerplate actions and complex combinations of command­ line parameters.
 
 [Docker Compose​](https://docs.docker.com/compose/) simplifies container management by describing the whole stack in a comprehensive, declarative format.
 
-**********************************
-*docker­-compose.yml*
-
-*******************
+*docker­-compose.yml:*
 
 ```bash
 app:
@@ -465,7 +431,6 @@ dbserver:
     environment:
         MYSQL_ALLOW_EMPTY_PASSWORD: "true"
 ```
-**********************************
 
 Now both containers can be launched with `docker compose up`.
 
