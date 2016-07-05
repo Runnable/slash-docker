@@ -77,13 +77,20 @@
 
   // tables
   table {
+    display: block;
     font-size: 15px;
     margin: 60px 0;
+    overflow: auto;
     text-align: left;
   }
 
   thead {
     border-bottom: 1px solid;
+  }
+
+  th,
+  td {
+    min-width: 150px;
   }
 
   th {
