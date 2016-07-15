@@ -39,8 +39,7 @@ Here is an example *database.yml*, which is used in the other articles of this s
   
 Environment variables can override any of the options. Configuration is unified across Rails environments to ensure [dev/prod parity](http://12factor.net/dev-prod-parity).
 
-### config/database.yml
-
+#### config/database.yml
 ```yaml
 default: &default 
     adapter: mysql2 
@@ -69,7 +68,7 @@ Avoiding the storage of secrets inside the image is a well-known Docker principl
 The default Rails configuration includes at least one secret, which must be read from an environment variable in production mode. 
 
 
-### config/secrets.yml
+#### config/secrets.yml
 
 ```yaml
 development: 
@@ -86,7 +85,7 @@ production:
 
 Let's modify this file to unify configuration: 
 
-### config/secrets.yml
+#### config/secrets.yml
 
 ```yaml
 production: &default 
@@ -117,7 +116,7 @@ The example configuration reads and applies JSON­-serialized connection setting
  
 Other deployment­-specific parameters are also configurable via environment variables. 
 
-### config/application.rb
+#### config/application.rb
 
 ```ruby
 # check http://guides.rubyonrails.org/action_mailer_basics.html for detailed SMTP options 
@@ -139,17 +138,17 @@ config.action_mailer.raise_delivery_errors = true
 
 The custom setting in *development.rb* is disabled. 
 
-### config/environments/development.rb
+#### config/environments/development.rb
 
 ```ruby
-### respect global configuration 
+#### respect global configuration 
 # config.action_mailer.raise_delivery_errors = false 
 ```
 
 
 The custom delivery mode in *test.rb* is optional: 
 
-### config/environments/test.rb
+#### config/environments/test.rb
 
 ```ruby
 # conditionally switch to special delivery mode, which rspecs may rely on 
@@ -175,19 +174,19 @@ Rails provides a common API ([ActiveJob](http://guides.rubyonrails.org/active_jo
  
 The suggested configuration uses Sidekiq and reads the Redis URL from an environment variable. If the variable is absent, Sidekiq assumes the Redis server is a Docker container that is accessible by the hostname *redis*. 
 
-### Gemfile
+#### Gemfile
 
 ```
 gem 'sidekiq' 
 ```
 
-### config/application.rb
+#### config/application.rb
 
 ```
 config.active_job.queue_adapter = :sidekiq 
 ```
 
-### config/initializers/sidekiq.rb
+#### config/initializers/sidekiq.rb
 
 ```ruby 
 redis_url = ENV["SIDEKIQ_REDIS_URL"] || "redis://redis:6379/12" 
@@ -214,7 +213,7 @@ If the directory *tmp/cache* is present, [FileStore](http://guides.rubyonrails.o
 
 Based on the presence of an environment variable with the address of an external *memcached* service, the suggested configuration provides an automatic choice between two recommended options. 
 
-### config/application.rb
+#### config/application.rb
 
 
 ```ruby
@@ -238,7 +237,7 @@ The alternative strategies for serving static assets depend on the environment a
 The appropriate option has a different name in different Rails releases. Fortunately, the gem [rails_serve_static_assets](https://github.com/heroku/rails_serve_static_assets) encapsulates the diversity, ultimately setting the required value to true regardless of the framework version.
 
 
-### Gemfile
+#### Gemfile
 
 ```ruby
 gem 'rails_serve_static_assets' 
@@ -248,7 +247,7 @@ gem 'rails_serve_static_assets'
 To precompile assets at build time, add the following instruction to the end of the Dockerfile: ``COPY . /usr/src/app``:
 
 
-### Dockerfile
+#### Dockerfile
 
 ```Dockerfile
 RUN rake assets:precompile
@@ -260,7 +259,7 @@ To simplify debugging and modifications, the application should serve assets unc
 Ensure the following line is included in *development.rb* **only**.
 
 
-### config/environments/development.rb
+#### config/environments/development.rb
 
 ```ruby
 config.assets.debug = true 
@@ -271,7 +270,7 @@ config.assets.debug = true
 In some production setups, the assets URL should refer to the external CDN instead of the application domain. Let's make this setting configurable.
 
 
-### config/environments/production.rb
+#### config/environments/production.rb
 
 ```ruby
 if ENV["PRODUCTION_ASSET_HOST"].present? then 
@@ -291,7 +290,7 @@ Redirecting logging output to STDOUT is the simplest and most universal solution
 
 The gem [rails_stdout_logging](https://github.com/heroku/rails_stdout_logging) enforces appropriate Rails configuration and prevents STDOUT buffering. It should not, however, be used with Rails 5.
 
-### Gemfile
+#### Gemfile
 
 ```ruby
 gem 'rails_stdout_logging' 
@@ -299,7 +298,7 @@ gem 'rails_stdout_logging'
 
 Logging should be explicitly configured for Rails 5:
 
-### config/application.rb
+#### config/application.rb
 
 ```ruby
 logger  = ActiveSupport::Logger.new(STDOUT) 
@@ -313,7 +312,7 @@ In a typical cloud setup, the various reverse proxies that are preprocessing inb
 
 If Nginx acts as reverse proxy, make sure that it is configured to set [X­Forwarded­For header](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#var_proxy_add_x_forwarded_for):
 
-### nginx.conf
+#### nginx.conf
 
 ```
 # this line should appear next to the proxy_pass directive 
@@ -324,7 +323,7 @@ Rails can automatically [recognize the header](http://api.rubyonrails.org/classe
 
 Informing Rails about proxies used in your infrastructure is also advisable. The code below reads a JSON-formatted list of known proxy networks from an environment variable. Then, it extends the default array of trusted proxies accordingly.
 
-### config/application.rb
+#### config/application.rb
 
 ```ruby
 # Be aware, for Rails versions older than 4.2 code may need some adjustments. 
@@ -346,7 +345,7 @@ Rails automatically loads gems from the appropriate Bundler group (*:development
 
 To prevent alteration of this behavior, the following line should be left intact:
 
-### config/application.rb
+#### config/application.rb
 
 ```ruby
 Bundler.require(*Rails.groups) 
