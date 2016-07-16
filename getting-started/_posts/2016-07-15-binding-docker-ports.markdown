@@ -45,4 +45,4 @@ By default, Docker exposes container ports to the IP address `0.0.0.0` (this mat
 docker run -p 10.0.0.3:80:8080 nginx
 ```
 
-You can create a network of Docker containers; we cover how in [Connecting Multiple Instances](connecting-multiple-instances).
+You can create a network of Docker containers; we cover how in [Connecting Multiple Instances](../connecting-multiple-instances).
