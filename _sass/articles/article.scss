@@ -140,6 +140,18 @@
     }
   }
 
+  // link
+  a:not(.well-anchor) {
+    color: currentColor;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover,
+    &:active {
+      text-decoration: none;
+    }
+  }
+
   // next cta
   .well-anchor:last-child {
     margin-top: 75px;
