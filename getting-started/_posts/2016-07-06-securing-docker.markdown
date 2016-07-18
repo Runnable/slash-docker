@@ -2,7 +2,7 @@
 layout: page
 title: Securing your System
 category: getting-started
-step: 6
+step: 7
 tags:
 - getting-started
 - secure
