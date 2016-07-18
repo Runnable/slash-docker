@@ -2,7 +2,7 @@
 layout: page
 title: Securing your System
 category: getting-started
-step: 7
+step: 8
 tags:
 - getting-started
 - secure
@@ -120,6 +120,6 @@ If you run Docker in production, reduce the attack surface area by running *only
 
 - Maintain best security practices; understand and guard against the issues in the [OWASP Top 10](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project) (you can sign up for a 14-day trial of the Acunetix Online Scan [here](http://www.acunetix.com/vulnerability-scanner/register-online-vulnerability-scanner/)).
 
-- Do not leave sensitive data (keys, passwords, etc.) in your repositories or registries (public *and* private) 
+- Do not leave sensitive data (keys, passwords, etc.) in your repositories or registries (public *and* private)
 
 - If you have a solution you like more than GRSEC, SELinux, or AppArmor, use what you know. You'll benefit faster by hardening the system with a familiar technology than trying to learn a whole new technology from scratch.
