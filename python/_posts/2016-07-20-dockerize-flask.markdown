@@ -13,7 +13,7 @@ In this article, we'll take a look at how to dockerize a Flask application. Flas
 
 ## The Docker Hub image
 
-Since Docker Hub doesn't have an official Flask repository (at the time of this writing), we explain how to build our own. While you can always use a non-official image, it's generally recommended to make your own Dockerfile to ensure you know what is in the image. We'll start off with the base of Ubuntu, but you can use any available distro you prefer.
+Since Docker Hub doesn't have an official Flask repository (at the time of this writing), we'll explain how to build our own. While you can always use a non-official image, it's generally recommended to make your own Dockerfile to ensure you know what is in the image. We'll start off with the base of Ubuntu, but you can use any available distro you prefer.
 
 ## Setting Up
 
@@ -53,7 +53,7 @@ Flask==0.10.1
 
 ### Flask Dockerfile
 
-We're starting from Linux instead of using the Python repository as our base, as its more clear to determine which Python version to use (what `apt` installs on Ubuntu or Debian, or `yum` installs on Red Hat and CentOS). You always have the option to build off the `python` image instead.
+We're starting from Linux instead of using the Python repository as our base, as its more clear in which Python version is being installed (what `apt` installs on Ubuntu or Debian, or `yum` installs on Red Hat and CentOS). You always have the option to build off the `python` image instead.
 
 ```bash
 FROM ubuntu:16.04
@@ -103,4 +103,4 @@ docker run -d -p 5000:5000 flask-tutorial
 
 ## Further information
 
-Ensure you are using the right ports. Flask by defualt runs on port 5000 (not 8000 like Django or 80 like Apache). Check out [Binding Docker Ports](../../binding-docker-ports/) for more information.
+Ensure you are using the right ports. Flask by default runs on port 5000 (not 8000 like Django or 80 like Apache). Check out [Binding Docker Ports](../../binding-docker-ports/) for more information.
