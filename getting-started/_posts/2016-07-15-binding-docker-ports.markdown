@@ -2,6 +2,7 @@
 layout: page
 title: Binding Ports
 category: getting-started
+permalink: /binding-docker-ports
 step: 7
 tags:
 - getting-started
