@@ -2,6 +2,7 @@
 layout: page
 title: Using Docker Hub
 category: getting-started
+permalink: /using-docker-hub
 step: 6
 tags:
 - getting-started
