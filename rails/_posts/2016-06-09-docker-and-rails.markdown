@@ -1,5 +1,6 @@
 ---
 title: Advantages of Docker
+category: rails
 step: 1
 tags:
 - docker

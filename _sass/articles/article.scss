@@ -67,6 +67,10 @@
     }
   }
 
+  p code {
+    word-break: break-word;
+  }
+
   .highlight {
     background: $gray-lighterest;
 
@@ -77,13 +81,20 @@
 
   // tables
   table {
+    display: block;
     font-size: 15px;
     margin: 60px 0;
+    overflow: auto;
     text-align: left;
   }
 
   thead {
     border-bottom: 1px solid;
+  }
+
+  th,
+  td {
+    min-width: 150px;
   }
 
   th {
@@ -130,6 +141,18 @@
 
     > :last-child {
       margin-bottom: 0;
+    }
+  }
+
+  // link
+  a:not(.well-anchor) {
+    color: currentColor;
+    cursor: pointer;
+    text-decoration: underline;
+
+    &:hover,
+    &:active {
+      text-decoration: none;
     }
   }
 
