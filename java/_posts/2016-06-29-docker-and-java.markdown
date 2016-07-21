@@ -12,17 +12,21 @@ excerpt: Docker for developing and deploying Java applications.
 Docker containers make it quicker and easier to develop, test, and deploy applications within multiple environments. Docker containers provide the flexibility and the isolation you need to create development and test environments to match the many production environments your application is likely to accumulate over its lifetime.
 
 * **Development:**
-Setting up an individual development environment is time consuming, particularly if multiple environments and toolsets are needed across development teams or geographies.  
-For example, if you are developing a Java/Maven-based application *without Docker*, you must install the JDK and Maven on your host machine. But *with docker*, you simply obtain a Maven image from the Docker Hub and use it to develop, test, and run your application.  
-If your task is complicated by the need for different versions of Maven and Java, you can easily get the matching Docker image for each version and develop/run in isolation.
+  Setting up an individual development environment is time consuming, particularly if multiple environments and toolsets are needed across development teams or geographies.
+
+  For example, if you are developing a Java/Maven-based application *without Docker*, you must install the JDK and Maven on your host machine. But *with docker*, you simply obtain a Maven image from the Docker Hub and use it to develop, test, and run your application.
+
+  If your task is complicated by the need for different versions of Maven and Java, you can easily get the matching Docker image for each version and develop/run in isolation.
 
 * **Testing:**
-Test environments can be even more challenging because they will likely represent a larger number of run-time variations - for example, different frameworks and databases, different versions of Java, and so on. And this is only complicated by developing and running in virtualized environments.  
-Similar to the development example, the ability to spin up many Docker containers based on specific custom images make it much easier to have many representative test environments. To test your application in different versions of Java, you can simply run your application in multiple containers. You can set up containers for your databases as well. This will dramatically speed up your testing process.
+  Test environments can be even more challenging because they will likely represent a larger number of run-time variations - for example, different frameworks and databases, different versions of Java, and so on. And this is only complicated by developing and running in virtualized environments.
+
+  Similar to the development example, the ability to spin up many Docker containers based on specific custom images make it much easier to have many representative test environments. To test your application in different versions of Java, you can simply run your application in multiple containers. You can set up containers for your databases as well. This will dramatically speed up your testing process.
 
 * **Deployment and Packaging:**
-Deployment with Docker is also simple and easy. For example, if your application runs in your local environment using a Docker container, then it will run on the target server as well.  
-By packaging your application in a container with all of its configurations and dependencies, you ensure that it will always work locally or on another machine, or in test and production environments. No more worries about having to install the same configurations into different environments.
+  Deployment with Docker is also simple and easy. For example, if your application runs in your local environment using a Docker container, then it will run on the target server as well.
+
+  By packaging your application in a container with all of its configurations and dependencies, you ensure that it will always work locally or on another machine, or in test and production environments. No more worries about having to install the same configurations into different environments.
 
 # Other Benefits
 
@@ -90,7 +94,7 @@ If you already have a Maven project, you can apply the concepts below. Otherwise
 $ docker run -it --rm -v "$PWD":/app -w /app maven:3.3-jdk-8 mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -Dinte
 ```
 
-This will create a Maven project in the current directory under the 'my-app' directory.  
+This will create a Maven project in the current directory under the 'my-app' directory.
 
 * Go to the project directory.
 
