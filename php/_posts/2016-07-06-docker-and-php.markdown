@@ -1,6 +1,7 @@
 ---
-title: Advantages of Docker for PHP apps
+title: Advantages of Docker
 category: php
+permalink: /php/advantages-of-docker-with-php-apps
 step: 1
 tags:
 - docker

@@ -1,6 +1,7 @@
 ---
 title: Manage and Share Images
 category: rails
+permalink: /rails/manage-and-share-docker-images
 step: 5
 tags:
 - docker

@@ -2,7 +2,7 @@
 layout: page
 title: Install Docker on Linux
 category: getting-started
-permalink: /install-docker-linux
+permalink: /install-docker-on-linux
 step: 5
 tags:
 - getting-started
