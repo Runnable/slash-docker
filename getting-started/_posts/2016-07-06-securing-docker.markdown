@@ -3,7 +3,7 @@ layout: page
 title: Securing your System
 category: getting-started
 permalink: /securing-your-docker-system
-step: 8
+step: 9
 tags:
 - getting-started
 - secure
