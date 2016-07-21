@@ -34,6 +34,13 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: page
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      seo:
+        type: TechArticle 
 
 sass:
   sass_dir: _sass/
