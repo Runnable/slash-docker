@@ -19,7 +19,7 @@ To view Docker networks, run:
 
 ```bash
 docker network ls
-``` 
+```
 
 To get further details on networks, run:
 
@@ -155,7 +155,8 @@ If you want native multi-host networking, you need to create an overlay network.
 
 Open the following ports between each of your hosts:
 
->|Protocol|Port|Purpose|
+{:.indent}
+|Protocol|Port|Purpose|
 |--------|----|-------|
 |udp     |4789|data   |
 |tcp/udp |7946|control|
@@ -171,7 +172,7 @@ Create an overlay network by configuring options on each Docker daemon you wish 
 |`--cluster-store-opt=KEY-VALUE OPTIONS`|Additional options, like a TLS certificate|
 
 1. Create the overlay network in a similar manner to the bridge network (network name `my_multi_host_network`):<br>
-        
+
         docker network create --driver overlay my_multi_host_network
 
 
