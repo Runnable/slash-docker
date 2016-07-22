@@ -7,6 +7,7 @@ tags:
 - python
 - dockerfile
 excerpt: Create a Dockerfile for developing and deploying Python applications.
+description: A guide to run your Python application in a Docker container with a Dockerfile and commands to build, run, and manage your Docker images.
 ---
 
 Dockerfiles enable you to create your own images. A Dockerfile describes the software that makes up an image. Dockerfiles contain a set of instructions that specify what environment to use and which commands to run.
