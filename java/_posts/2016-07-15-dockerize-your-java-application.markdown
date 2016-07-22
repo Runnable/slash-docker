@@ -7,6 +7,7 @@ tags:
 - java
 - dockerfile
 excerpt: Get started with dockerizing your Java app.
+description: A guide to run your Java application in a Docker container with a sample Dockerfile and commands to build and run your Docker image.
 ---
 
 A Dockerfile is a fundamental building block used when dockerizing your Java applications, and it is how you can create a Docker image that can be used to create the containers you need for automatic builds.

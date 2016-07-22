@@ -9,6 +9,7 @@ tags:
 - win10
 - install
 excerpt: Requirements and things to know before installing Docker for Win 10.
+description: A detailed guide on how to install Docker on Windows 10.
 ---
 
 ## Have you previously installed Docker Toolbox, Docker Machine, or VirtualBox?
