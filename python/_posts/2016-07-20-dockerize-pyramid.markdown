@@ -1,6 +1,7 @@
 ---
 title: Dockerize your Pyramid Application
 category: python
+permalink: /python/dockerize-your-pyramid-application
 step: 4
 tags:
 - docker

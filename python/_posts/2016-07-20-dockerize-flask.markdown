@@ -1,6 +1,7 @@
 ---
 title: Dockerize your Flask Application
 category: python
+permalink: /python/dockerize-your-flask-application
 step: 3
 tags:
 - docker

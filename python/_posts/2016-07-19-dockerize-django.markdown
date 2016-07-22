@@ -1,6 +1,7 @@
 ---
 title: Dockerize your Django Application
 category: python
+permalink: /python/dockerize-your-django-application
 step: 2
 tags:
 - docker
