@@ -10,16 +10,16 @@ tags:
 excerpt: Tune your dockerized Rails application.
 ---
 
-This article overviews the most important of the Rails configuration tunings that are required for effective dockerization.  
+This article overviews the most important of the Rails configuration tunings that are required for effective dockerization.
 
 # Architectural concerns
  
-The following are significant differences between the Docker environment and traditional servers: 
+The following are significant differences between the Docker environment and traditional servers:
 
 * Containers, the local filesystem, and the application process **are ephemeral**.
-* **No local services are available** because [the application is the only process running in the container](../multiple-processes/).
-* **With an image, applications can be run in any environment without additional provisioning.** Configuring environment variables and connecting deployment-specific resources (such as data volumes and [other containers](../linking-containers/)) are the only Docker-friendly ways to parameterize container behavior.  
-* **Images should not contain private data** because they may be shared with the development team, the production repositories, and customers. 
+* **No local services are available** because [the application is the only process running in the container](./run-multiple-processes-in-a-container).
+* **With an image, applications can be run in any environment without additional provisioning.** Configuring environment variables and connecting deployment-specific resources (such as data volumes and [other containers](./docker-container-linking)) are the only Docker-friendly ways to parameterize container behavior.
+* **Images should not contain private data** because they may be shared with the development team, the production repositories, and customers.
  
 That said, the principles for configuring dockerized Rails (which correlate with the broader concept of [The Twelve­Factor App](http://12factor.net/)) are fairly easy to derive.
 
@@ -339,7 +339,7 @@ end
 
 # Loading environment­-specific gems
 
-In the article [Dockerizing your Rails application](../creating-rails-dockerfile/), we recommended installing all available gems (i.e., not providing any `--without` options to the `bundle install` command) in the image. At the cost of a slight increase in size, this technique allows the same image to be used in different environments.
+In the article [Dockerizing your Rails application](./dockerize-your-ruby-on-rails-application), we recommended installing all available gems (i.e., not providing any `--without` options to the `bundle install` command) in the image. At the cost of a slight increase in size, this technique allows the same image to be used in different environments.
 
 Rails automatically loads gems from the appropriate Bundler group (*:development*, *:test* or *:production*) along with the [default gems](http://bundler.io/v1.11/groups.html). This prevents debugging and profiling gems from being loaded in production, despite their being installed.
 
@@ -361,7 +361,7 @@ Adding either of these to the application requires just a few steps:
 * **Create a server configuration file** (e.g., [*config/puma.rb*](https://github.com/puma/puma/blob/master/examples/config.rb)), with the following options:
     * The server should listen at the port exposed in the Dockerfile (e.g., 3000) on all interfaces.
     * Daemonize mode should be disabled.
-* **Update the CMD instruction in the Dockerfile** (or the last line in [*docker/start.sh*](../multiple-processes/)), changing ``rails server`` to a server­-specific launch command:
+* **Update the CMD instruction in the Dockerfile** (or the last line in [*docker/start.sh*](./run-multiple-processes-in-a-container)), changing ``rails server`` to a server­-specific launch command:
     * If the gem is automatically recognized by running ``rails server``, this step may not be necessary for puma. 
     * If the CMD instruction is modified, keep it in [exec format](https://docs.docker.com/engine/reference/builder/#cmd) (a list of commands and arguments, not a single string).
     * If *docker/start.sh* is modified, make sure that the ``exec`` prefix is present before the server launch command.
@@ -371,7 +371,7 @@ Adding either of these to the application requires just a few steps:
 
 * Configuration differences across environments are minimized.
 * The application always reads secrets from environment variables.
-* For additional services (including those usually assumed to run on localhost), the default connection endpoint is a [Docker container alias](../linking-containers/). Environment variables can override these settings.
+* For additional services (including those usually assumed to run on localhost), the default connection endpoint is a [Docker container alias](./docker-container-linking). Environment variables can override these settings.
 * Logging is redirected to STDOUT.
 * Assets are precompiled while the image is being built, and the application is configured to serve static files.
 * The default web server is replaced with the alternative, which can process requests concurrently.

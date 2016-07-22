@@ -26,8 +26,7 @@ Dockerized application
 The examples below use​
 [https://github.com/RailsApps/rails­devise](https://github.com/RailsApps/rails­devise​) with a few adjustments:
 
-1. A Dockerfile and .dockerignore are added, as described in ​
-[Creating a Rails Dockerfile](https://docs.google.com/document/d/1BWU4rqzpvquG6cboO4sFJRS8XxbBz9h0mH4dp8hAYcQ/edit).
+1. A Dockerfile and .dockerignore are added, as described in [Dockerizing your Rails Application](./dockerize-your-ruby-on-rails-application).
 2. The Ruby version restriction is removed from the Gemfile to avoid the minor version conflict with the available base images.
 3. The gem "mysql2" is added to the Gemfile.
 
@@ -182,7 +181,7 @@ Below is a list of the most common problems that prevent containers from being l
     </tr>
     <tr>
       <td>docker: Error: image ... not found.</td>
-      <td> * the image is available in the Docker server cache and listed in the output of `docker images`<br><br>If the image is missing from the cache, either <a href="../build-docker-image/">build it</a> or <a href="../manage-share-images/">pull it from the external registry</a>.</td>
+      <td> * the image is available in the Docker server cache and listed in the output of `docker images`<br><br>If the image is missing from the cache, either <a href="./building-your-docker-image">build it</a> or <a href="./managing-secrets-during-docker-builds">pull it from the external registry</a>.</td>
     </tr>
     <tr>
       <td><code>docker: Error response from daemon:<br>Conflict. The name "/rails­-devise-­app" is<br>already in use by container<br>77429eb72d02970a7122cd4574a48b280b42
@@ -347,8 +346,7 @@ Stopped containers can be re-started:
 $ docker start rails-­devise-­app
 ```
 
-To remove a stopped container, use ​the
-command [`docker rm​`](https://docs.docker.com/engine/reference/commandline/rm/):
+To remove a stopped container, use ​the command [`docker rm​`](https://docs.docker.com/engine/reference/commandline/rm/):
 
 ```bash
 $ docker rm -­v rails-­devise-­app

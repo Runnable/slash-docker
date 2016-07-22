@@ -42,7 +42,7 @@ Prerequisites
 
 Take a moment to make sure you have everything in place for us to get started:
 
-1. [Install Docker](../../getting-started/)
+1. [Install Docker](../getting-started/)
 2. Source code of your Laravel application
 3. Make sure your Docker machine is running and your environment is ready:
 

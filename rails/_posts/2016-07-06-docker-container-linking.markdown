@@ -24,15 +24,15 @@ Answering such questions is relatively easy with a basic understanding of Docker
 A straight-forward solution to the inter-container connectivity problem is to deploy each component as an independent Docker container that is exposed to a predefined port on the Docker host with a resolvable
 address.    
  
-With this solution, connection endpoints are definite and can be passed to appropriate containers as launch parameters. Of course, containers should be able to recognize these parameters (see an example of *database.yml* with overridable connection endpoints in [Running your Rails Application](../running-apps/)).
+With this solution, connection endpoints are definite and can be passed to appropriate containers as launch parameters. Of course, containers should be able to recognize these parameters (see an example of *database.yml* with overridable connection endpoints in [Running your Rails Application](./run-your-ruby-on-rails-application)).
  
-However, deploying and managing related components as a single stack is often more convenient. 
+However, deploying and managing related components as a single stack is often more convenient.
 
 ## Basic Setup with Container Linking
 
 To demonstrate traditional connectivity techniques such as ports publishing and container linking, let’s begin with the simplest example.
  
-We will use [*docker-compose*](https://docs.docker.com/compose/) to launch three containers: one each for a database (MySQL), a web application (a Rails­-devise image, as [described in an earlier article](../running-apps/)), and a reverse proxy (Nginx).
+We will use [*docker-compose*](https://docs.docker.com/compose/) to launch three containers: one each for a database (MySQL), a web application (a Rails­-devise image, as [described in an earlier article](./run-your-ruby-on-rails-application)), and a reverse proxy (Nginx).
  
 Let’s first create a minimal config file, which is necessary when Nginx is used as a reverse proxy. The config file has been simplified so that it only re-routes inbound traffic to the address “app:3000.”
 
@@ -89,7 +89,7 @@ This setup demonstrates several common patterns:
 * **Internal network isolation**. Communication between containers (proxy to application and application to database) happens inside the internal network. The proxy container is the only container that is externally exposed. 
 * **Service discovery**. Containers do not rely on ephemeral internal IPs to establish connections to one another. Instead, they use symbolic names (“dbserver” and “app”), which are hardcoded in configuration files. In this demo, [container linking](https://docs.docker.com/engine/userguide/networking/default_network/dockerlinks/) makes these aliases resolvable to appropriate containers. 
  
-Port publishing and container linking are traditional Docker mechanisms for configuring basic connectivity. Appropriate options are available in not only [Docker Compose](https://docs.docker.com/compose/), but also in the [Docker CLI](https://docs.docker.com/compose/) and [API](https://docs.docker.com/compose/). 
+Port publishing and container linking are traditional Docker mechanisms for configuring basic connectivity. Appropriate options are available in not only [Docker Compose](https://docs.docker.com/compose/), but also in the [Docker CLI](https://docs.docker.com/compose/) and [API](https://docs.docker.com/compose/).
 
 ## Links and Default Network Explained
 
@@ -102,14 +102,14 @@ All three containers were attached to the internal network and configured on the
 ```json 
 ...
 "Containers": {  
-  "66eb1525cf84b952455dee4070ef14089317fec9069b38391639e260d10e9533": {  
+  "66eb1525cf84b952455dee4070ef14089317fec9069b38391639e260d10e9533": {
     "Name": "linking_database_1",  
     "EndpointID": "...",  
     "MacAddress": "02:42:ac:11:00:03",  
     "IPv4Address": "172.17.0.3/16",  
     "IPv6Address": ""  
   },  
-  "95a53cd3a7417754a23ae8af31e9a41a03733e7b9e3c600de417ec8606e7d853": {  
+  "95a53cd3a7417754a23ae8af31e9a41a03733e7b9e3c600de417ec8606e7d853": {
     "Name": "linking_application_1",  
     "EndpointID": "...",  
     "MacAddress": "02:42:ac:11:00:04",  
