@@ -1,5 +1,5 @@
 ---
-title: Manage and Share Images
+title: Manage and Share Docker Images
 category: rails
 permalink: /rails/manage-and-share-docker-images
 step: 5
@@ -9,6 +9,7 @@ tags:
 - ruby
 - images
 excerpt: Assign names and tags to images, and distribute across hosts using a registry.
+description: How to assign names, manage, tag, share, and distribute Docker images across hosts via a registry.
 ---
 
 Managing Images

@@ -8,6 +8,7 @@ tags:
 - java
 - advantages
 excerpt: Docker for developing and deploying Java applications.
+description: How Docker helps speed up development and future proof the deployment process for your Java applications.
 ---
 
 Docker containers make it quicker and easier to develop, test, and deploy applications within multiple environments. Docker containers provide the flexibility and the isolation you need to create development and test environments to match the many production environments your application is likely to accumulate over its lifetime.

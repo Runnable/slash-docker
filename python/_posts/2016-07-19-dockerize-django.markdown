@@ -1,12 +1,14 @@
 ---
 title: Dockerize your Django Application
 category: python
+permalink: /python/dockerize-your-django-application
 step: 2
 tags:
 - docker
 - python
 - django
 excerpt: Get started with dockerizing your Django application.
+description: Detailed steps to get your Django application running in a Docker container.
 ---
 
 In this article, we'll cover how to dockerize your Django application.

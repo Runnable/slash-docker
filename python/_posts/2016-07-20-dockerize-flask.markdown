@@ -1,12 +1,14 @@
 ---
 title: Dockerize your Flask Application
 category: python
+permalink: /python/dockerize-your-flask-application
 step: 3
 tags:
 - docker
 - python
 - flask
 excerpt: Get started with dockerizing your Flask application.
+description: Detailed steps to get your Flask application running in a Docker container.
 ---
 
 In this article, we'll take a look at how to dockerize a Flask application. Flask is a microframework for Python, with a basis in Werkzeug and Jinja 2.

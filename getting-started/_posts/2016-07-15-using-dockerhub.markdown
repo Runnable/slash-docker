@@ -10,6 +10,7 @@ tags:
 - registry
 - docker
 excerpt: All about how to use Docker's hosted registry.
+description: How to get started using Docker Hub, search and pull down Docker images, and create your own repositories.
 ---
 
 If you have some familiarity with GitHub or BitBucket, you already understand the basics of Docker Hub. Docker Hub is an image repository for Docker images...and much more. You use your free [Docker ID](https://docs.docker.com/docker-hub/accounts/) to access Docker Hub.

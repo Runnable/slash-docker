@@ -9,6 +9,7 @@ tags:
 - ruby
 - processes
 excerpt: How (and when) to run multiple processes in a single container.
+description: How to (and when you should) run multiple processes or services in a single Docker container.
 ---
 
 Most web applications consist of more than just a set of MVC components. They include rake tasks, may rely on system services like *cron*​ and *syslog*, ​and often require persistent worker processes. Lack of appropriate functionality in standard single-process Docker containers is a common source of confusion.

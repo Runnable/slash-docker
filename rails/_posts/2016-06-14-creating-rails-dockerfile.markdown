@@ -9,6 +9,7 @@ tags:
 - rails
 - ruby
 excerpt: Get started with dockerizing your Rails application.
+description: A guide to run your Ruby on Rails application in a Docker container with a sample Dockerfile and commands to build and run your Docker image.
 ---
 
 Now you’re familiar with how Docker can help speed up development, it’s time to think about how to get started with dockerizing your Rails application. We’ll start off by explaining how to create a simple Dockerfile, and then go into detail on how to tune it to build the right Docker image for your app.

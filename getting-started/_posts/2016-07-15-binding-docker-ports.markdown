@@ -10,6 +10,7 @@ tags:
 - networking
 - docker
 excerpt: Specify which IP address and ports to bind your containers to.
+description: Different methods to bind ports between your Docker host and running containers to allow external network traffic.
 ---
 
 Docker containers can connect to the outside world without further configuration, but the outside world cannot connect to Docker containers by default.
