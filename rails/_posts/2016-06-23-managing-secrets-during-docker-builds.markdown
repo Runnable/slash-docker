@@ -1,7 +1,6 @@
 ---
 title: Managing Secrets During Builds
 category: rails
-permalink: /rails/managing-secrets-during-docker-builds
 step: 4
 tags:
 - docker

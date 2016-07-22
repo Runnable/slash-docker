@@ -1,7 +1,6 @@
 ---
 title: Container Networking
 category: rails
-permalink: /rails/docker-container-networking
 step: 8
 tags:
 - docker

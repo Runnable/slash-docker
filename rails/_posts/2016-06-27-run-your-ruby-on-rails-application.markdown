@@ -1,7 +1,6 @@
 ---
 title: Run your Rails Application
 category: rails
-permalink: /rails/run-your-rails-application
 step: 6
 tags:
 - docker

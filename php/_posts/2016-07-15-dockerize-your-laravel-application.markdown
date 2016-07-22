@@ -1,7 +1,6 @@
 ---
 title: Dockerize your Laravel Application
 category: php
-permalink: /php/dockerize-your-laravel-application
 step: 2
 tags:
 - docker

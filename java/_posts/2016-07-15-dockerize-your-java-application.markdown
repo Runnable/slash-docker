@@ -1,7 +1,6 @@
 ---
 title: Dockerize your Java Application
 category: java
-permalink: /java/dockerize-your-java-application
 step: 2
 tags:
 - docker

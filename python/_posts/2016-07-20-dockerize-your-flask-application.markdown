@@ -103,4 +103,4 @@ docker run -d -p 5000:5000 flask-tutorial
 
 ## Further information
 
-Ensure you are using the right ports. Flask by default runs on port 5000 (not 8000 like Django or 80 like Apache). Check out [Binding Docker Ports](../../binding-docker-ports/) for more information.
+Ensure you are using the right ports. Flask by default runs on port 5000 (not 8000 like Django or 80 like Apache). Check out [Binding Docker Ports](../binding-docker-ports/) for more information.

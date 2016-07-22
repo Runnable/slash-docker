@@ -103,6 +103,6 @@ docker run -d -p 6543:6543 pyramid-tutorial
 ```
 
 ## Further information
-Ensure you're using the correct port. Pyramid by defualt uses port 6543. Take a look at [Binding Docker Ports](../../binding-docker-ports) for more information.
+Ensure you're using the correct port. Pyramid by defualt uses port 6543. Take a look at [Binding Docker Ports](../binding-docker-ports) for more information.
 
 Do not use more than one `ENTRYPOINT` in your Dockerfile (Docker only uses the last one).
