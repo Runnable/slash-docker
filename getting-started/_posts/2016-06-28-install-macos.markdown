@@ -7,8 +7,10 @@ step: 3
 tags:
 - getting-started
 - macOS
+- osx
 - install
 excerpt: Requirements and things to know before installing Docker for Mac.
+description: A detailed guide on how to install Docker on MacOS / OSX.
 ---
 
 Docker for Mac offers a Mac native application that installs in `/Applications`. It creates symlinks (symbolic links) in `/usr/local/bin` for `docker` and `docker-compose` to the Mac versions of the commands in the application bundle.

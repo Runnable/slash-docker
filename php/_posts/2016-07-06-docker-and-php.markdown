@@ -7,6 +7,7 @@ tags:
 - php
 - advantages
 excerpt: Docker for developing and deploying PHP applications.
+description: How Docker helps speed up development and future proof the deployment process for your PHP applications.
 ---
 
 The previous section gave a brief overview of Docker. This section will explain how useful Docker is for developing and deploying PHP applications.

@@ -1,5 +1,5 @@
 ---
-title: Container Networking
+title: Docker Container Networking
 category: rails
 step: 8
 tags:
@@ -8,6 +8,7 @@ tags:
 - ruby
 - linking
 excerpt: Learn how to link containers together using Compose and other methods.
+description: How to link your Ruby on Rails Docker containers together using Docker Compose and Swarm.
 ---
 
 Dockerized applications typically consist of several components, each isolated in a separate type of container. This architecture introduces some practical questions:
@@ -21,8 +22,7 @@ Answering such questions is relatively easy with a basic understanding of Docker
 
 ## Completely Separated Services
  
-A straight-forward solution to the inter-container connectivity problem is to deploy each component as an independent Docker container that is exposed to a predefined port on the Docker host with a resolvable
-address.    
+A straight-forward solution to the inter-container connectivity problem is to deploy each component as an independent Docker container that is exposed to a predefined port on the Docker host with a resolvable address. 
  
 With this solution, connection endpoints are definite and can be passed to appropriate containers as launch parameters. Of course, containers should be able to recognize these parameters (see an example of *database.yml* with overridable connection endpoints in [Running your Rails Application](../running-apps/)).
  

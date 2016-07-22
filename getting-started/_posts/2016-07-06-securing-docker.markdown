@@ -9,6 +9,7 @@ tags:
 - secure
 - docker
 excerpt: Best practices for using Docker securely.
+description: Best practices and steps to help keep your hosts and application secure while using Docker.
 ---
 
 The primary concerns covered are the following:

@@ -11,6 +11,7 @@ tags:
 - debian
 - install
 excerpt: Requirements and things to know before installing Docker for Linux.
+description: A detailed guide on how to install Docker on Debian and Ubuntu Linux.
 ---
 
 No matter your distribution of choice, you'll need a 64-bit installation and a kernel at 3.10 or newer. Kernels older than 3.10 do not have the necessary features Docker requires to run containers; data loss and kernel panics occur frequently under certain conditions.
