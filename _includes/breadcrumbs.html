@@ -1,7 +1,64 @@
+<script type="application/ld+json">
+{
+ "@context": "http://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement":
+ [
+ {
+   "@type": "ListItem",
+   "position": 1,
+   "item":
+   {
+    "@id": "{{ site.url }}/",
+    "name": "Runnable"
+    }
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "item":
+   {
+    "@id": "{{ site.url }}{{ site.baseurl }}/",
+    "name": "Docker Guides"
+    }
+  },
+{% if page.categories %}
+  {
+   "@type": "ListItem",
+  "position": 3,
+  "item":
+   {
+     "@id": "{{ site.url }}{{ site.baseurl }}/{{ page.categories }}/",
+     "name": "{{ page.category | replace: '-', ' ' | replace: 'php', 'PHP' | replace: 'java', 'Java' | replace: 'rails', 'Ruby on Rails' | replace: 'nodejs', 'Node.js' | replace: 'python', 'Python' | replace: 'getting started', 'Getting Started' }}"
+   }
+  },
+  {
+   "@type": "ListItem",
+  "position": 4,
+  "item":
+   {
+     "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
+     "name": "{{ page.title }}"
+   }
+  }
+{% else %}
+  {
+   "@type": "ListItem",
+  "position": 3,
+  "item":
+   {
+     "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url }}",
+     "name": "{{ page.title }}"
+   }
+  }
+{% endif %}
+ ]
+}
+</script>
 <nav class="grid-block align-center justify-center breadcrumbs">
   <a class="grid-block shrink align-center link" href="{{ site.baseurl }}/"><svg class="icons icons-life-preserver"><use xlink:href="#icons-life-preserver"></svg></a> <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
   {% if page.categories %}
-  <a class="link transform-capitalize" href="{{ site.baseurl }}/{{ page.categories }}/">{{ page.category | replace: '-', ' ' | replace: 'php', 'PHP' }}</a> <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
+  <a class="link transform-capitalize" href="{{ site.baseurl }}/{{ page.categories }}/">{{ page.category | replace: '-', ' ' | replace: 'php', 'PHP' | replace: 'rails', 'Ruby on Rails' }}</a> <svg class="icons icons-chevron-right"><use xlink:href="#icons-chevron-right"></svg>
   {% endif %}
-  <a class="link link text-overflow" href="{{ site.baseurl }}{{ page.url }}">{{ page.title }}</a>
+  <a class="link link text-overflow" href="{{ site.baseurl }}{{ page.url }}">{{ page.title | replace: 'Rails', 'Ruby on Rails' }}</a>
 </nav>
