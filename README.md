@@ -9,7 +9,7 @@ Articles that help anyone using Docker for development. By [Runnable](https://ru
 - [Dockerize PHP apps](https://runnable.com/docker/php/)
 - [Dockerize Rails apps](https://runnable.com/docker/rails/)
 - [Dockerize Java apps](https://runnable.com/docker/java/)
-- Dockerize Python apps (coming soon)
+- [Dockerize Python apps](https://runnable.com/docker/python/)
 - Dockerize Node.js apps (coming soon)
 
 ### Suggestions
