@@ -2,7 +2,7 @@
 layout: page
 title: Install Docker on macOS
 category: getting-started
-permalink: /install-docker-macos
+permalink: /install-docker-on-macos
 step: 3
 tags:
 - getting-started

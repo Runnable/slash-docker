@@ -1,6 +1,7 @@
 ---
 title: Dockerize your Rails Application
 category: rails
+permalink: /rails/dockerize-your-rails-application
 step: 2
 tags:
 - docker
