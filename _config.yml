@@ -15,7 +15,7 @@ baseurl: /docker
 twitter:
   username: GetRunnable
 facebook:
-  publisher: runnable
+  publisher: Runnable
 
 seo:
   type: TechArticle
