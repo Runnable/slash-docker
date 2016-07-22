@@ -1,6 +1,7 @@
 ---
-title: Creating a Dockerfile
+title: Dockerize your Python Application
 category: python
+permalink: /python/dockerize-your-python-application
 step: 1
 tags:
 - docker
