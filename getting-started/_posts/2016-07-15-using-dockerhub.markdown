@@ -145,7 +145,7 @@ Docker stores your authentication credentials in a plaintext file, `.dockercfg`,
 You receive one private registry with the free Docker Hub account, and can upgrade your account for more registries.
 
 ### Images
-Unless you have a specific need for a specific image, you should run Content Trust at all times (*especially* on production containers). For more information, see [Securing Docker](../securing-your-docker-system).
+Unless you have a specific need for a specific image, you should run Content Trust at all times (*especially* on production containers). For more information, see [Securing Docker](./securing-your-docker-system).
 
 ### Organizations
 Users **must** verify their email address *before* they can access any privileges above `Read` (regardless of what access an organization assigns).

@@ -223,7 +223,7 @@ $ docker logs rails­-devise-­app
 <Rails server log with possible exception stacktraces >
 ```
 
-*Be aware that the output of `docker logs` may not always be complete for the running container. This occurs because Ruby [buffers STDOUT by default](http://stackoverflow.com/a/9956069).* ​
+*Be aware that the output of `docker logs` may not always be complete for the running container. This occurs because Ruby [buffers STDOUT by default](http://stackoverflow.com/questions/9953435/why-does-foreman-not-output-some-things-until-i-press-control-c/9956069#9956069).* ​
 
 
 Data can be copied from the filesystem of a running or stopped container with [`docker cp​`](https://docs.docker.com/engine/reference/commandline/cp/).
