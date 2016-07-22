@@ -9,13 +9,13 @@ tags:
 excerpt: Get started with dockerizing your Django application.
 ---
 
-In this article, we'll cover how to dockerize your Django application. 
+In this article, we'll cover how to dockerize your Django application.
 
 Django is an open-source Python framework that is designed with speed, security, and scalability in mind. Django encourages clean design and rapid development.
 
 ## Django on Docker Hub
 
-Search Docker Hub (in your console, GUI, or the website itself) for `django`. More detailed steps can be found in the article [Using Docker Hub](../using-dockerhub)).
+Search Docker Hub (in your console, GUI, or the website itself) for `django`. More detailed steps can be found in the article [Using Docker Hub](../../using-docker-hub)).
 
 You'll find that there is an [official repository](https://hub.docker.com/_/django/) for Django. It's generally recommended to use the official repository when available.
 

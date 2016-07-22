@@ -15,11 +15,11 @@ Dockerfiles enable you to create your own images. A Dockerfile describes the sof
 
 First, start with a fresh empty directory. In our example, we call this `my_new_docker_build` -- but feel free to use whatever name you like. This directory defines the context of your build, meaning it contains all of the things you need to build your image.
 
-Create a new text file in `my_new_docker_build` called `Dockerfile` (note no extension; on Windows, you may need to save the file as "All types" and put the filename in quotes to avoid automatically appending an extension); use whatever text file editor you already know (you might use Sublime, Notepad++, emacs, nano, or even vi). In our example, we use the basic Python 3 image as our launching point. Add the following line to your Dockerfile: 
+Create a new text file in `my_new_docker_build` called `Dockerfile` (note no extension; on Windows, you may need to save the file as "All types" and put the filename in quotes to avoid automatically appending an extension); use whatever text file editor you already know (you might use Sublime, Notepad++, emacs, nano, or even vi). In our example, we use the basic Python 3 image as our launching point. Add the following line to your Dockerfile:
 
 ```bash
 FROM python:3
-``` 
+```
 
 We want to run a basic Python script which we'll call `my_script.py`. First, we need to add the script to the Dockerfile:
 
@@ -31,7 +31,7 @@ Our script depends on the Python *pyStrich* library (pyStrich generates 1D and 2
 
 ```bash
 RUN pip install pystrich
-``` 
+```
 
 Add this line to your Dockerfile to execute the script:
 
@@ -99,7 +99,7 @@ docker run -it --rm --name my-first-python-script -v "$PWD":/usr/src/widget_app 
 
 ### Creating a Dockerfile
 Make sure you do not append an extension to the Dockerfile (i.e., Docker does not recognize `Dockerfile.txt`).
- 
+
 You do not have to read the contents of every Dockerfile you base yours on, but make sure to at least familiarize yourself with them; you can avoid trying to install redundant software (e.g., installing `pip` when the Python image *already* loads it), and you can make sure you write your `RUN` commands appropriately. Docker Hub does not enforce basing all images off only one distribution of Linux; if you use a Debian-based distribution (Debian, Ubuntu, Mint, etc.) you need to call `apt-get` to install software, and if you use a Red Hat-based distribution (Red Hat Enterprise Linux/RHEL, CentOS) you need to use `yum`. Gaining familiarity early prevents redoing your work and saves time.
 
 You might end up starting with an unfamiliar base image (i.e., if you primarily use CentOS and want to run a Python installation, the Python image extends Debian Jessie, so you need to use caution in how you write your `RUN` directives). If you maintain familiarity with Ubuntu, using Debian does not offer too many challenges (Ubuntu came from an offshoot of Debian Linux).
@@ -118,14 +118,14 @@ docker ps
 # OR #
 
 docker ps -a  # to see all containers, including those not running
-``` 
+```
 
 **Note: Removing a Container is FINAL.**
 
 #### Delete a *Single* Container
 
-1. Run `docker ps -a` and retrieve the container ID (an alphanumeric string, something like `a39c259df462`). 
-2. Run `docker rm a39c259df462` to remove *just* that container. 
+1. Run `docker ps -a` and retrieve the container ID (an alphanumeric string, something like `a39c259df462`).
+2. Run `docker rm a39c259df462` to remove *just* that container.
 
 #### Delete *All* Your Containers
 
@@ -168,6 +168,7 @@ docker rmi $(docker images | awk '{print $3}')
 ```
 
 ### Delete Docker Containers
+
 #### Usage:
 
 |  Command  |                    Deletes                       |
@@ -177,6 +178,7 @@ docker rmi $(docker images | awk '{print $3}')
 
 
 ### Delete Docker Images
+
 #### Usage:
 
 |  Command  |                    Deletes                       |
