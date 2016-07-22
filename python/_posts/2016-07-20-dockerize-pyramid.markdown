@@ -7,6 +7,7 @@ tags:
 - python
 - pyramid
 excerpt: Get started with dockerizing your Pyramid application.
+description: Detailed steps to get your Pyramid application running in a Docker container.
 ---
 
 This article will walk through how to dockerize your Pyramid application. Pyramid is a lightweight web framework made from the developers who created the Pylons web application framework. Reddit, O'Reilly, SurveyMonkey, and SourceForge (among others) all use Pylons Project software.
