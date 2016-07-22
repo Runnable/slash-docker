@@ -1,6 +1,6 @@
 ---
 layout: page
-title: What’s Docker?
+title: What is Docker?
 category: getting-started
 permalink: /what-is-docker
 step: 1

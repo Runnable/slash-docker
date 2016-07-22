@@ -1,6 +1,7 @@
 ---
-title: Multiple Processes in a Container
+title: Run Multiple Processes in a Container
 category: rails
+permalink: /rails/run-multiple-processes-in-a-container
 step: 7
 tags:
 - docker

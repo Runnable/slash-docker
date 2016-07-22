@@ -2,7 +2,7 @@
 layout: page
 title: Install Docker on Windows 10
 category: getting-started
-permalink: /install-docker-win10
+permalink: /install-docker-on-windows-10
 step: 4
 tags:
 - getting-started

@@ -1,6 +1,7 @@
 ---
 title: Advantages of Docker
 category: rails
+permalink: /rails/advantages-of-docker-with-rails-apps
 step: 1
 tags:
 - docker

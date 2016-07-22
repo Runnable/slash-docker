@@ -1,6 +1,7 @@
 ---
 title: Configuration
 category: rails
+permalink: /rails/docker-configuration
 step: 9
 tags:
 - docker
