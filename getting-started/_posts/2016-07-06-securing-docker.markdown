@@ -2,7 +2,8 @@
 layout: page
 title: Securing your System
 category: getting-started
-step: 8
+permalink: /securing-docker
+step: 9
 tags:
 - getting-started
 - secure

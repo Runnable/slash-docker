@@ -2,6 +2,7 @@
 layout: page
 title: Why use Docker?
 category: getting-started
+permalink: /why-use-docker
 step: 2
 tags:
 - getting-started
