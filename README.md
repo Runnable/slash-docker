@@ -14,7 +14,7 @@ Articles that help anyone using Docker for development. By [Runnable](https://ru
 
 ### Suggestions
 
-Have a suggestion to improve an article, or have a topic you'd like to see written? Send us a message at **slash-docker `at` runnable `dot` com**. Or better yet, submit a PR :).
+Have a suggestion to improve an article, or have a topic you'd like to see written? Send us a message at **slash-docker `at` runnable `dot` com**. Or better yet, submit a PR 🙂.
 
 ## Build and Run
 
