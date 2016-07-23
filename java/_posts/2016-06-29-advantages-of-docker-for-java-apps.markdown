@@ -1,7 +1,6 @@
 ---
 title: Advantages of Docker for Java Apps
 category: java
-permalink: /java/advantages-of-docker-for-java-apps
 step: 1
 tags:
 - docker

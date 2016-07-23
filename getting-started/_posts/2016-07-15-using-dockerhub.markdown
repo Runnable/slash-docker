@@ -146,7 +146,7 @@ Docker stores your authentication credentials in a plaintext file, `.dockercfg`,
 You receive one private registry with the free Docker Hub account, and can upgrade your account for more registries.
 
 ### Images
-Unless you have a specific need for a specific image, you should run Content Trust at all times (*especially* on production containers). For more information, see [Securing Docker](../securing-docker/).
+Unless you have a specific need for a specific image, you should run Content Trust at all times (*especially* on production containers). For more information, see [Securing Docker](./securing-your-docker-system).
 
 ### Organizations
 Users **must** verify their email address *before* they can access any privileges above `Read` (regardless of what access an organization assigns).
@@ -157,7 +157,7 @@ Make sure you only grant higher permissions to users you trust (same for ownersh
 Collaborators cannot add other collaborators; only an owner can. If you want users to have more granular rights (*Read*, *Write*, and *Admin*) you need to use Organizations and Teams.
 
 ### Pulling repositories
-Killing the process before a `pull` completes (e.g., pressing `CTRL-C` or losing your Internet connection) cancels the pull operation. The server does not cache a copy if the process dies before it completes.   
+Killing the process before a `pull` completes (e.g., pressing `CTRL-C` or losing your Internet connection) cancels the pull operation. The server does not cache a copy if the process dies before it completes.
 
 ### Private repositories
 You must sign in before accessing your private repositories. An Organization or Owner must grant you access to use others' private repositories.
@@ -167,7 +167,7 @@ You must sign in before accessing your private repositories. An Organization or 
 You need "open" private repositories to add new ones.
 
 ### Creating repositories
-Docker Hub requires repository names unique to the *namespace* (e.g., organization or individual account). Legitimate names range between 2 and 255 characters, and contain only lowercase letters, numbers, a hpyhen or dash ("-"), and the underscore ("_").   
+Docker Hub requires repository names unique to the *namespace* (e.g., organization or individual account). Legitimate names range between 2 and 255 characters, and contain only lowercase letters, numbers, a hpyhen or dash ("-"), and the underscore ("_").
 
 ### Pushing repositories
 If you do not specify a tag, Docker Hub uses `latest` as its default.
