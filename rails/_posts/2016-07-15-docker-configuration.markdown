@@ -8,6 +8,7 @@ tags:
 - ruby
 - configuration
 excerpt: Tune your dockerized Rails application.
+description: How to properly configure your Ruby on Rails application for Docker deployments. 
 ---
 
 This article overviews the most important of the Rails configuration tunings that are required for effective dockerization.

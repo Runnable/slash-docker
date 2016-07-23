@@ -8,6 +8,7 @@ tags:
 - laravel
 - php
 excerpt: Get started with dockerizing your Laravel application.
+description: A guide to run your Laravel application in a Docker container with a sample Dockerfile and commands to build and run your Docker image.
 ---
 
 In the previous articles we have defined what Docker is and how it can help to speed up both development and deployment of PHP applications. Now it's time to get into more specifics by dockerizing a Laravel application. You will learn how to create and build a custom Dockerfile while exploring Docker concepts and creating your very own setup.

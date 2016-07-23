@@ -10,6 +10,7 @@ tags:
 - secrets
 - gems
 excerpt: Fix problems that occur when sourcing private gems.
+description: The methods available to secure the secrets (passwords, SSH keys) necessary when building a Docker image for a Ruby on Rails application that sources private gems. 
 ---
 
 

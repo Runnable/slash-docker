@@ -7,6 +7,7 @@ tags:
 - rails
 - ruby
 excerpt: Run your dockerized Rails application via command-line and using Compose.
+description: How to run your entire Ruby on Rails application in a set of Docker containers, including databases, memory stores, and other dependencies. 
 ---
 
 At first glance, running an application in a Docker container seems trivial­&mdash;you only need to execute `docker run <imagename>`. This is generally true for stateless command­ line apps, but getting web applications up and running requires solutions to problems that aren't obvious:

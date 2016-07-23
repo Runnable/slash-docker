@@ -6,11 +6,11 @@ permalink: /why-use-docker
 step: 2
 tags:
 - getting-started
-- why
 - containers
 - virtual machines
 - vm
 excerpt: Virtual machines, containers, and when to use each.
+description: Learn when to use Docker containers over virtual machines, and how Docker saves time when developing applications.
 ---
 
 Docker enables you to rapidly deploy server environments in "containers." You might question why use Docker rather than VMware or Oracle's VirtualBox?
