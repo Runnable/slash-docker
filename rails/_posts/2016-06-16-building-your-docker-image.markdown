@@ -1,7 +1,6 @@
 ---
 title: Building your Docker Image
 category: rails
-permalink: /rails/building-your-docker-image
 step: 3
 tags:
 - rails

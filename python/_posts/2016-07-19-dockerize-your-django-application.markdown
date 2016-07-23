@@ -17,7 +17,7 @@ Django is an open-source Python framework that is designed with speed, security,
 
 ## Django on Docker Hub
 
-Search Docker Hub (in your console, GUI, or the website itself) for `django`. More detailed steps can be found in the article [Using Docker Hub](../../using-docker-hub)).
+Search Docker Hub (in your console, GUI, or the website itself) for `django`. More detailed steps can be found in the article [Using Docker Hub](../using-docker-hub)).
 
 You'll find that there is an [official repository](https://hub.docker.com/_/django/) for Django. It's generally recommended to use the official repository when available.
 
@@ -60,7 +60,7 @@ There are a couple of new commands in these Dockerfiles:
 
 ## Dockerizing without a Dockerfile
 
-Instead of creating and building a Dockerfile, you can leverage the offical Django image that's stored on Docker Hub to run your app.
+Instead of creating and building a Dockerfile, you can leverage the official Django image that's stored on Docker Hub to run your app.
 
 ```bash
 docker run --name hello-world-django -v "$PWD":/usr/src/app -w /usr/src/app -p 8000:8000 -d django bash -c "pip install -r requirements.txt && python manage.py runserver 0.0.0.0:8000"
@@ -70,7 +70,7 @@ The above command assumes the following:
 - Your Django app is named `hello-world-django`
 - Your app is stored in `/usr/src/app`
 
-If you want to bootstrap a new application, use the following commmand (using the same directory and app name as above):
+If you want to bootstrap a new application, use the following command (using the same directory and app name as above):
 
 ```bash
 docker run -it --rm --user "$(id -u):$(id -g)" -v "$PWD":/usr/src/app -w /usr/src/app django django-admin.py startproject hello_world_django
@@ -84,7 +84,7 @@ At the end, you use Python to run the development server via `manage.py` and bin
 
 If you do not need the `requirements.txt` file, leave it out of your command (remove the line `RUN pip install -r requirements.txt` from your Dockerfile, or do not pass it to `bash` in the interactive CLI approach).
 
-If you need to `pip install` packages or components not found in a package, you need to install those dependenices (using either `pip`, `requirements.txt`, or both). In the example above, we use `requirements.txt`, but we could equally pass a `pip install package_name` if we know what package(s) to look for.
+If you need to `pip install` packages or components not found in a package, you need to install those dependencies (using either `pip`, `requirements.txt`, or both). In the example above, we use `requirements.txt`, but we could equally pass a `pip install package_name` if we know what package(s) to look for.
 
 While Django runs its development web server on port 8000 by default, its recommended to set port 8000 for the web server, in the event a default changes or the image you use utilizes a different default port.
 

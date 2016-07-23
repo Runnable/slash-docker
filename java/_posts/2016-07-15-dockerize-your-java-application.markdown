@@ -1,7 +1,6 @@
 ---
 title: Dockerize your Java Application
 category: java
-permalink: /java/dockerize-your-java-application
 step: 2
 tags:
 - docker
@@ -186,7 +185,7 @@ $ docker run --rm -v $PWD:/app -w /app demo/oracle-java:8 java Main
 
 You have seen in the above example that we used the Oracle Java image to successfully run a sample Java application.
 
-If you need to use the `OpenJDK` for your application, you don't always need to write a Dockerfile and build an image. You can use the official [Docker Hub repository](http://hub.docker.com) version of Java.
+If you need to use the `OpenJDK` for your application, you don't always need to write a Dockerfile and build an image. You can use the official [Docker Hub repository](https://hub.docker.com) version of Java.
 
 Run the following commands to run your application using OpenJDK.
 

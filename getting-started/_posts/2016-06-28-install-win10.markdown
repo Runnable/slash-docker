@@ -65,8 +65,8 @@ If your host does not already have it, Docker downloads `nginx` from Docker Hub 
 
 If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
 
-For online documentation and support please refer to [nginx.org](http://nginx.org).
-Commercial support is available at [nginx.com](http://nginx.com).
+For online documentation and support please refer to [nginx.org](https://nginx.org).
+Commercial support is available at [nginx.com](https://nginx.com).
 
 *Thank you for using nginx.*
 

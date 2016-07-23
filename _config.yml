@@ -27,7 +27,7 @@ gems:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-permalink: /:categories/:title/
+permalink: /:categories/:title
 defaults:
   -
     scope:
