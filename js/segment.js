@@ -15,6 +15,7 @@ analytics.ready( function() {
     clientId: ga.getAll()[0].get('clientId'),
     querystrings: urlParams
   });
+  analytics.track('Visited /docker');
   var home = document.querySelectorAll('[href="https://runnable.com"]')
   analytics.trackLink(home, 'Visited Runnable from /docker');
 });
