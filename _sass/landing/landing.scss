@@ -9,14 +9,22 @@
     }
   }
 
-  .card {
-    margin-bottom: 90px;
+  .grid-2 {
 
-    @include media(xs) {
-      &:last-child {
-        margin-bottom: 0;
+    @include media(md) {
+      flex-direction: column;
+    }
+
+    > .grid-block {
+      @include media(md) {
+        flex: 1 1 auto;
+        max-width: none;
       }
     }
+  }
+
+  .card {
+    margin-bottom: 90px;
   }
 
   .categories .card {

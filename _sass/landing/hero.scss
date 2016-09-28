@@ -21,10 +21,16 @@
     line-height: 1.3;
 
     @include media(sm) {
+      font-size: 39px;
       max-width: 630px;
     }
 
+    @include media(xs) {
+      font-size: 36px;
+    }
+
     @include media(xxs) {
+      font-size: 30px;
       max-width: 420px;
     }
   }
