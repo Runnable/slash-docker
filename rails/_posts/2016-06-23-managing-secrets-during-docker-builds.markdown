@@ -225,7 +225,7 @@ $ ssh-keygen -l -f github.key
 …
 # ensure fingerprint matches the value listed on the page
 # https://help.github.com/articles/what/are/github/s/ssh/key/fingerprints/
-$  ssh-keygen -l -f bitbucket.key
+$ ssh-keygen -l -f bitbucket.key
 …
 # ensure fingerprint matches the value listed on the page
 # https://confluence.atlassian.com/bitbucket/use/the/ssh/protocol/with/bitbucket/cloud/221449711.html](https://confluence.atlassian.com/bitbucket/use-the-ssh-protocol-with-bitbucket-cloud-221449711.html)
