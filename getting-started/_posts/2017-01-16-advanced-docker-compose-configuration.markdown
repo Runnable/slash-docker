@@ -44,19 +44,21 @@ For times when you need multiple copies of environments with the same compositio
 We can use shell environment variables to set values in our compositions:
 
  1. Set the environment variables:
+
     ```bash
-     $ TAG="latest"
-     $ echo $TAG
-     latest
-     $ DB="postgres"
-     $ echo $DB
-     postgres
+    $ TAG="latest"
+    $ echo $TAG
+    latest
+    $ DB="postgres"
+    $ echo $DB
+    postgres
     ```
 
  2. Then, use the environment variable in our Docker Compose file:
+
     ```yaml
-     db:
-       image: "${DB}:$TAG"
+    db:
+        image: "${DB}:$TAG"
     ```
 
 Docker Compose accepts both `${DB}` and `$TAG`.
@@ -85,6 +87,7 @@ web:
 
 ## The Environment File
 Recall how Docker Compose [passes an empty string](./introduction-to-docker-compose) to any environment variable you do not define. You can ensure your environment variables are always passed by storing them in an environment file. Call this file `.env` and store it in your working directory. Docker Compose ignores blank lines (use them for readability) and code beginning with `#` (comments). You may assign variables for later variable substitution, and you may set a handful of Compose CLI variables:
+
 - `COMPOSE_API_VERSION`
 - `COMPOSE_FILE`
 - `COMPOSE_HTTP_TIMEOUT`
@@ -94,6 +97,7 @@ Recall how Docker Compose [passes an empty string](./introduction-to-docker-comp
 - `DOCKER_TLS_VERIFY`
 
 Here is an example of an environment file:
+
 ```bash
 # ./.env 
 # for our staging environment
