@@ -147,6 +147,7 @@ If you have localhost access to your host (i.e., you do not use a remote solutio
 When visiting the page, you should see confirmation that the Django installation took (something to the effect of "It worked! Congratulations on you first Django-powered page."). 
 
 ## Common Issues
+
 ### Building Your Project
 Amongst other output, you should see a warning when executing the Compose `run` command:
 
