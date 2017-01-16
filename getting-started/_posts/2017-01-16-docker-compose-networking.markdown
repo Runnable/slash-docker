@@ -9,7 +9,7 @@ tags:
 - compose
 - docker
 - networking
-excerpt: Configure networking betwen containers when using Docker Compose.
+excerpt: Configure networking between containers when using Docker Compose.
 ---
 
 Docker Compose sets up a single network for your application(s) by default, adding each container for a service to the default network. Containers on a single network can reach and discover every other container on the network.
