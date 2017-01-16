@@ -15,6 +15,7 @@ description: A framework to use Docker Compose (with examples) for your Django a
 We can use Docker Compose to build and manage multiple-container setups. In this example, we'll take a Django application using PostgreSQL for our database. (Good development habits mean we separate our concerns and allow one container to run the database and the other to run our web application.) Docker Compose lets us use a single host to handle multiple containers and builds the network layer so our containers in this project can talk to one another.
 
 ## Set Up Your Host
+In four steps, we'll have a fully dockerized Django application configured and set up using Docker Compose.
 
 ### Set Up Docker 
 We need a Dockerfile, Python dependencies, and a Docker Compose file.
@@ -113,7 +114,7 @@ drwxr-xr-x 2 pdctut pdctut 4096 Jul 23 19:35 compose_django_example
 
 ### Set Up PostgreSQL
 
-1. Edit `compose_django/compose_django_example/compose_django_example/settings.py` and replace the `DATABASES` section with the following:
+ 1. Edit `compose_django/compose_django_example/compose_django_example/settings.py` and replace the `DATABASES` section with the following:
 
     ```yaml
     DATABASES = {
