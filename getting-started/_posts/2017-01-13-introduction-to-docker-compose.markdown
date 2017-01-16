@@ -17,6 +17,7 @@ Compose uses [YAML](http://yaml.org) (YAML Ain't Markup Language), a human-frien
 
 ## Why Use Docker Compose
 Compose allows you to:
+
 - Create multiple isolated environments on a single host
 - Preserve volume data when creating containers
 - Re-create containers that have been updated
