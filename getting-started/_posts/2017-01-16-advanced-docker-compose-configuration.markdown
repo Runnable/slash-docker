@@ -8,7 +8,7 @@ tags:
 - getting-started
 - compose
 - docker
-excerpt: 
+excerpt: Control startup ordering, override values, and more advanced use cases with Docker Compose.
 ---
 
 We can utilize Docker Compose in new and interesting (and even some unexpected) ways. For further inspiration, these [Compose file on public GitHub projects](https://github.com/search?q=in%3Apath+docker-compose.yml+extension%3Ayml&type=Code) can educate you on how developers are using Docker Compose.
