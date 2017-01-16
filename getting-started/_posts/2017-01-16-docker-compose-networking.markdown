@@ -15,7 +15,7 @@ excerpt: Configure networking betwen containers when using Docker Compose.
 Docker Compose sets up a single network for your application(s) by default, adding each container for a service to the default network. Containers on a single network can reach and discover every other container on the network.
 
 ## Networking Basics
-Running the command `docker netowrk ls` will list out your current Docker networks; it should look similar to the following:
+Running the command `docker network ls` will list out your current Docker networks; it should look similar to the following:
 
 ```bash
 $ docker network ls
