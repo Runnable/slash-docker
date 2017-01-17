@@ -50,7 +50,7 @@ ADD my_script.py /
 
 RUN pip install pystrich
 
-CMD [ "python", "./my_script.py" }
+CMD [ "python", "./my_script.py" ]
 ```
 
 - `FROM` tells Docker which image you base your image on (in the example, Python 3).
