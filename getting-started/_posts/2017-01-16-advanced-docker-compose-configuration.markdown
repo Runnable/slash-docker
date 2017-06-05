@@ -38,7 +38,7 @@ services:
 You're also able to write your own wrapper script as well if you need more granular control.
 
 ## Running Multiple Copies of a Single Compose Project
-For times when you need multiple copies of environments with the same composition (or `docker-compose.yml` file), simply run `doctrine-compose up -p new_project_name`.
+For times when you need multiple copies of environments with the same composition (or `docker-compose.yml` file), simply run `docker-compose up -p new_project_name`.
 
 ## Environment Variables
 We can use shell environment variables to set values in our compositions:
